@@ -1,0 +1,22 @@
+// bootstrapのテーマカラーの変更
+$primary:       #ffce67;
+$secondary:     #f381ff;
+$success:       #56cc9d;
+$info:          #0dcaf0;
+$warning:       #f3969a;
+$danger:        #ff7851;
+$light:         #f8f9fa;
+$dark:          #212529;
+
+// bootstrapのボタンの見た目を変更
+.btn {
+  border-radius: 50px !important;
+  padding: 8px 20px !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+
+// ボタンの文字の色を変更
+.btn:hover {
+  color: #ffffff !important;
+}
