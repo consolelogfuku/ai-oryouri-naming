@@ -1,3 +1,7 @@
+@use "variables" as *;
+
+// ヘッダー
+
 // 992px以上の画面幅で適用される
 @media (min-width: 992px) {
   .header {
@@ -62,3 +66,32 @@
   font-size: 0.75em;
   opacity: 0.6;
 }
+
+// フッター
+.footer {
+  
+  &-li {
+    list-style: none;
+  }
+
+  &-link {
+    color: $cGray;
+    text-decoration: none;
+    font-size: 0.75em;
+    transition-property: color;
+    transition-duration: .2s;
+    display: block;
+    margin: 0 10px;
+
+    &:hover {
+      color: rgb(103, 103, 103) !important;
+    }
+  }
+  
+  &-copyright {
+    color: $cGray;
+    font-size: 0.5em;
+  }
+}
+
+
