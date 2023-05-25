@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 // ヘッダー
 
 // 992px以上の画面幅で適用される
@@ -73,7 +75,7 @@
   }
 
   &-link {
-    color: #cdcdcd;
+    color: $cGray;
     text-decoration: none;
     font-size: 0.75em;
     transition-property: color;
@@ -85,10 +87,11 @@
       color: rgb(103, 103, 103) !important;
     }
   }
+  
+  &-copyright {
+    color: $cGray;
+    font-size: 0.5em;
+  }
 }
 
-.copyright {
-  color: #cdcdcd;
-  font-size: 0.5em;
-}
 
