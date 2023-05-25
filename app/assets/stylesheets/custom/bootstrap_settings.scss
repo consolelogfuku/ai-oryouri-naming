@@ -8,15 +8,14 @@ $danger:        #ff7851;
 $light:         #f8f9fa;
 $dark:          #212529;
 
-// bootstrapのボタンの見た目を変更
+// bootstrapのボタンを変更
 .btn {
   border-radius: 50px !important;
   padding: 8px 20px !important;
   font-size: 14px !important;
   font-weight: bold !important;
-}
-
-// ボタンの文字の色を変更
-.btn:hover {
-  color: #ffffff !important;
+  
+  &:hover {
+    color: #ffffff !important;
+  }
 }
