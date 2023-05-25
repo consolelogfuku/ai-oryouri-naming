@@ -1,20 +1,17 @@
-<nav class="navbar navbar-expand navbar-light py-2">
-  <div class="container header">
-    <a class="navbar-brand" href="#">
-      <%= image_tag 'brand_logo.svg', size: '100x50'%>
-    </a>
-    <div class="btn-group">
-      <div class="dropdown-background" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-        <%= image_tag 'dropdown_icon.svg', class:'dropdown-icon', size: '30x30'%>
-      </div>
-      <ul class="dropdown-menu dropdown-menu-end">
+<header class="header py-2 d-flex justify-content-between">
+  <a class="header-brand" href="#"><%= image_tag 'brand_logo.svg', size: '100x50'%></a>
+  <div class="header-dropdown">
+    <div class="header-dropdown-background" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+      <%= image_tag 'dropdown_icon.svg', class:'header-dropdown-icon', size: '30x30'%>
+      <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end">
         <li>
-          <a  class="dropdown-item" type="button"><i class="fa-solid fa-magnifying-glass me-3 fontawesome"></i>みんなの料理を見る</a>
+          <a  class="header-dropdown-item dropdown-item"><i class="fa-solid fa-magnifying-glass me-3 fontawesome"></i>みんなの料理を見る</a>
         </li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" type="button"><i class="fa-solid fa-right-to-bracket me-3 fontawesome"></i>ログイン</a>
+        <li>
+          <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-right-to-bracket me-3 fontawesome"></i>ログイン</a>
         </li>
       </ul>
     </div>
   </div>
-</nav>
+</header>
