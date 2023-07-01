@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="layer1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 24 26" enable-background="new 0 0 24 26" xml:space="preserve">
+	 viewBox="0 0 16 19" enable-background="new 0 0 16 19" xml:space="preserve">
 <g>
 	<g>
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0.4936" y1="13" x2="23.5064" y2="13">
-			<stop  offset="0" style="stop-color:#FFD277"/>
-			<stop  offset="1" style="stop-color:#F381FF"/>
-		</linearGradient>
 		
-			<line fill="none" stroke="url(#SVGID_1_)" stroke-width="3.9781" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.483" y1="13" x2="21.517" y2="13"/>
+			<line fill="none" stroke="#FFCE67" stroke-width="3.54" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.371" y1="9.5" x2="13.629" y2="9.5"/>
 	</g>
 	<g>
 		
-			<linearGradient id="SVGID_00000065064194215626047050000002570695262470484360_" gradientUnits="userSpaceOnUse" x1="0.4936" y1="22.9085" x2="15.8925" y2="22.9085">
-			<stop  offset="0" style="stop-color:#FFD277"/>
-			<stop  offset="1" style="stop-color:#F381FF"/>
-		</linearGradient>
-		
-			<line fill="none" stroke="url(#SVGID_00000065064194215626047050000002570695262470484360_)" stroke-width="3.9781" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.483" y1="22.908" x2="13.903" y2="22.908"/>
+			<line fill="none" stroke="#FFCE67" stroke-width="3.54" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.371" y1="16.598" x2="13.323" y2="16.598"/>
 	</g>
 	<g>
 		
-			<linearGradient id="SVGID_00000175317248187705329280000001868353425351092619_" gradientUnits="userSpaceOnUse" x1="0.4936" y1="3.0915" x2="23.5064" y2="3.0915">
-			<stop  offset="0" style="stop-color:#FFD277"/>
-			<stop  offset="1" style="stop-color:#F381FF"/>
-		</linearGradient>
-		
-			<line fill="none" stroke="url(#SVGID_00000175317248187705329280000001868353425351092619_)" stroke-width="3.9781" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.483" y1="3.092" x2="21.517" y2="3.092"/>
+			<line fill="none" stroke="#FFCE67" stroke-width="3.54" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="2.371" y1="2.402" x2="13.629" y2="2.402"/>
 	</g>
 </g>
 </svg>
