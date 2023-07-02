@@ -63,7 +63,7 @@
   &-link {
     color: $cGray;
     text-decoration: none;
-    font-size: 0.75em;
+    font-size: 0.84em;
     transition-property: color;
     transition-duration: .2s;
     display: block;
@@ -76,7 +76,7 @@
   
   &-copyright {
     color: $cGray;
-    font-size: 0.5em;
+    font-size: 0.84em;
   }
 }
 
@@ -99,16 +99,27 @@
       transform: translateX(110%);
     }
     to {
-      transform: translateX(-120%);
+      transform: translateX(-140%);
+    }
+  }
+
+  @media (max-width: $contentMaxWidth) {
+    @keyframes move-left1 {
+      0% {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-400%);
+      }
     }
   }
 
   &-foods-2 {
     animation-name: move-left2;
-    animation-duration: 30s;
+    animation-duration: 25s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-delay: 4s;
+    animation-delay: 3s;
     animation-fill-mode: backwards;
   }
 
@@ -121,7 +132,22 @@
       opacity: 1;  // アニメーションが始まるとすぐに要素を可視化させる
     }
     to {
-      transform: translateX(-120%);
+      transform: translateX(-150%);
+    }
+  }
+
+  @media (max-width: $contentMaxWidth) {
+    @keyframes move-left2 {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      1% {
+        opacity: 1;  // アニメーションが始まるとすぐに要素を可視化させる
+      }
+      to {
+        transform: translateX(-400%);
+      }
     }
   }
 }
