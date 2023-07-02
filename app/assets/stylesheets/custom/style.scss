@@ -80,7 +80,7 @@
   }
 }
 
-// hero
+// heroの設定
 .hero {
   width: 100%;
   height: 300px;
@@ -106,10 +106,10 @@
   @media (max-width: $contentMaxWidth) {
     @keyframes move-left1 {
       0% {
-        transform: translateX(100%);
+        transform: translateX(110%);
       }
       to {
-        transform: translateX(-400%);
+        transform: translateX(-430%);
       }
     }
   }
@@ -139,14 +139,14 @@
   @media (max-width: $contentMaxWidth) {
     @keyframes move-left2 {
       0% {
-        transform: translateX(100%);
+        transform: translateX(110%);
         opacity: 0;
       }
       1% {
         opacity: 1;  // アニメーションが始まるとすぐに要素を可視化させる
       }
       to {
-        transform: translateX(-400%);
+        transform: translateX(-430%);
       }
     }
   }
