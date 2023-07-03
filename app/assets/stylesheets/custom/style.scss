@@ -88,8 +88,9 @@
   position: relative;
 
   &-foods-1 {
+  width: 100%;
   animation-name: move-left1;
-  animation-duration: 40s;
+  animation-duration: 35s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-delay: 0.5s;
@@ -98,33 +99,37 @@
 
   @keyframes move-left1 {
     0% {
-      transform: translateX(110%);
+      transform: translateX(115%);
       opacity: 0;
     }
     1% {
       opacity: 1;  // アニメーションが始まるとすぐに要素を可視化させる
     }
     to {
-      transform: translateX(-140%);
+      transform: translateX(-115%);
     }
   }
 
   @media (max-width: $contentMaxWidth) {
+    .hero-foods-1 {
+      animation-duration: 18s;
+    }
     @keyframes move-left1 {
       0% {
-        transform: translateX(110%);
+        transform: translateX(115%);
         opacity: 0;
       }
       1% {
         opacity: 1;  // アニメーションが始まるとすぐに要素を可視化させる}
       }
       to {
-        transform: translateX(-500%);
+        transform: translateX(-350%);
       }
     }
   }
 
   &-foods-2 {
+    width: 100%;
     animation-name: move-left2;
     animation-duration: 25s;
     animation-timing-function: linear;
@@ -135,28 +140,31 @@
 
   @keyframes move-left2 {
     0% {
-      transform: translateX(110%);
+      transform: translateX(115%);
       opacity: 0;
     }
     1% {
       opacity: 1;  // アニメーションが始まるとすぐに要素を可視化させる
     }
     to {
-      transform: translateX(-150%);
+      transform: translateX(-115%);
     }
   }
 
   @media (max-width: $contentMaxWidth) {
+    .hero-foods-2 {
+      animation-duration: 12s;
+    }
     @keyframes move-left2 {
       0% {
-        transform: translateX(110%);
+        transform: translateX(115%);
         opacity: 0;
       }
       1% {
         opacity: 1;  // アニメーションが始まるとすぐに要素を可視化させる
       }
       to {
-        transform: translateX(-500%);
+        transform: translateX(-350%);
       }
     }
   }
