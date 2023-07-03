@@ -87,6 +87,7 @@
   text-align: center;
   position: relative;
 
+  // アニメーションの設定
   &-foods-1 {
   width: 100%;
   animation-name: move-left1;
@@ -112,7 +113,7 @@
 
   @media (max-width: $contentMaxWidth) {
     .hero-foods-1 {
-      animation-duration: 18s;
+      animation-duration: 20s;
     }
     @keyframes move-left1 {
       0% {
@@ -153,7 +154,7 @@
 
   @media (max-width: $contentMaxWidth) {
     .hero-foods-2 {
-      animation-duration: 12s;
+      animation-duration: 15s;
     }
     @keyframes move-left2 {
       0% {
@@ -168,15 +169,19 @@
       }
     }
   }
+  // アニメーション画像の設定
+  &-food {
+    margin-right: 105px;
+  }
+
+  // heroのタイトルの設定
+  &-title {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
 }
 
-.food {
-  margin-right: 105px;
-}
-
-.title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
