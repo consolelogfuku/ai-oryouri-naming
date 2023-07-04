@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_04_012725) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_04_121715) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_012725) do
     t.index ["user_id"], name: "index_dishes_on_user_id"
   end
 
+  create_table "dishes_cooking_methods", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.bigint "cooking_method_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cooking_method_id"], name: "index_dishes_cooking_methods_on_cooking_method_id"
+    t.index ["dish_id", "cooking_method_id"], name: "index_dishes_cooking_methods_on_dish_id_and_cooking_method_id", unique: true
+    t.index ["dish_id"], name: "index_dishes_cooking_methods_on_dish_id"
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name_1"
     t.string "name_2"
@@ -64,4 +74,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_012725) do
 
   add_foreign_key "dishes", "ingredients"
   add_foreign_key "dishes", "users"
+  add_foreign_key "dishes_cooking_methods", "cooking_methods"
+  add_foreign_key "dishes_cooking_methods", "dishes"
 end
