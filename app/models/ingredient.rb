@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  belongs_to :dish
+  has_one :dish
 
   # カスタムメソッド
   validate :at_least_one_ingredient

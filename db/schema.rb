@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_091049) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_04_012725) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_091049) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.bigint "seasoning_id", null: false
+    t.bigint "texture_id", null: false
+    t.bigint "category_id", null: false
+    t.string "uuid", null: false
+    t.string "dish_name"
+    t.string "point"
+    t.string "dish_image"
+    t.integer "state", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_dishes_on_category_id"
+    t.index ["ingredient_id"], name: "index_dishes_on_ingredient_id"
+    t.index ["seasoning_id"], name: "index_dishes_on_seasoning_id"
+    t.index ["texture_id"], name: "index_dishes_on_texture_id"
+    t.index ["user_id"], name: "index_dishes_on_user_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -42,4 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_091049) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "dishes", "ingredients"
+  add_foreign_key "dishes", "users"
 end
