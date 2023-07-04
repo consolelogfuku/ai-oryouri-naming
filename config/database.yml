@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: AI_Oryouri_Naming_production
-  username: AI_Oryouri_Naming
-  password: <%= ENV["AI_ORYOURI_NAMING_DATABASE_PASSWORD"] %>
+  # database: AI_Oryouri_Naming_production
+  # username: AI_Oryouri_Naming
+  # password: <%= ENV["AI_ORYOURI_NAMING_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
