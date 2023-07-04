@@ -7,5 +7,5 @@ class Dish < ApplicationRecord
 
   validates :uuid, presence: true
   validates :state, presence: true
-  emun state: { draft: 0, published: 1 }
+  enum state: { draft: 0, published: 1 }
 end
