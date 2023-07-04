@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      dish: '料理'
+      ingredient: '食材'
+    attributes:
+      dish:
+        id: 'ID'
+        ingredient: '食材'
+        cooking_method: '調理法'
+        seasoning: '味付け'
+        texture: '食感'
+        category: 'カテゴリー'
+        point: 'こだわりポイント'
+        dish_image: '料理写真'
+      ingredient:
+        id: 'ID'
+        name_1: '食材1'
+        name_2: '食材2'
+        name_3: '食材3'

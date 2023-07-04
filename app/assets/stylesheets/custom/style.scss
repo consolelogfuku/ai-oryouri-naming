@@ -175,13 +175,26 @@
   }
 
   // heroのタイトルの設定
-  &-title {
+  &-title-1 {
     width: 100%;
     position: absolute;
-    top: 50%;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+  &-title-2 {
+    width: 100%;
+    position: absolute;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 
   }
 }
 
+// メインコンテンツの設定
+.main-content {
+  border-top: 2px solid #fff;
+  background-color: #fff5e0;
+}
