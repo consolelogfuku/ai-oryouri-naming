@@ -4,6 +4,7 @@ class Dish < ApplicationRecord
   belongs_to :seasoning
   belongs_to :texture
   belongs_to :category
+  has_many :cooking_methods, through: :dishes_cooking_methods
 
   validates :uuid, presence: true
   validates :state, presence: true
