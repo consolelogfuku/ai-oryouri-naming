@@ -57,11 +57,14 @@
           <div id="emailHelp" class="form-text">食材は、1つ以上入力してください。</div>
         <% end %>
       </div>
-      <%# 調理方法 %>
+      <%# 調理法 %>
       <%=  CookingMethod.human_attribute_name(:name) %>
       <div class="row mt-3 d-flex justify-content-center">
         <%= render partial: 'cooking_method', collection: @cooking_methods %>
       </div>
+      <%# 味付け %>
+      
+      <%= f.submit class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>

@@ -201,41 +201,26 @@
 }
 
 // チェックボックの設定
-// .form-check-label {
-//   width: 100px;
-//   height: 50px;
-//   text-align: center;
-//   line-height: 25px;
-//   border: 1px solid $primary;
-//   color: $primary;
-//   background-color: #fff !important;
-//   border-radius: 50px !important;
-//   padding: 8px 20px !important;
-//   font-size: 14px !important;
-//   font-weight: bold !important;
+.form-check-label {
+  width: 120px;
+  height: 60px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 42px;
+  border: 1px solid $primary;
+  color: $primary;
+  background-color: #fff;
+  padding: 8px 20px !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
 
-//   &:hover {
-//     background-color: #fff !important;
-//     cursor: pointer;
-//   }
-// }
-
-.btn {
-  width: 120px !important;
-  height: 60px !important;
-  line-height: 50px !important;
-  border-radius: 10px !important;
+  &:hover {
+    background-color: #fff;
+    cursor: pointer;
+  }
 }
 
-
-
-#itameru {
-    display: none;
-}
-#niru {
-    display: none;
-}
-.btn-radio:checked + label {
-  background-color: yellow;
-  color: black;
+.form-check-input:checked + label {
+  background-color: $primary;
+  color: #fff;  // ここはチェックがついている時の文字色
 }
