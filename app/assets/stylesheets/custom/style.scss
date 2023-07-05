@@ -85,6 +85,7 @@
 .hero {
   width: 100%;
   height: 300px;
+  overflow: hidden; // 横にスクロールできないようにする
   text-align: center;
   position: relative;
 
@@ -202,8 +203,8 @@
 
 // チェックボックの設定
 .form-check-label {
-  width: 120px;
-  height: 60px;
+  width: 100px;
+  height: 50px;
   border-radius: 10px;
   text-align: center;
   line-height: 42px;
