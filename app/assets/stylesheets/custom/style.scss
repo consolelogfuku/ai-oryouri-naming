@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "bootstrap_settings";
 
 %content-width {
   width: 90%;
@@ -197,4 +198,44 @@
 .main-content {
   border-top: 2px solid #fff;
   background-color: #fff5e0;
+}
+
+// チェックボックの設定
+// .form-check-label {
+//   width: 100px;
+//   height: 50px;
+//   text-align: center;
+//   line-height: 25px;
+//   border: 1px solid $primary;
+//   color: $primary;
+//   background-color: #fff !important;
+//   border-radius: 50px !important;
+//   padding: 8px 20px !important;
+//   font-size: 14px !important;
+//   font-weight: bold !important;
+
+//   &:hover {
+//     background-color: #fff !important;
+//     cursor: pointer;
+//   }
+// }
+
+.btn {
+  width: 120px !important;
+  height: 60px !important;
+  line-height: 50px !important;
+  border-radius: 10px !important;
+}
+
+
+
+#itameru {
+    display: none;
+}
+#niru {
+    display: none;
+}
+.btn-radio:checked + label {
+  background-color: yellow;
+  color: black;
 }

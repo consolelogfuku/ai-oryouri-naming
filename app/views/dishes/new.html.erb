@@ -39,6 +39,7 @@
   <h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
   <div class="container">
     <%= form_with model: @dish do |f| %>
+      <%# 食材名 %>
       <div class="row">
         <%= f.fields_for :ingredient do |ingredient_f| %>
           <div class="col-md-4">
@@ -56,22 +57,10 @@
           <div id="emailHelp" class="form-text">食材は、1つ以上入力してください。</div>
         <% end %>
       </div>
-      <div class="row mt-3">
-        <%= f.fields_for :ingredient do |ingredient_f| %>
-          <div class="col-md-4">
-            <%= ingredient_f.label :name_1%>
-            <%= ingredient_f.text_field :name_1 ,class:'form-control', placeholder: 'トマト'%>
-          </div>
-          <div class="col-md-4">
-            <%= ingredient_f.label :name_2 %>
-            <%= ingredient_f.text_field :name_2, class:'form-control', placeholder: '牛肉'%>
-          </div>
-          <div class="col-md-4">
-            <%= ingredient_f.label :name_3%>
-            <%= ingredient_f.text_field :name_3, class:'form-control', placeholder: 'かまぼこ' %>
-          </div>
-          <div id="emailHelp" class="form-text">食材は、1つ以上入力してください。</div>
-        <% end %>
+      <%# 調理方法 %>
+      <%=  CookingMethod.human_attribute_name(:name) %>
+      <div class="row mt-3 d-flex justify-content-center">
+        <%= render partial: 'cooking_method', collection: @cooking_methods %>
       </div>
     <% end %>
   </div>
