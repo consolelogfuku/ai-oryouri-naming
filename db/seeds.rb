@@ -1,5 +1,5 @@
 # 調理法
-cooking_methods = ["炒める", "煮る", "煮詰める", "煮込む", "炒め煮", "揚げる", "蒸す", "蒸し焼き", "茹でる", "あえる", "グリル", "ロースト", "マリネ"]
+cooking_methods = ["炒める", "煮る", "煮込む", "炒め煮", "揚げる", "蒸す", "蒸し焼き", "焼く", "和える", "グリル", "ロースト", "マリネ"]
 
 cooking_methods.each do |cooking_method|
   CookingMethod.find_or_create_by(name: cooking_method)
