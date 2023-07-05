@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+# 調理法
+cooking_methods = ["炒める", "煮る", "煮詰める", "煮込む", "炒め煮", "揚げる", "蒸す", "蒸し焼き", "茹でる", "あえる", "グリル", "ロースト", "マリネ"]
+
+cooking_methods.each do |cooking_method|
+  CookingMethod.find_or_create_by(name: cooking_method)
+end
+
+# 味付け
+seasonings = ["さっぱり","こってり","甘辛","酸味","辛味","優しいだし","ガーリック","スパイシー","バター"]
+seasonings.each do |seasoning|
+  Seasoning.find_or_create_by(name: seasoning)
+end
+
+# 食感
+textures = ["ジューシー","ごろごろ","ホロホロ","やわらか","とろっと","もちもち","ぷりぷり","なめらか","ねばねば","サクサク","シャキシャキ","クリーミー"]
+textures.each do |texture|
+  Texture.find_or_create_by(name: texture)
+end
+
+# カテゴリー
+categories = ["和風","中華","洋風","韓国","フレンチ","イタリアン","エスニック","インド","自己流"]
+categories.each do |category|
+  Category.find_or_create_by(name: category)
+end
