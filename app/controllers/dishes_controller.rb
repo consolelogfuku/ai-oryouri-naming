@@ -5,6 +5,9 @@ class DishesController < ApplicationController
   def new
     @dish = Dish.new
     @cooking_methods = CookingMethod.all
+    @seasonings = Seasoning.all
+    @textures = Texture.all
+    @categories = Category.all
   end
 
   def create

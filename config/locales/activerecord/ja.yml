@@ -21,3 +21,12 @@ ja:
       cooking_method:
         id: 'ID'
         name: '調理法'
+      seasoning:
+        id: 'ID'
+        name: '味付け'
+      texture:
+        id: 'ID'
+        name: '食感'
+      category:
+        id: 'ID'
+        name: 'カテゴリー'
