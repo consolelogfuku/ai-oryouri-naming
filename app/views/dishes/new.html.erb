@@ -59,12 +59,32 @@
       </div>
       <%# 調理法 %>
       <%=  CookingMethod.human_attribute_name(:name) %>
-      <div class="row mt-3 d-flex justify-content-center">
+      <div class="row mt-3">
         <%= render partial: 'cooking_method', collection: @cooking_methods %>
       </div>
       <%# 味付け %>
-      
+      <%=  Seasoning.human_attribute_name(:name) %>
+      <div class="row mt-3">
+        <%= render partial: 'seasoning', collection: @seasonings %>
+      </div>
+      <%# 食感 %>
+      <%=  Texture.human_attribute_name(:name) %>
+      <div class="row mt-3">
+        <%= render partial: 'texture', collection: @textures %>
+      </div>
+      <%# カテゴリー %>
+      <%=  Category.human_attribute_name(:name) %>
+      <div class="row mt-3">
+        <%= render partial: 'category', collection: @categories %>
+      </div>
       <%= f.submit class: 'btn btn-primary' %>
+      <%# こだわりポイント %>
+      <div class="row mt-3">
+        <div class="col-6">
+          <%= f.label :point %>
+          <%= f.text_field :point, class: 'form-control', placeholder: '20文字以内で入力できます'%>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

@@ -8,5 +8,6 @@ class Dish < ApplicationRecord
 
   validates :uuid, presence: true
   validates :state, presence: true
+  validates :point, length: { maximum: 20 } # 20文字以内
   enum state: { draft: 0, published: 1 }
 end
