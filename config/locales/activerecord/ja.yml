@@ -1,16 +1,17 @@
 ja:
   activerecord:
     models:
+      user: 'ユーザー'
       dish: '料理'
       ingredient: '食材'
+      cooking_method: '調理法'
+      seasoning: '味付け'
+      texture: '食感'
+      category: 'カテゴリー'
     attributes:
       dish:
         id: 'ID'
-        ingredient: '食材'
-        cooking_method: '調理法'
-        seasoning: '味付け'
-        texture: '食感'
-        category: 'カテゴリー'
+        dish_name: '料理名'
         point: 'こだわりポイント'
         dish_image: '料理写真'
       ingredient:
