@@ -1,6 +1,4 @@
 <div class="col-md-4 col-6 mb-3 text-center">
-  <input class="d-none form-check-input" type="radio" name="seasonig" id=<%= seasoning.name %>>
-  <label class="form-check-label fs-6" for=<%= seasoning.name %>>
-    <%= seasoning.name %>
-  </label>
+  <%= f.radio_button :seasoning_id, seasoning.id, class: "d-none form-check-input", id: "seasoning_#{seasoning.id}" %>
+  <%= f.label :seasoning_id, seasoning.name, class: "form-check-label fs-6", for: "seasoning_#{seasoning.id}" %>
 </div>

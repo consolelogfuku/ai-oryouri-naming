@@ -40,51 +40,49 @@
   <div class="container">
     <%= form_with model: @dish do |f| %>
       <%# 食材名 %>
-      <div class="row">
-        <%= f.fields_for :ingredient do |ingredient_f| %>
-          <div class="col-md-4">
-            <%= ingredient_f.label :name_1%>
-            <%= ingredient_f.text_field :name_1 ,class:'form-control', placeholder: 'トマト'%>
-          </div>
-          <div class="col-md-4">
-            <%= ingredient_f.label :name_2 %>
-            <%= ingredient_f.text_field :name_2, class:'form-control', placeholder: '牛肉'%>
-          </div>
-          <div class="col-md-4">
-            <%= ingredient_f.label :name_3%>
-            <%= ingredient_f.text_field :name_3, class:'form-control', placeholder: 'かまぼこ' %>
-          </div>
-          <div id="emailHelp" class="form-text">食材は、1つ以上入力してください。</div>
-        <% end %>
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <%= f.label :name_1%>
+          <%= f.text_field :name_1 ,class:'form-control', placeholder: 'トマト'%>
+        </div>
+        <div class="col-md-4">
+          <%= f.label :name_2 %>
+          <%= f.text_field :name_2, class:'form-control', placeholder: '牛肉'%>
+        </div>
+        <div class="col-md-4">
+          <%= f.label :name_3%>
+          <%= f.text_field :name_3, class:'form-control', placeholder: 'かまぼこ' %>
+        </div>
+        <div id="emailHelp" class="form-text">食材は、1つ以上入力してください。</div>
       </div>
       <%# 調理法 %>
       <%=  CookingMethod.human_attribute_name(:name) %>
-      <div class="row mt-3">
-        <%= render partial: 'cooking_method', collection: @cooking_methods %>
+      <div class="row mt-3 mb-4">
+        <%= render partial: 'cooking_method', collection: @cooking_methods ,locals: { f: f} %>
       </div>
       <%# 味付け %>
       <%=  Seasoning.human_attribute_name(:name) %>
-      <div class="row mt-3">
-        <%= render partial: 'seasoning', collection: @seasonings %>
+      <div class="row mt-3 mb-4">
+        <%= render partial: 'seasoning', collection: @seasonings, locals: {f: f} %>
       </div>
       <%# 食感 %>
       <%=  Texture.human_attribute_name(:name) %>
-      <div class="row mt-3">
-        <%= render partial: 'texture', collection: @textures %>
+      <div class="row mt-3 mb-4">
+        <%= render partial: 'texture', collection: @textures, locals: {f: f} %>
       </div>
       <%# カテゴリー %>
       <%=  Category.human_attribute_name(:name) %>
-      <div class="row mt-3">
-        <%= render partial: 'category', collection: @categories %>
+      <div class="row mt-3 mb-4">
+        <%= render partial: 'category', collection: @categories, locals: {f: f} %>
       </div>
-      <%= f.submit class: 'btn btn-primary' %>
       <%# こだわりポイント %>
-      <div class="row mt-3">
+      <div class="row mt-3 mb-4">
         <div class="col-6">
           <%= f.label :point %>
           <%= f.text_field :point, class: 'form-control', placeholder: '20文字以内で入力できます'%>
         </div>
       </div>
+      <%= f.submit class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
