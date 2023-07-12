@@ -36,48 +36,71 @@
 <%# main-contetntセクション %>
 <div class="main-content">
   <h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
-  <div class="container">
     <%= form_with model: @dish do |f| %>
       <%# 食材 %>
-      <%= Ingredient.model_name.human %>
-      <div class="row mb-4">
-        <div class="col-md-4 mt-3">
-          <%= f.text_field :name_1 ,class:'form-control', placeholder: '昨日の残りのやきとり'%>
+      <div class="ingredient">
+        <div class="container">
+          <%= Ingredient.model_name.human %>
+          <div class="row mb-4">
+            <div class="col-md-4 mt-3">
+              <%= f.text_field :name_1 ,class:'form-control', placeholder: '昨日の残りのやきとり'%>
+            </div>
+            <div class="col-md-4 mt-3">
+              <%= f.text_field :name_2, class:'form-control', placeholder: '玉ねぎ'%>
+            </div>
+            <div class="col-md-4 mt-3">
+              <%= f.text_field :name_3, class:'form-control', placeholder: 'トマト' %>
+            </div>
+            <div id="emailHelp" class="form-text">※食材は1つ以上、各15文字以内で入力してください</div>
+          </div>
         </div>
-        <div class="col-md-4 mt-3">
-          <%= f.text_field :name_2, class:'form-control', placeholder: '玉ねぎ'%>
-        </div>
-        <div class="col-md-4 mt-3">
-          <%= f.text_field :name_3, class:'form-control', placeholder: 'トマト' %>
-        </div>
-        <div id="emailHelp" class="form-text">※食材は1つ以上、各15文字以内で入力してください。</div>
       </div>
       <%# 調理法 %>
-      <%=  CookingMethod.model_name.human  %>
-      <div class="row mt-3 mb-4">
-        <%= render partial: 'cooking_method', collection: @cooking_methods ,locals: { f: f} %>
+      <div class="cooking_method">
+        <div class="container">
+          <%=  CookingMethod.model_name.human  %>
+          <div class="row mt-3 mb-4">
+            <%= render partial: 'cooking_method', collection: @cooking_methods ,locals: { f: f} %>
+          </div>
+        </div>
       </div>
       <%# 味付け %>
-      <%=  Seasoning.model_name.human %>
-      <div class="row mt-3 mb-4">
-        <%= render partial: 'seasoning', collection: @seasonings, locals: {f: f} %>
+      <div class="seasoning">
+        <div class="container">
+          <%=  Seasoning.model_name.human %>
+          <div class="row mt-3 mb-4">
+            <%= render partial: 'seasoning', collection: @seasonings, locals: {f: f} %>
+          </div>
+        </div>
       </div>
       <%# 食感 %>
-      <%=  Texture.model_name.human %>
-      <div class="row mt-3 mb-4">
-        <%= render partial: 'texture', collection: @textures, locals: {f: f} %>
+      <div class="texture">
+        <div class="container">
+          <%=  Texture.model_name.human %>
+          <div class="row mt-3 mb-4">
+            <%= render partial: 'texture', collection: @textures, locals: {f: f} %>
+          </div>
+        </div>
       </div>
       <%# カテゴリー %>
-      <%=  Category.model_name.human %>
-      <div class="row mt-3 mb-4">
-        <%= render partial: 'category', collection: @categories, locals: {f: f} %>
+      <div class="category">
+        <div class="container">
+          <%=  Category.model_name.human %>
+          <div class="row mt-3 mb-4">
+            <%= render partial: 'category', collection: @categories, locals: {f: f} %>
+          </div>
+        </div>
       </div>
       <%# こだわりポイント %>
-      <div class="row mt-3 mb-4">
-        <div class="col-lg-6">
-          <%= f.label :point %>
-          <%= f.text_field :point, class: 'form-control mt-3', placeholder: '赤ワインを入れて煮込む'%>
-          <div id="emailHelp" class="form-text">※20文字以内で入力してください</div>
+      <div class="point">
+        <div class="container">
+          <div class="row mt-3 mb-4">
+            <div class="col-lg-6">
+              <%= f.label :point %>
+              <%= f.text_field :point, class: 'form-control mt-3', placeholder: '赤ワインを入れて煮込む'%>
+              <div id="emailHelp" class="form-text">※20文字以内で入力してください</div>
+            </div>
+          </div>
         </div>
       </div>
       <%= f.submit class: 'btn btn-primary' %>

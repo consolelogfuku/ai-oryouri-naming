@@ -219,8 +219,15 @@
     cursor: pointer;
   }
 }
-
 .form-check-input:checked + label {
   background-color: $primary;
-  color: #fff;  // ここはチェックがついている時の文字色
+  color: #fff;  // チェックがついている時の文字色
 }
+
+// formの各セクションの背景
+// .ingredient, .seasoning, .category{
+//   background-color: #fffbf3;
+// }
+// .cooking_method, .texture, .point{
+//   background-color: #45ff89;
+// }
