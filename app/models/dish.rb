@@ -20,6 +20,11 @@ class Dish < ApplicationRecord
   validates :state, presence: true
   enum state: { draft: 0, published: 1 }
 
+  # urlにuuidを使用
+  def to_param
+    uuid
+  end
+
   # 食材と調理法も一緒に保存
   def save_with_ingredients_and_cooking_methods(name_1:, name_2:, name_3:, cooking_methods_name:)
     ActiveRecord::Base.transaction do

@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: 'dishes#new'
-  resources :dishes
+
+  resources :dishes, param: :uuid do
+    get 'result', on: :member
+  end
 end
