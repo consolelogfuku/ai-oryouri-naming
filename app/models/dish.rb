@@ -61,11 +61,13 @@ class Dish < ApplicationRecord
     client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
     response = client.chat(
       parameters: {
-          model: "gpt-3.5-turbo",
+          model: "gpt-4",
           messages: [{ role: "user", content: content}],
           temperature: 1.0,
       })
-    puts response.dig("choices", 0, "message", "content")
+    # レスポンスから料理名を取得(ダブルクオーテーションが含まれることがあるため、あらかじめ削除しておく)
+    self.dish_name = response.dig("choices", 0, "message", "content").gsub('"', '')
+    save!
   end
 
 end
