@@ -1,0 +1,57 @@
+<div class="bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h4 class="text-center mt-5">AIの答えは...</h4>
+        <h2 class="text-center mt-5 fw-bold"><%= @dish.dish_name %></h2>
+        <div class="text-center my-5 "><%= image_tag '280x210.png' %></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <%= Ingredient.model_name.human %>
+  <div class="row mt-4">
+    <div class="col-md-4 dish-content">
+      <%= @dish.ingredient.name_1%>
+    </div>
+    <div class="col-md-4 dish-content">
+      <%= @dish.ingredient.name_2%>
+    </div>
+    <div class="col-md-4 dish-content">
+      <%= @dish.ingredient.name_3%>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col">
+      <%= CookingMethod.model_name.human %>
+      <% @dish.cooking_methods.each do |cooking_method| %>
+        <%= cooking_method.name %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col">
+      <%= Seasoning.model_name.human %>
+      <%= @dish.seasoning.name %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col">
+      <%= Texture.model_name.human %>
+      <%= @dish.texture.name %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col">
+      <%= Category.model_name.human %>
+      <%= @dish.category.name %>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col">
+      <%= Dish.human_attribute_name(:point) %>
+      <%= @dish.point %>
+    </div>
+  </div>
+</div>

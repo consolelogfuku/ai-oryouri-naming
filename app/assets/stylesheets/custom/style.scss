@@ -208,7 +208,6 @@
   border-radius: 10px;
   text-align: center;
   line-height: 52px;
-  border: 1px solid $primary;
   color: $primary;
   background-color: #fff;
   font-size: 14px !important;
@@ -231,3 +230,17 @@
 // .cooking_method, .texture, .point{
 //   background-color: #45ff89;
 // }
+
+
+// 料理名生成結果ページ
+.dish-content {
+  width: 80%;
+  height: 100%;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 52px;
+  color: #fff;
+  background-color: $primary;
+  font-size: 14px !important;
+  font-weight: bold !important;
+}

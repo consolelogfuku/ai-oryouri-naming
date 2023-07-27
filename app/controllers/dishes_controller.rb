@@ -16,7 +16,7 @@ class DishesController < ApplicationController
     # 料理を保存
     @dish = user.dishes.build(dish_params)
     if @dish.save_with_ingredients_and_cooking_methods(name_1: params.dig(:dish, :name_1), name_2: params.dig(:dish, :name_2), name_3: params.dig(:dish, :name_3), cooking_methods_name: params.dig(:dish, :cooking_methods_name))
-      redirect_to new_dish_path, notice: "料理を保存しました"
+      redirect_to result_dish_path(@dish.uuid), notice: "料理を保存しました"
     else
       render :new
     end
@@ -32,6 +32,10 @@ class DishesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def result
+    @dish = Dish.find_by(uuid: params[:uuid])
   end
 
   private
