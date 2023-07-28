@@ -209,6 +209,7 @@
   text-align: center;
   line-height: 52px;
   color: $primary;
+  border: 1px solid $primary;
   background-color: #fff;
   font-size: 14px !important;
   font-weight: bold !important;
@@ -231,16 +232,23 @@
 //   background-color: #45ff89;
 // }
 
+// 料理名生成ページ
+.result {
+  background-color: #fff5e0;
 
-// 料理名生成結果ページ
-.dish-content {
-  width: 80%;
-  height: 100%;
-  border-radius: 10px;
-  text-align: center;
-  line-height: 52px;
-  color: #fff;
-  background-color: $primary;
-  font-size: 14px !important;
-  font-weight: bold !important;
+  &-dish-name {
+    position: relative;
+    background: #fff;
+    border-radius: 15px;
+    
+    &:before {  
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -15px;
+      border: 15px solid transparent;
+      border-top: 15px solid #fff;
+    }
+  }
 }
