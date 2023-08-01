@@ -183,22 +183,29 @@
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-
   }
+
   &-title-2 {
     width: 100%;
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
 
+  &-title-3 {
+    width: 100%;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
 // メインコンテンツの設定
 .main-content {
   border-top: 2px solid #fff;
-  background-color: #fff5e0;
+  background-color: $light-yellow;
 }
 
 // チェックボックの設定
@@ -236,6 +243,7 @@
 .result {
   background-color: #fff5e0;
 
+  // フキダシのデザイン
   &-dish-name {
     position: relative;
     background: #fff;
@@ -250,5 +258,12 @@
       border: 15px solid transparent;
       border-top: 15px solid #fff;
     }
+  }
+
+  &-dish-content {
+    border: 1px solid $primary;
+    background-color: $light-yellow;
+    border-radius: 10px;
+    color: $dark-yellow;
   }
 }
