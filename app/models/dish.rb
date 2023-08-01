@@ -66,7 +66,7 @@ class Dish < ApplicationRecord
           temperature: 1.0,
       })
     # レスポンスから料理名を取得(ダブルクオーテーションが含まれることがあるため、あらかじめ削除しておく)
-    self.dish_name = response.dig("choices", 0, "message", "content").gsub('"', '')
+    self.dish_name = response.dig("choices", 0, "message", "content").gsub(/["「」]/, '')
     save!
   end
 
