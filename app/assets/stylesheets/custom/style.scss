@@ -7,15 +7,15 @@
   max-width: $contentMaxWidth;
 }
 
-// fontawesomeのアイコンの色を変更
-.fontawesome {
-  font-size: 0.75em;
-  opacity: 0.6;
-}
 
 // ヘッダー
 .header {
   @extend %content-width;
+  
+  &-fontawesome {
+    font-size: 0.75em;
+    opacity: 0.6;
+  }
 
   // ドロップダウンメニューの背景設定
   &-dropdown-background {
@@ -269,8 +269,11 @@
 }
 
 // SignUpページ
-.sigin-up-form {
-  background-color: $light-yellow;
-  border-radius: 10px;
-  border: 1px solid $primary;
+.sign-up {
+  background-color: #eee;
+
+  &-form {
+    border-radius: 25px;
+    background-color: #fff;
+  }
 }
