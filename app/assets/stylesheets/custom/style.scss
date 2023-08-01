@@ -62,7 +62,7 @@
   }
 
   &-link {
-    color: $cGray;
+    color: $light-gray;
     text-decoration: none;
     font-size: 0.84em;
     transition-property: color;
@@ -76,7 +76,7 @@
   }
   
   &-copyright {
-    color: $cGray;
+    color: $light-gray;
     font-size: 0.84em;
   }
 }
@@ -266,4 +266,11 @@
     border-radius: 10px;
     color: $dark-yellow;
   }
+}
+
+// SignUpページ
+.sigin-up-form {
+  background-color: $light-yellow;
+  border-radius: 10px;
+  border: 1px solid $primary;
 }
