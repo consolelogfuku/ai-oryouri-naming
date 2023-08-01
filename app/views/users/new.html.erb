@@ -1,25 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3 mx-auto sigin-up-form py-4 px-4">
-      <h5 class="fw-bold text-dark text-center mt-3">新規登録</h5>
-      <%= form_with model: @user do |f| %>
-        <%# 名前%>
-        <%= f.label :name, class: 'form-label mt-3' %>
-        <%= f.text_field :name, class:'form-control' %>
-        <div class="form-text">※15文字以内で入力してください</div>
-        <%# メールアドレス%>
-        <%= f.label :email, class: 'form-label mt-3' %>
-        <%= f.email_field :email, class: 'form-control' %>
-        <%# パスワード%>
-        <%= f.label :password, class: 'form-label mt-3' %>
-        <%= f.password_field :password, class: 'form-control' %>
-        <%# パスワード確認%>
-        <%= f.label :password_confirmation, class: 'form-label mt-3' %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-        <div class="text-center">
-          <%= f.submit class: 'btn btn-primary mt-4'%>
-        </div>
-      <% end %>
+<div class="sign-up">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto sign-up-form py-5 px-4 my-5 shadow">
+        <h3 class="fw-bold text-center mb-5">新規登録</h3>
+        <%= form_with model: @user do |f| %>
+          <%# 名前%>
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-user fa-lg me-3 fa-fw"></i>
+            <%= f.text_field :name, class:'form-control', placeholder: User.human_attribute_name(:name) %>
+          </div>
+          <div class="form-text">※15文字以内で入力してください</div>
+          <%# メールアドレス%>
+          <div class="d-flex align-items-center mt-3">
+            <i class="fa-solid fa-envelope fa-lg me-3 fa-fw"></i>
+            <%= f.email_field :email, class: 'form-control flex-fill', placeholder: User.human_attribute_name(:email) %>
+          </div>
+          <%# パスワード%>
+          <div class="d-flex align-items-center mt-3">
+            <i class="fa-solid fa-lock fa-lg me-3 fa-fw"></i>
+            <%= f.password_field :password, class: 'form-control flex-fill', placeholder: User.human_attribute_name(:password) %>
+          </div>
+          <%# パスワード確認%>
+          <div class="d-flex align-items-center mt-3">
+            <i class="fa-solid fa-key fa-lg me-3 fa-fw"></i>
+            <%= f.password_field :password_confirmation, class: 'form-control flex-fill', placeholder: User.human_attribute_name(:password_confirmation) %>
+          </div>
+          <div class="text-center">
+            <%= f.submit class: 'btn btn-primary mt-5'%>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
