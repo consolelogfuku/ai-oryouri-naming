@@ -44,7 +44,7 @@
           <%= Ingredient.model_name.human %>
           <div class="row mb-4">
             <div class="col-md-4 mt-3">
-              <%= f.text_field :name_1 ,class:'form-control', placeholder: '昨日の残りのやきとり'%>
+              <%= f.text_field :name_1 ,class:'form-control', placeholder: '昨日の残りのやきとり' %>
             </div>
             <div class="col-md-4 mt-3">
               <%= f.text_field :name_2, class:'form-control', placeholder: '玉ねぎ'%>
@@ -52,7 +52,7 @@
             <div class="col-md-4 mt-3">
               <%= f.text_field :name_3, class:'form-control', placeholder: 'トマト' %>
             </div>
-            <div id="emailHelp" class="form-text">※食材は1つ以上、各15文字以内で入力してください</div>
+            <div class="form-text">※食材は1つ以上、各15文字以内で入力してください</div>
           </div>
         </div>
       </div>
@@ -97,9 +97,9 @@
         <div class="container">
           <div class="row mt-3 mb-4">
             <div class="col-lg-6">
-              <%= f.label :point %>
-              <%= f.text_field :point, class: 'form-control mt-3', placeholder: '赤ワインを入れて煮込む'%>
-              <div id="emailHelp" class="form-text">※20文字以内で入力してください</div>
+              <%= f.label :point, class: 'form-label' %>
+              <%= f.text_field :point, class: 'form-control mt-2', placeholder: '赤ワインを入れて煮込む'%>
+              <div class="form-text">※20文字以内で入力してください</div>
             </div>
           </div>
         </div>

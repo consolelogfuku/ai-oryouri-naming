@@ -9,6 +9,12 @@ ja:
       texture: '食感'
       category: 'カテゴリー'
     attributes:
+      user:
+        id: 'ID'
+        name: 'ニックネーム'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
       dish:
         id: 'ID'
         dish_name: '料理名'

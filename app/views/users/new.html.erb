@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mx-auto sigin-up-form py-4 px-4">
+      <h5 class="fw-bold text-dark text-center mt-3">新規登録</h5>
+      <%= form_with model: @user do |f| %>
+        <%# 名前%>
+        <%= f.label :name, class: 'form-label mt-3' %>
+        <%= f.text_field :name, class:'form-control' %>
+        <div class="form-text">※15文字以内で入力してください</div>
+        <%# メールアドレス%>
+        <%= f.label :email, class: 'form-label mt-3' %>
+        <%= f.email_field :email, class: 'form-control' %>
+        <%# パスワード%>
+        <%= f.label :password, class: 'form-label mt-3' %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <%# パスワード確認%>
+        <%= f.label :password_confirmation, class: 'form-label mt-3' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <div class="text-center">
+          <%= f.submit class: 'btn btn-primary mt-4'%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
