@@ -1,6 +1,9 @@
 ja:
   defaults:
-  
+  users:
+    create:
+      success: 'ユーザー登録が完了しました'
+      fail: 'ユーザー登録に失敗しました'
   dishes:
     new:
       
