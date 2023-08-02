@@ -42,5 +42,8 @@ module AIOryouriNaming
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # field_with_errorsタグを読み込まないようにする(Formのレイアウトが崩れるのを防ぐ)
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end
