@@ -4,6 +4,7 @@
       <div class="col-md-4 mx-auto sign-up-form py-5 px-4 my-5 shadow">
         <h3 class="fw-bold text-center mb-5">新規登録</h3>
         <%= form_with model: @user do |f| %>
+          <%= render partial: 'shared/error_messages', locals: {object: f.object} %>
           <%# 名前%>
           <div class="d-flex align-items-center">
             <i class="fa-solid fa-user fa-lg me-3 fa-fw"></i>
