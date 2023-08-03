@@ -1,4 +1,4 @@
-<div class="input-form">
+<div class="input-form pb-4">
   <div class="container">
     <div class="row">
       <div class="col-md-4 mx-auto input-form-content py-5 px-4 my-5 shadow">
@@ -21,6 +21,12 @@
             <%= f.submit t('defaults.login'),class: 'btn btn-primary mt-4'%>
           </div>
         <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 text-center mx-auto">
+        <h5 class="fw-bold text-center mb-3"><%= t('.new_user') %></h5>
+        <%= link_to t('.register'), sign_up_path, class: 'btn btn-outline-secondary btn-white-secondary' %>
       </div>
     </div>
   </div>

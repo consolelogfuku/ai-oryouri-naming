@@ -4,18 +4,26 @@ $secondary:     #f381ff;
 $success:       #56cc9d;
 $info:          #0dcaf0;
 $warning:       #f3969a;
-$danger:        #eb6844;
+$danger:        #f9b248;
 $light:         #f8f9fa;
 $dark:          #76767a;
 
 // bootstrapのボタンを変更
 .btn {
-  border-radius: 50px !important;
-  padding: 8px 20px !important;
-  font-size: 14px !important;
+  border-radius: 25px !important;
+  padding: 12px 36px !important;
   font-weight: bold !important;
   
   &:hover {
     color: #ffffff !important;
+  }
+}
+
+// 白背景ボタンのクラス(btn btn-outline-secondaryと組み合わせる)
+.btn-white-secondary {
+  background-color: #fff !important;
+
+  &:hover {
+    background-color: $secondary !important;
   }
 }
