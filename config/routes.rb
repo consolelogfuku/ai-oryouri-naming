@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :dishes, param: :uuid do
     get 'result', on: :member
   end
+  resources :password_resets, only: %i[new create edit update]
 end

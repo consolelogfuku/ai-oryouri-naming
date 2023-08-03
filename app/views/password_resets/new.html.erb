@@ -1,0 +1,19 @@
+<div class="input-form pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto input-form-content py-5 px-4 my-5 shadow">
+        <h3 class="fw-bold text-center mb-5"><%= t('.title') %></h3>
+        <%= form_with url: password_resets_path do |f| %>
+          <%# メールアドレス%>
+          <div class="d-flex align-items-center mt-2">
+            <i class="fa-solid fa-envelope fa-lg me-3 fa-fw"></i>
+            <%= f.email_field :email, class: 'form-control flex-fill', placeholder: User.human_attribute_name(:email) %>
+          </div>
+          <div class="text-center">
+            <%= f.submit t('.submit'),class: 'btn btn-primary mt-4'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
