@@ -1,9 +1,32 @@
 ja:
   defaults:
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    message:
+      require_login: 'ログインしてください'
   users:
+    new:
+      title: 'ユーザー登録'
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      forget_password: 'パスワードをお忘れの方はこちら'
+    create:
+      success: 'ログインしました'
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
   dishes:
     new:
-      
+      generate: 'AIに名前をつけてもらう'
+    create:
+      fail: '名前をつけられませんでした'
+  profiles:
+    edit:
+      title: 'プロフィール編集'
+      success: 'プロフィールを更新しました'
+      fail: 'プロフィールの更新に失敗しました'

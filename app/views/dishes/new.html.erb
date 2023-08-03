@@ -35,9 +35,10 @@
   </div>
 </div>
 <%# main-contetntセクション %>
-<div class="main-content">
+<div class="main-content pb-4">
   <h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
     <%= form_with model: @dish do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
       <%# 食材 %>
       <div class="ingredient">
         <div class="container">
@@ -105,7 +106,7 @@
         </div>
       </div>
       <div class="text-center">
-        <%= f.submit 'AIに名前をつけてもらう', class: 'btn btn-primary' %>
+        <%= f.submit t('.generate'), class: 'btn btn-primary py-3 fs-6' %>
       </div>
     <% end %>
   </div>

@@ -1,26 +1,35 @@
 <header class="header py-3 d-flex justify-content-between">
   <a class="header-brand" href="#"><%= image_tag 'brand_logo.svg', size: '100x50'%></a>
   <div class="header-dropdown">
-    <div class="header-dropdown-background" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+    <div class="header-dropdown-background" data-bs-toggle="dropdown">
       <%= image_tag 'dropdown_icon.svg', class:'header-dropdown-icon', size: '30x30'%>
-      <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end">
-        <li>
-          <a  class="header-dropdown-item dropdown-item"><i class="fa-solid fa-magnifying-glass me-3 header-fontawesome"></i>みんなの料理を見る</a>
-        </li>
-        <li><hr class="dropdown-divider"></li>
-        <li class='text-center pb-2'>
-          <%= image_tag '100x100.png', class: 'rounded-circle', size:'60x60' %>
-        </li>
-        <li>
-          <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-utensils me-3 header-fontawesome"></i>自分の料理一覧</a>
-        </li>
-        <li>
-          <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-heart me-3 header-fontawesome"></i>いいねした料理</a>
-        </li>
-        <li><a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-pen-to-square me-3 header-fontawesome"></i>プロフィール編集</a>
-        </li>
-        <li><a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-right-from-bracket me-3 header-fontawesome"></i>ログアウト</a>
-      </ul>
     </div>
+    <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end shadow">
+      <li>
+        <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-magnifying-glass me-3 header-fontawesome"></i>みんなの料理を見る</a>
+      </li>
+      <li><hr class="dropdown-divider"></li>
+      <li class='text-center pb-2'>
+        <%= image_tag '100x100.png', class: 'rounded-circle', size:'60x60' %>
+      </li>
+      <li>
+        <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-utensils me-3 header-fontawesome"></i>自分の料理一覧</a>
+      </li>
+      <li>
+        <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-heart me-3 header-fontawesome"></i>いいねした料理</a>
+      </li>
+      <li>
+        <%= link_to '#', data: { turbo_method: :delete }, class:'header-dropdown-item dropdown-item' do %>
+          <i class="fa-solid fa-pen-to-square me-3 header-fontawesome"></i>
+          <%= t('profiles.edit.title') %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to logout_path, data: { turbo_method: :delete }, class: 'header-dropdown-item dropdown-item' do %>
+          <i class="fa-solid fa-right-from-bracket me-3 header-fontawesome"></i>
+          <%= t('defaults.logout') %>
+        <% end %>
+      </li>
+    </ul>
   </div>
 </header>

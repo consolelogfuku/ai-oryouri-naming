@@ -1,4 +1,5 @@
 class DishesController < ApplicationController
+  skip_before_action :require_login, only: %i[new create]
 
   def index
   end
@@ -12,13 +13,14 @@ class DishesController < ApplicationController
   end
 
   def create
-    user = User.find(1)
+    user = User.find(11)
     # 料理を保存
     @dish = user.dishes.build(dish_params)
     if @dish.save_with_ingredients_and_cooking_methods(name_1: params.dig(:dish, :name_1), name_2: params.dig(:dish, :name_2), name_3: params.dig(:dish, :name_3), cooking_methods_name: params.dig(:dish, :cooking_methods_name))
-      redirect_to result_dish_path(@dish.uuid), notice: "料理を保存しました"
+      redirect_to result_dish_path(@dish.uuid)
     else
-      render :new
+      flash.now[:warning] = t('.fail')
+      render :new, status: :unprocessable_entity
     end
   end
 
