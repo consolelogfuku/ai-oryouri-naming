@@ -20,10 +20,10 @@ $dark:          #76767a;
 }
 
 // 白背景ボタンのクラス(btn btn-outline-secondaryと組み合わせる)
-.btn-white-secondary {
+.btn-white-primary {
   background-color: #fff !important;
 
   &:hover {
-    background-color: $secondary !important;
+    background-color: $primary !important;
   }
 }

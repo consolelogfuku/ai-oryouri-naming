@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "	ai.oryouri.naming@gmail.com" # 送信元アドレス
   layout "mailer"
 end

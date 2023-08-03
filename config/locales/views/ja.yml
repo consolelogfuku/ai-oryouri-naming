@@ -15,7 +15,7 @@ ja:
     new:
       title: 'ログイン'
       forget_password: 'パスワードをお忘れの方はこちら'
-      new_user: '初めてご利用の方'
+      new_user: '初めてご利用の方はこちら'
       register : '新規登録'
     create:
       success: 'ログインしました'
@@ -32,3 +32,7 @@ ja:
       title: 'プロフィール編集'
       success: 'プロフィールを更新しました'
       fail: 'プロフィールの更新に失敗しました'
+  password_resets:
+    new:
+      title: 'パスワード再設定'
+      submit: '再設定メールを送信'
