@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create result]
 
   def index
   end
@@ -13,8 +13,8 @@ class DishesController < ApplicationController
   end
 
   def create
-    user = User.find(11)
-    # 料理を保存
+    user = User.set_guest_if_not_logedin(current_user)
+    # 料理名生成時に、ログインしていなければ、自動的にゲストユーザーの設定をする
     @dish = user.dishes.build(dish_params)
     if @dish.save_with_ingredients_and_cooking_methods(name_1: params.dig(:dish, :name_1), name_2: params.dig(:dish, :name_2), name_3: params.dig(:dish, :name_3), cooking_methods_name: params.dig(:dish, :cooking_methods_name))
       redirect_to result_dish_path(@dish.uuid)
