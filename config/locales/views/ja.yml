@@ -3,6 +3,7 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
+    update: '更新'
     message:
       require_login: 'ログインしてください'
   users:
@@ -38,6 +39,8 @@ ja:
       submit: '再設定メールを送信'
     create:
       success: '再設定メールを送信しました'
+    edit:
+      title: 'パスワード再設定'
     update:
       success: 'パスワードを変更しました'
       fail: 'パスワードの変更に失敗しました'
