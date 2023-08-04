@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     get 'result', on: :member
   end
   resources :password_resets, only: %i[new create edit update]
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development? # letter_opener_web用
 end
