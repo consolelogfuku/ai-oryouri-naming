@@ -37,7 +37,7 @@ class Dish < ApplicationRecord
       save!
     end
   end
-
+  
   private
 
   # 料理名を生成
@@ -69,6 +69,7 @@ class Dish < ApplicationRecord
     self.dish_name = response.dig("choices", 0, "message", "content").gsub(/["「」]/, '')
     save!
   end
+
 
 end
 

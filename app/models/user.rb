@@ -15,4 +15,13 @@ class User < ApplicationRecord
   def to_param
     uuid
   end
+  
+  def self.set_guest_if_not_logedin(current_user)
+    current_user.nil? ? User.new(
+      name: 'ゲスト',
+      email: SecureRandom.alphanumeric(10) + "@email.com",
+      password: 'password',
+      password_confirmation: 'password'
+    ) : current_user
+  end
 end
