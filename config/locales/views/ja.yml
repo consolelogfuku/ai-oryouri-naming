@@ -36,3 +36,8 @@ ja:
     new:
       title: 'パスワード再設定'
       submit: '再設定メールを送信'
+    create:
+      success: '再設定メールを送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'
