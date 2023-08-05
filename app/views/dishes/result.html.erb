@@ -1,84 +1,102 @@
-<h4 class="text-center py-5 bg-primary fw-bold text-white mb-1">あなたの料理名は...</h4>
+<div class="ribbon py-4 mt-2 mb-1 fw-bold fs-4">あなたの料理名は...</div>
 <div class="result">
+  <%# アニメーション %>
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
   <div class="container">
     <div class="row">
-      <div class="col">
-        <h3 class="text-center my-4 result-dish-name py-4 fw-bold">「 <%= @dish.dish_name %> 」</h3>
-        <div class="text-center my-5"><%= image_tag 'dish-1.jpg', size: '280x210' %></div>
+      <div class="col-md-10 mx-auto">
+        <h3 class="text-center my-4 result-dish-name py-5 shadow-sm px-3 text-primary fw-bold"><%= @dish.dish_name %></h3>
+        <div class="text-center my-5 result-dish-image"><%= image_tag 'dish-1.jpg', size: '280x210' %></div>
       </div>
     </div>
   </div>
 </div>
-<h5 class="main-content-title fw-bold text-center pt-4">▼ あなたの料理情報 ▼</h5>
-<div class="container mt-4">
-  <%# 食材 %>
-  <%= Ingredient.model_name.human %>
-  <div class="row mb-4">
-    <div class="col-md-4 mt-2">
-      <%# 要素がない場合、cssのborderを表示させたくないため、条件分岐させる%>
-      <% if @dish.ingredient.name_1.present? %>
-        <div class="result-dish-content fw-bold fs-6 py-1 ps-2"><%= @dish.ingredient.name_1 %></div>
-      <% end %>
-    </div>
-    <div class="col-md-4 mt-2">
-      <% if @dish.ingredient.name_2.present? %>
-        <div class="result-dish-content fw-bold fs-6 py-1 ps-2"><%= @dish.ingredient.name_2 %></div>
-      <% end %>
-    </div>
-    <div class="col-md-4 mt-2">
-      <% if @dish.ingredient.name_3.present? %>
-        <div class="result-dish-content fw-bold fs-6 py-1 ps-2"><%= @dish.ingredient.name_3 %></div>
-      <% end %>
-    </div>
-  </div>
-  <%# 調理法 %>
-  <%= CookingMethod.model_name.human %>
-  <div class="row mb-4">
-      <% @dish.cooking_methods.each do |cooking_method| %>
-        <div class="col-md-4 mt-2">
-          <div class="result-dish-content fw-bold fs-6 py-1 ps-2">
-            <%= cooking_method.name %>
+<div class="card-form-bg-light-yellow ">
+  <h5 class="main-content-title fw-bold text-center text-white py-3 bg-primary shadow-sm">▼ あなたの料理情報 ▼</h5>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 mx-auto card-form-content py-4 px-4 mt-4 mb-5 shadow">
+        <%# 食材 %>
+        <%= Ingredient.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-2">
+            <%# 要素がない場合、cssのborderを表示させたくないため、条件分岐させる%>
+            <% if @dish.ingredient.name_1.present? %>
+              <div class="result-dish-content fw-bold py-1 ps-2 shadow"><%= @dish.ingredient.name_1 %></div>
+            <% end %>
+          </div>
+          <div class="col-md-4 mt-2">
+            <% if @dish.ingredient.name_2.present? %>
+              <div class="result-dish-content fw-bold py-1 ps-2 shadow"><%= @dish.ingredient.name_2 %></div>
+            <% end %>
+          </div>
+          <div class="col-md-4 mt-2">
+            <% if @dish.ingredient.name_3.present? %>
+              <div class="result-dish-content fw-bold py-1 ps-2 shadow"><%= @dish.ingredient.name_3 %></div>
+            <% end %>
           </div>
         </div>
-      <% end %>
-  </div>
-  <%# 味付け %>
-  <%= Seasoning.model_name.human %>
-  <div class="row mb-4">
-    <div class="col-md-4 mt-2">
-      <div class="result-dish-content fw-bold fs-6 py-1 ps-2">
-        <%= @dish.seasoning.name %>
-      </div>
-    </div>
-  </div>
-  <%# 食感 %>
-  <%= Texture.model_name.human %>
-  <div class="row mb-4">
-    <div class="col-md-4 mt-2">
-      <div class="result-dish-content fw-bold fs-6 py-1 ps-2">
-        <%= @dish.texture.name %>
-      </div>
-    </div>
-  </div>
-  <%# カテゴリ %>
-  <%= Category.model_name.human %>
-  <div class="row mb-4">
-    <div class="col-md-4 mt-2">
-      <div class="result-dish-content fw-bold fs-6 py-1 ps-2">
-        <%= @dish.category.name %>
-      </div>
-    </div>
-  </div>
-  <%# ポイント %>
-  <%= Dish.human_attribute_name(:point) %>
-  <div class="row mb-4">
-    <%# 要素がない場合、cssのborderを表示させたくないため、条件分岐させる%>
-    <% if @dish.point.present? %>
-      <div class="col-md-4 mt-2">
-        <div class="result-dish-content fw-bold fs-6 py-1 ps-2">
-          <%= @dish.point %>
+        <%# 調理法 %>
+        <%= CookingMethod.model_name.human %>
+        <div class="row mb-4">
+            <% @dish.cooking_methods.each do |cooking_method| %>
+              <div class="col-md-4 mt-2">
+                <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+                  <%= cooking_method.name %>
+                </div>
+              </div>
+            <% end %>
         </div>
+        <%# 味付け %>
+        <%= Seasoning.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-2">
+            <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+              <%= @dish.seasoning.name %>
+            </div>
+          </div>
+        </div>
+        <%# 食感 %>
+        <%= Texture.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-2">
+            <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+              <%= @dish.texture.name %>
+            </div>
+          </div>
+        </div>
+        <%# カテゴリ %>
+        <%= Category.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-2">
+            <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+              <%= @dish.category.name %>
+            </div>
+          </div>
+        </div>
+        <%# ポイント(要素がない場合、表示させない) %>
+        <% if @dish.point.present? %>
+          <%= Dish.human_attribute_name(:point) %>
+          <div class="row mb-4">
+            <div class="col-md-6 mt-2">
+              <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+                <%= @dish.point %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
