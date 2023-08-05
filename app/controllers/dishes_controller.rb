@@ -1,22 +1,24 @@
 class DishesController < ApplicationController
   skip_before_action :require_login, only: %i[new create result]
+  before_action :setup_dish, only: %i[new create] # createメソッドでは、else句が走った場合に必要
 
   def index
   end
 
   def new
     @dish = Dish.new
-    @cooking_methods = CookingMethod.all
-    @seasonings = Seasoning.all
-    @textures = Texture.all
-    @categories = Category.all
   end
 
   def create
-    user = User.set_guest_if_not_logedin(current_user)
-    # 料理名生成時に、ログインしていなければ、自動的にゲストユーザーの設定をする
+    # 料理名生成時に、ログインしていなければ、自動的にゲストユーザー設定をする
+    user = User.set_guest_if_not_logedin(current_user) # user.rb内でcurrent_userを使用できるようにするため、引数を渡す
     @dish = user.dishes.build(dish_params)
-    if @dish.save_with_ingredients_and_cooking_methods(name_1: params.dig(:dish, :name_1), name_2: params.dig(:dish, :name_2), name_3: params.dig(:dish, :name_3), cooking_methods_name: params.dig(:dish, :cooking_methods_name))
+    if @dish.save_with_ingredients_and_cooking_methods(
+      name_1: params.dig(:dish, :name_1),
+      name_2: params.dig(:dish, :name_2),
+      name_3: params.dig(:dish, :name_3),
+      cooking_methods_name: params.dig(:dish, :cooking_methods_name)
+    )
       redirect_to result_dish_path(@dish.uuid)
     else
       flash.now[:warning] = t('.fail')
@@ -45,5 +47,13 @@ class DishesController < ApplicationController
   def dish_params
     params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image)
   end
+
+  def setup_dish # 選択肢を生成するのに必要
+    @cooking_methods = CookingMethod.all
+    @seasonings = Seasoning.all
+    @textures = Texture.all
+    @categories = Category.all
+  end
+
 
 end
