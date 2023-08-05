@@ -243,7 +243,7 @@
 //   background-color: #45ff89;
 // }
 
-// 料理名生成ページ
+// 生成結果ページ
 .result {
   background-color: #fff5e0;
 
@@ -251,7 +251,7 @@
   &-dish-name {
     position: relative;
     background: #fff;
-    border-radius: 15px;
+    border-radius: 35px;
     
     &:before {  
       content: "";
@@ -265,10 +265,10 @@
   }
 
   &-dish-content {
-    border: 1px solid $primary;
-    background-color: $light-yellow;
+    border: 1px solid;
+    background-color: $secondary;
     border-radius: 10px;
-    color: $dark-yellow;
+    color: #fff;
   }
 }
 
@@ -280,4 +280,39 @@
     border-radius: 25px;
     background-color: #fff;
   }
+}
+
+.ribbon {
+  display: block;
+  position: relative;
+  padding: 20px 30px;
+  font-size: 18px;/*フォントサイズ*/
+  color: #FFF;/*フォントカラー*/
+  background: $secondary;/*背景色*/
+  margin: 0 auto;
+  width: fit-content;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 20px $dark-pink;/*折り返し部分*/
+  }
+  
+  &:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    right: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-left: solid 20px $dark-pink;/*折り返し部分*/
+  }
+}
+
+.aa {
+  background-color: #fff5e0;
 }
