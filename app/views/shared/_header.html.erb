@@ -1,5 +1,7 @@
 <header class="header py-3 d-flex justify-content-between">
-  <a class="header-brand" href="#"><%= image_tag 'brand_logo.svg', size: '100x50'%></a>
+  <%= link_to root_path, class: 'header-brand' do %>
+    <%= image_tag 'brand_logo.svg', size: '100x50'%>
+  <% end %>
   <div class="header-dropdown">
     <div class="header-dropdown-background" data-bs-toggle="dropdown">
       <%= image_tag 'dropdown_icon.svg', class:'header-dropdown-icon', size: '30x30'%>

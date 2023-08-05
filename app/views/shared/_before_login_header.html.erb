@@ -1,10 +1,12 @@
 <header class="header py-3 d-flex justify-content-between">
-  <a class="header-brand" href="#"><%= image_tag 'brand_logo.svg', size: '100x50'%></a>
+  <%= link_to root_path, class: 'header-brand' do %>
+    <%= image_tag 'brand_logo.svg', size: '100x50'%>
+  <% end %>
   <div class="header-dropdown">
     <div class="header-dropdown-background" data-bs-toggle="dropdown">
       <%= image_tag 'dropdown_icon.svg', class:'header-dropdown-icon', size: '30x30'%>
     </div>
-    <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end">
+    <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end shadow">
       <li>
         <a  class="header-dropdown-item dropdown-item"><i class="fa-solid fa-magnifying-glass me-3 fontawesome"></i>みんなの料理を見る</a>
       </li>
