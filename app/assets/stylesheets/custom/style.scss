@@ -248,7 +248,9 @@
   background-color: #eee;
 
   &-bg-light-yellow {
+    position: relative;
     background-color: #fff5e0;
+    z-index: 1;
   }
 
   &-content {
@@ -259,6 +261,7 @@
 
 // 生成結果ページ
 .result {
+  position: relative;
   background-color: $light-yellow;
 
   // フキダシのデザイン
@@ -279,15 +282,15 @@
   }
 
   &-dish-content {
-    border: 1px solid #eee;
-    background-color: $primary;
+    border: 1px solid #6c6b6b;
+    background-color: #eee;
     border-radius: 10px;
     opacity: 0.7;
   }
 
   &-dish-image {
     position: relative;
-    z-index: 4;
+    z-index: 1;
   }
 
 }
@@ -302,6 +305,7 @@
   background: $secondary;/*背景色*/
   margin: 0 auto;
   width: fit-content;
+  z-index: 1;
 
   &:before {
     position: absolute;
