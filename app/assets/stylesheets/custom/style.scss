@@ -240,19 +240,33 @@
 //   background-color: #fffbf3;
 // }
 // .cooking_method, .texture, .point{
-//   background-color: #45ff89;
-// }
+  //   background-color: #45ff89;
+  // }
+
+// SignUpページ、ログインページ、料理名生成結果ページ
+.card-form {
+  background-color: #eee;
+
+  &-bg-light-yellow {
+    background-color: #fff5e0;
+  }
+
+  &-content {
+    border-radius: 25px;
+    background-color: #fff;
+  }
+}
 
 // 生成結果ページ
 .result {
-  background-color: #fff5e0;
+  background-color: $light-yellow;
 
   // フキダシのデザイン
   &-dish-name {
     position: relative;
     background: #fff;
-    border-radius: 35px;
-    
+    border-radius: 50px;
+
     &:before {  
       content: "";
       position: absolute;
@@ -265,23 +279,20 @@
   }
 
   &-dish-content {
-    border: 1px solid;
-    background-color: $secondary;
+    border: 1px solid #eee;
+    background-color: $primary;
     border-radius: 10px;
-    color: #fff;
+    opacity: 0.7;
   }
+
+  &-dish-image {
+    position: relative;
+    z-index: 4;
+  }
+
 }
 
-// SignUpページ、ログインページ
-.input-form {
-  background-color: #eee;
-
-  &-content {
-    border-radius: 25px;
-    background-color: #fff;
-  }
-}
-
+// リボンのデザイン
 .ribbon {
   display: block;
   position: relative;
@@ -311,8 +322,4 @@
     border-bottom: solid 15px transparent;
     border-left: solid 20px $dark-pink;/*折り返し部分*/
   }
-}
-
-.aa {
-  background-color: #fff5e0;
 }
