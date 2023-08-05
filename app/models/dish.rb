@@ -31,11 +31,9 @@ class Dish < ApplicationRecord
       # 食材(同じ食材の組み合わせがあった場合は、その食材を取得する)
       self.ingredient = Ingredient.find_or_create_by(name_1: name_1, name_2: name_2, name_3: name_3)
       # 調理法
-      cooking_methods_name&.each do |cooking_method_name|
+      cooking_methods_name.each do |cooking_method_name|
         self.cooking_methods << CookingMethod.find_by(name: cooking_method_name)
       end
-      # save! は例外を表示させないだけで、例外は発生している(例外表示させない代わりにroot_pathに飛ばされる)
-      return false unless self.valid? # 保存できなかった時にfalseを返して、createメソッドのelse句を走らせる
       save!
     end
   end
@@ -63,7 +61,7 @@ class Dish < ApplicationRecord
     client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
     response = client.chat(
       parameters: {
-          model: "gpt-3.5-turbo",
+          model: "gpt-4",
           messages: [{ role: "user", content: content}],
           temperature: 1.0,
       })
