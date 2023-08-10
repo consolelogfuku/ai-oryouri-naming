@@ -26,6 +26,7 @@ ja:
   dishes:
     index:
       title: 'みんなの料理'
+      no_data: '料理がありません'
     new:
       generate: 'AIに名前をつけてもらう'
     create:

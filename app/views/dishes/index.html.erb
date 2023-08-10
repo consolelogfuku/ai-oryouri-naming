@@ -1,6 +1,13 @@
 <h3 class='text-center fw-bold mt-5'><%= t('.title') %></h3>
 <div class="container">
   <div class="row">
-    <%= render @dishes %>
+    <% if @dishes.present? %>
+      <%= render @dishes %>
+    <% else %>
+      <p><%= t('.no_data') %></p>
+    <% end %>
+    <div class='mt-4'>
+      <%= paginate @dishes %>
+    </div>
   </div>
 </div>
