@@ -14,10 +14,10 @@ class DishesController < ApplicationController
     user = User.set_guest_if_not_logedin(current_user) # user.rb内でcurrent_userを使用できるようにするため、引数を渡す
     @dish = user.dishes.build(dish_params)
     if @dish.save_with_ingredients_and_cooking_methods(
-      name_1: params.dig(:dish, :name_1),
-      name_2: params.dig(:dish, :name_2),
-      name_3: params.dig(:dish, :name_3),
-      cooking_methods_name: params.dig(:dish, :cooking_methods_name)
+      name_1: params[:dish][:name_1],
+      name_2: params[:dish][:name_2],
+      name_3: params[:dish][:name_3],
+      cooking_methods_name: params[:dish][:cooking_methods_name]
     )
       redirect_to result_dish_path(@dish.uuid)
     else
