@@ -33,17 +33,17 @@
           <div class="col-md-4 mt-2">
             <%# 要素がない場合、cssのborderを表示させたくないため、条件分岐させる%>
             <% if @dish.ingredient.name_1.present? %>
-              <div class="result-dish-content fw-bold py-1 ps-2 shadow"><%= @dish.ingredient.name_1 %></div>
+              <div class="result-dish-content fw-bold py-1 ps-2"><%= @dish.ingredient.name_1 %></div>
             <% end %>
           </div>
           <div class="col-md-4 mt-2">
             <% if @dish.ingredient.name_2.present? %>
-              <div class="result-dish-content fw-bold py-1 ps-2 shadow"><%= @dish.ingredient.name_2 %></div>
+              <div class="result-dish-content fw-bold py-1 ps-2"><%= @dish.ingredient.name_2 %></div>
             <% end %>
           </div>
           <div class="col-md-4 mt-2">
             <% if @dish.ingredient.name_3.present? %>
-              <div class="result-dish-content fw-bold py-1 ps-2 shadow"><%= @dish.ingredient.name_3 %></div>
+              <div class="result-dish-content fw-bold py-1 ps-2"><%= @dish.ingredient.name_3 %></div>
             <% end %>
           </div>
         </div>
@@ -52,7 +52,7 @@
         <div class="row mb-4">
             <% @dish.cooking_methods.each do |cooking_method| %>
               <div class="col-md-4 mt-2">
-                <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+                <div class="result-dish-content fw-bold py-1 ps-2">
                   <%= cooking_method.name %>
                 </div>
               </div>
@@ -62,7 +62,7 @@
         <%= Seasoning.model_name.human %>
         <div class="row mb-4">
           <div class="col-md-4 mt-2">
-            <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+            <div class="result-dish-content fw-bold py-1 ps-2">
               <%= @dish.seasoning.name %>
             </div>
           </div>
@@ -71,7 +71,7 @@
         <%= Texture.model_name.human %>
         <div class="row mb-4">
           <div class="col-md-4 mt-2">
-            <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+            <div class="result-dish-content fw-bold py-1 ps-2">
               <%= @dish.texture.name %>
             </div>
           </div>
@@ -80,7 +80,7 @@
         <%= Category.model_name.human %>
         <div class="row mb-4">
           <div class="col-md-4 mt-2">
-            <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+            <div class="result-dish-content fw-bold py-1 ps-2">
               <%= @dish.category.name %>
             </div>
           </div>
@@ -90,7 +90,7 @@
           <%= Dish.human_attribute_name(:point) %>
           <div class="row mb-4">
             <div class="col-md-6 mt-2">
-              <div class="result-dish-content fw-bold py-1 ps-2 shadow">
+              <div class="result-dish-content fw-bold py-1 ps-2">
                 <%= @dish.point %>
               </div>
             </div>
