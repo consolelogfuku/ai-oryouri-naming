@@ -24,6 +24,8 @@ ja:
     destroy:
       success: 'ログアウトしました'
   dishes:
+    index:
+      title: 'みんなの料理'
     new:
       generate: 'AIに名前をつけてもらう'
     create:

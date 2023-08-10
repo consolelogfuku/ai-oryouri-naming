@@ -1,8 +1,9 @@
 class DishesController < ApplicationController
-  skip_before_action :require_login, only: %i[new create result]
+  skip_before_action :require_login, only: %i[index new create result]
   before_action :setup_dish, only: %i[new create] # createメソッドでは、else句が走った場合に必要
 
   def index
+    @dishes = Dish.includes(:user)
   end
 
   def new
