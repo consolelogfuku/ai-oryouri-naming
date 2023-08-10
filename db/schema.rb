@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_03_113450) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_10_141826) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_113450) do
     t.bigint "seasoning_id", null: false
     t.bigint "texture_id", null: false
     t.bigint "category_id", null: false
-    t.string "uuid", null: false
+    t.string "uuid"
     t.string "dish_name"
     t.string "point"
     t.string "dish_image"
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_03_113450) do
     t.index ["seasoning_id"], name: "index_dishes_on_seasoning_id"
     t.index ["texture_id"], name: "index_dishes_on_texture_id"
     t.index ["user_id"], name: "index_dishes_on_user_id"
+    t.index ["uuid"], name: "index_dishes_on_uuid", unique: true
   end
 
   create_table "dishes_cooking_methods", force: :cascade do |t|

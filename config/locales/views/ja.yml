@@ -36,6 +36,8 @@ ja:
       re_generate: 'もう一度名前をつける'
       login: 'ログインする'
       publish: '公開する'
+    publish:
+      success: '公開しました'
 
   profiles:
     edit:
