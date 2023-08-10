@@ -43,6 +43,14 @@ class DishesController < ApplicationController
     @dish = Dish.find_by(uuid: params[:uuid])
   end
 
+  # ステータスを公開に変更
+  def publish
+    @dish = Dish.find_by(uuid: params[:uuid])
+    @dish.update!(state: 'published')
+    flash.now[:success] = t('.success')
+    render :result, status: :unprocessable_entity
+  end
+
   private
 
   def dish_params

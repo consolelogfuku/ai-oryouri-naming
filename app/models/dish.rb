@@ -14,8 +14,7 @@ class Dish < ApplicationRecord
   has_many :dishes_cooking_methods, dependent: :destroy
   has_many :cooking_methods, through: :dishes_cooking_methods
   
-  before_validation -> { self.uuid = SecureRandom.uuid }
-  validates :uuid, presence: true
+  before_create -> { self.uuid = SecureRandom.uuid }
   validates :point, length: { maximum: 20 } # 20文字以内
   validates :state, presence: true
   enum state: { draft: 0, published: 1 }
@@ -62,7 +61,7 @@ class Dish < ApplicationRecord
     client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
     response = client.chat(
       parameters: {
-          model: "gpt-4",
+          model: "gpt-3.5-turbo",
           messages: [{ role: "user", content: content}],
           temperature: 1.0,
       })

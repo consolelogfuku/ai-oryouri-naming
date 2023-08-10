@@ -1,4 +1,4 @@
-<div class="ribbon py-4 mt-2 mb-1 fw-bold fs-4">あなたの料理名は...</div>
+<div class="ribbon py-4 mt-2 mb-1 fw-bold fs-4"><%= t('.title') %></div>
 <div class="result">
   <%# アニメーション %>
   <ul class="circles">
@@ -95,6 +95,24 @@
               </div>
             </div>
           </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <%= link_to t('.re_generate'), root_path,class:'btn btn-outline-secondary' %>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col text-center">
+        <%# ログイン/未ログインで表示を変化 %>
+        <% if logged_in? %>
+          <%= link_to t('.publish'), publish_dish_path, class: 'btn btn-primary', data: { turbo_method: :patch } %>
+          <p class='mt-4 fw-bold'>\ みんなの料理掲示板で公開しよう /</p>
+          <p class='mt-2 mb-5'>※あとからマイページの編集画面で非公開にできます。</p>
+        <% else %>
+          <%= link_to t('.login'), login_path, class: 'btn btn-primary' %>
+          <p class='mt-4 mb-5 fw-bold'>\ ログインすると、次回から結果を保存できるよ /</p>
         <% end %>
       </div>
     </div>
