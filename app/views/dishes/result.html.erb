@@ -1,4 +1,4 @@
-<div class="ribbon py-4 mt-2 mb-1 fw-bold fs-4"><%= t('.title') %></div>
+<div class="ribbon py-4 mt-4 mb-1 fs-4"><%= t('.title') %></div>
 <div class="result">
   <%# アニメーション %>
   <ul class="circles">
@@ -15,35 +15,35 @@
   </ul>
   <div class="container">
     <div class="row">
-      <div class="col-md-10 mx-auto">
-        <h3 class="text-center my-4 result-dish-name py-5 shadow-sm px-3 text-secondary fw-bold"><%= @dish.dish_name %></h3>
+      <div class="col-md-6 mx-auto">
+        <h3 class="text-center my-4 result-dish-name py-5 px-3 fw-bold highlight"><%= @dish.dish_name %></h3>
         <div class="text-center my-5 result-dish-image"><%= image_tag 'dish-1.jpg', size: '280x210' %></div>
       </div>
     </div>
   </div>
 </div>
-<div class="card-form-bg-light-yellow ">
-  <h5 class="fw-bold text-center text-white py-4 bg-primary shadow-sm">▼ あなたの料理情報 ▼</h5>
+<h5 class="text-center py-4 bg-primary shadow-sm mb-0">▼ あなたの料理情報 ▼</h5>
+<div class="card-form-bg-light-yellow px-3">
   <div class="container">
     <div class="row">
-      <div class="col-md-10 mx-auto card-form-content py-4 px-4 mt-4 mb-5 shadow">
+      <div class="col-md-6 mx-auto card-form-content py-4 px-4 mt-4 mb-5">
         <%# 食材 %>
         <%= Ingredient.model_name.human %>
         <div class="row mb-4">
           <div class="col-md-4 mt-2">
             <%# 要素がない場合、cssのborderを表示させたくないため、条件分岐させる%>
             <% if @dish.ingredient.name_1.present? %>
-              <div class="result-dish-content fw-bold py-1 ps-2"><%= @dish.ingredient.name_1 %></div>
+              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_1 %></div>
             <% end %>
           </div>
           <div class="col-md-4 mt-2">
             <% if @dish.ingredient.name_2.present? %>
-              <div class="result-dish-content fw-bold py-1 ps-2"><%= @dish.ingredient.name_2 %></div>
+              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_2 %></div>
             <% end %>
           </div>
           <div class="col-md-4 mt-2">
             <% if @dish.ingredient.name_3.present? %>
-              <div class="result-dish-content fw-bold py-1 ps-2"><%= @dish.ingredient.name_3 %></div>
+              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_3 %></div>
             <% end %>
           </div>
         </div>
@@ -52,7 +52,7 @@
         <div class="row mb-4">
             <% @dish.cooking_methods.each do |cooking_method| %>
               <div class="col-md-4 mt-2">
-                <div class="result-dish-content fw-bold py-1 ps-2">
+                <div class="result-dish-content py-1 ps-2">
                   <%= cooking_method.name %>
                 </div>
               </div>
@@ -62,7 +62,7 @@
         <%= Seasoning.model_name.human %>
         <div class="row mb-4">
           <div class="col-md-4 mt-2">
-            <div class="result-dish-content fw-bold py-1 ps-2">
+            <div class="result-dish-content py-1 ps-2">
               <%= @dish.seasoning.name %>
             </div>
           </div>
@@ -71,7 +71,7 @@
         <%= Texture.model_name.human %>
         <div class="row mb-4">
           <div class="col-md-4 mt-2">
-            <div class="result-dish-content fw-bold py-1 ps-2">
+            <div class="result-dish-content py-1 ps-2">
               <%= @dish.texture.name %>
             </div>
           </div>
@@ -80,7 +80,7 @@
         <%= Category.model_name.human %>
         <div class="row mb-4">
           <div class="col-md-4 mt-2">
-            <div class="result-dish-content fw-bold py-1 ps-2">
+            <div class="result-dish-content py-1 ps-2">
               <%= @dish.category.name %>
             </div>
           </div>
@@ -90,7 +90,7 @@
           <%= Dish.human_attribute_name(:point) %>
           <div class="row mb-4">
             <div class="col-md-6 mt-2">
-              <div class="result-dish-content fw-bold py-1 ps-2">
+              <div class="result-dish-content py-1 ps-2">
                 <%= @dish.point %>
               </div>
             </div>
@@ -112,7 +112,7 @@
           <p class='mt-2 mb-5'>※あとからマイページの編集画面で非公開にできます。</p>
         <% else %>
           <%= link_to t('.login'), login_path, class: 'btn btn-primary' %>
-          <p class='mt-4 mb-5 fw-bold'>\ ログインすると、次回から結果を保存できるよ /</p>
+          <p class='mt-4 mb-5 fw-bold'>\ ログインすると次回から保存できるよ /</p>
         <% end %>
       </div>
     </div>
