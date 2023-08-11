@@ -19,7 +19,10 @@
           <%= image_tag '100x100.png', class: 'rounded-circle', size:'60x60' %>
         </li>
         <li>
-          <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-utensils me-3 header-fontawesome"></i>自分の料理一覧</a>
+          <%= link_to user_path(current_user.uuid), class:'header-dropdown-item dropdown-item' do %>
+            <i class="fa-solid fa-utensils me-3 header-fontawesome"></i>
+            <%= t('users.show.title') %>
+          <% end%>
         </li>
         <li>
           <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-heart me-3 header-fontawesome"></i>いいねした料理</a>

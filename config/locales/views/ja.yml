@@ -4,6 +4,7 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     update: '更新'
+    published: '公開中'
     see_cooking_board: 'みんなの料理をみる'
     message:
       require_login: 'ログインしてください'
@@ -13,6 +14,9 @@ ja:
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+    show:
+      title: '自分の料理一覧'
+
   user_sessions:
     new:
       title: 'ログイン'
