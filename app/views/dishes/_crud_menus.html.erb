@@ -5,13 +5,13 @@
 </div>
 <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end shadow">
   <li>
-    <%= link_to '#', class:'header-dropdown-item dropdown-item' do %>
+    <%= link_to edit_dish_path(dish.uuid), class:'header-dropdown-item dropdown-item' do %>
       <i class="fa-solid fa-pen-to-square me-3 header-fontawesome"></i>
       <%= t('defaults.edit') %>
     <% end %>
   </li>
   <li>
-    <%= link_to logout_path, data: { turbo_method: :delete }, class: 'header-dropdown-item dropdown-item' do %>
+    <%= link_to dish_path(dish.uuid, redirect_path: request.url), data: { turbo_method: :delete }, class: 'header-dropdown-item dropdown-item' do %>
       <i class="fa-solid fa-trash me-3 header-fontawesome"></i>
       <%= t('defaults.delete') %>
     <% end %>
