@@ -28,7 +28,7 @@
           <a class="header-dropdown-item dropdown-item"><i class="fa-solid fa-heart me-3 header-fontawesome"></i>いいねした料理</a>
         </li>
         <li>
-          <%= link_to '#', class:'header-dropdown-item dropdown-item' do %>
+          <%= link_to edit_profile_path, class:'header-dropdown-item dropdown-item' do %>
             <i class="fa-solid fa-pen-to-square me-3 header-fontawesome"></i>
             <%= t('profiles.edit.title') %>
           <% end %>

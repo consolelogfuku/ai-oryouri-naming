@@ -15,7 +15,7 @@
       <h5 class="card-title fw-bold"><%= dish.dish_name %></h5>
       <p class="card-text"><%= dish.user.name %></p>
       <p class="card-time "><%= l dish.created_at, format: :long %></p>
-      <%= link_to dish_path(dish.uuid), class:'' do %>
+      <%= link_to dish_path(dish.uuid), class:'stretched-link' do %>
       <% end %>
     </div>
   </div>

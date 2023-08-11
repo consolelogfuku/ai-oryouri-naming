@@ -20,7 +20,6 @@ class UsersController < ApplicationController
     @dishes = current_user.dishes.order(created_at: :DESC).page(params[:page])
   end
 
-
   private
 
   def user_params
