@@ -18,6 +18,7 @@ ja:
       fail: 'ユーザー登録に失敗しました'
     show:
       title: '自分の料理一覧'
+      no_data: '料理がありません'
 
   user_sessions:
     new:

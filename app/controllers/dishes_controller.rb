@@ -3,7 +3,8 @@ class DishesController < ApplicationController
   before_action :setup_dish, only: %i[new create] # createメソッドでは、else句が走った場合に必要
 
   def index
-    @dishes = Dish.includes(:user).order(created_at: :DESC).page(params[:page])
+    # 公開中のみ表示させる
+    @dishes = Dish.includes(:user).where(state: 'published').order(created_at: :DESC).page(params[:page])
   end
 
   def new
