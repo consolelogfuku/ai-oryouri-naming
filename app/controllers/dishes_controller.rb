@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  skip_before_action :require_login, only: %i[index new create result]
+  skip_before_action :require_login, only: %i[index new show create result]
   before_action :setup_dish, only: %i[new create] # createメソッドでは、else句が走った場合に必要
 
   def index
@@ -31,6 +31,7 @@ class DishesController < ApplicationController
   end
 
   def show
+    @dish = Dish.find_by(uuid: params[:uuid])
   end
 
   def update

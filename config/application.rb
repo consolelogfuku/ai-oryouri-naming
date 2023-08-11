@@ -34,7 +34,8 @@ module AIOryouriNaming
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
+    # タイムゾーンの設定
+    config.time_zone = 'Asia/Tokyo'
     # 現在のロケールを日本に設定
     config.i18n.default_locale = :ja
     # 翻訳ファイルの読み込みパスを追加

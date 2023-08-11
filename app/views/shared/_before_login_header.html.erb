@@ -1,22 +1,27 @@
-<header class="header py-3 d-flex justify-content-between">
-  <%= link_to root_path, class: 'header-brand' do %>
-    <%= image_tag 'brand_logo.svg', size: '100x50'%>
-  <% end %>
-  <div class="header-dropdown">
-    <div class="header-dropdown-background" data-bs-toggle="dropdown">
-      <%= image_tag 'dropdown_icon.svg', class:'header-dropdown-icon', size: '30x30'%>
+<div class="sticky-top bg-white shadow-sm">
+  <header class="header py-3 d-flex justify-content-between">
+    <%= link_to root_path, class: 'header-brand' do %>
+      <%= image_tag 'brand_logo.svg', size: '100x50'%>
+    <% end %>
+    <div class="header-dropdown">
+      <div class="header-dropdown-background" data-bs-toggle="dropdown">
+        <%= image_tag 'dropdown_icon.svg', class:'header-dropdown-icon', size: '30x30'%>
+      </div>
+      <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end shadow">
+        <li>
+          <%= link_to dishes_path, class:'header-dropdown-item dropdown-item' do %>
+            <i class="fa-solid fa-magnifying-glass me-3 fontawesome"></i>
+            <%= t('defaults.see_cooking_board') %>
+          <% end %>
+        </li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+          <%= link_to login_path, class: 'header-dropdown-item dropdown-item' do %>
+            <i class="fa-solid fa-right-to-bracket me-3 fontawesome"></i>
+            <%= t('defaults.login') %>
+          <% end %>
+        </li>
+      </ul>
     </div>
-    <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end shadow">
-      <li>
-        <a  class="header-dropdown-item dropdown-item"><i class="fa-solid fa-magnifying-glass me-3 fontawesome"></i>みんなの料理を見る</a>
-      </li>
-      <li><hr class="dropdown-divider"></li>
-      <li>
-        <%= link_to login_path, class: 'header-dropdown-item dropdown-item' do %>
-          <i class="fa-solid fa-right-to-bracket me-3 fontawesome"></i>
-          <%= t('defaults.login') %>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-</header>
+  </header>
+</div>

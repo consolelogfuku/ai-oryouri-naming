@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
-  resources :users, param: :uuid, only: [:create, :show] 
+  resources :users, param: :uuid, only: %i[create show] 
   resources :dishes, param: :uuid do
     get 'result', on: :member
     patch 'publish', on: :member

@@ -4,6 +4,7 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     update: '更新'
+    see_cooking_board: 'みんなの料理をみる'
     message:
       require_login: 'ログインしてください'
   users:
@@ -31,6 +32,7 @@ ja:
       generate: 'AIに名前をつけてもらう'
     create:
       fail: '名前をつけられませんでした'
+    show:
     result:
       title: 'あなたの料理名は...'
       re_generate: 'もう一度名前をつける'

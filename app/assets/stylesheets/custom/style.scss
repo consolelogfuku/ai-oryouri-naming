@@ -243,7 +243,7 @@
   //   background-color: #45ff89;
   // }
 
-// SignUpページ、ログインページ、料理名生成結果ページ
+// SignUpページ、ログインページ、料理名生成結果ページ、投稿詳細ページ
 .card-form {
   background-color: #eee;
 
@@ -253,13 +253,17 @@
     z-index: 1;
   }
 
+  &-bg-white {
+    background-color: #fff;
+  }
+
   &-content {
     border-radius: 25px;
     background-color: #fff;
   }
 }
 
-// 生成結果ページ
+// 生成結果ページ、投稿詳細ページ
 .result {
   position: relative;
   background-color: $light-yellow;
@@ -283,8 +287,7 @@
 
   &-dish-content {
     background-color: #eee;
-    border-radius: 10px;
-    opacity: 0.7;
+    border-radius: 5px;
   }
 
   &-dish-image {
@@ -325,4 +328,10 @@
     border-bottom: solid 15px transparent;
     border-left: solid 20px $dark-pink;/*折り返し部分*/
   }
+}
+
+// 投稿一覧のcardのデザイン
+.card-time {
+  color: #aca6a6;
+  font-size: 0.84em;
 }
