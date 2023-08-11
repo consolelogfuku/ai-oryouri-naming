@@ -4,6 +4,8 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     update: '更新'
+    edit: '編集する'
+    delete: '削除する'
     published: '公開中'
     see_cooking_board: 'みんなの料理をみる'
     message:
