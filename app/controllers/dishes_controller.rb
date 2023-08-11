@@ -38,6 +38,9 @@ class DishesController < ApplicationController
   end
 
   def destroy
+    @dish = current_user.dishes.find_by(uuid: params[:uuid])
+    @dish.destroy!
+    redirect_to params[:redirect_path], success: t('.success'), status: :see_other
   end
 
   def result

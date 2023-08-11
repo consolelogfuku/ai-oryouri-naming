@@ -4,16 +4,18 @@
       <%= image_tag 'dish-1.jpg', class:'card-img-top' %>
     </div>
     <div class="card-body pt-0">
-      <%# 自分の料理一覧でのみ「公開中」マークをつける %>
+      <%# 自分の料理一覧ページでのみ「公開中」マークをつける %>
       <% if current_page?(user_path(dish.user.uuid)) && dish.published? %>
-        <span class="publish-mark text-white px-2 py-2 rounded-pill bg-success">
-          <%= t('defaults.published') %>
-        </span>
+        <%= render partial: 'dishes/published' %>
+      <% end %>
+      <%# 自分の料理には編集/削除ボタンをつける %>
+      <% if current_user.own?(dish) %>
+        <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
       <% end %>
       <h5 class="card-title fw-bold"><%= dish.dish_name %></h5>
       <p class="card-text"><%= dish.user.name %></p>
       <p class="card-time "><%= l dish.created_at, format: :long %></p>
-      <%= link_to dish_path(dish.uuid), class:'stretched-link' do %>
+      <%= link_to dish_path(dish.uuid), class:'' do %>
       <% end %>
     </div>
   </div>

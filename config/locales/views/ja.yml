@@ -4,6 +4,8 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     update: '更新'
+    edit: '編集する'
+    delete: '削除する'
     published: '公開中'
     see_cooking_board: 'みんなの料理をみる'
     message:
@@ -28,6 +30,7 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+
   dishes:
     index:
       title: 'みんなの料理'
@@ -37,6 +40,8 @@ ja:
     create:
       fail: '名前をつけられませんでした'
     show:
+    destroy:
+      success: '削除しました'
     result:
       title: 'あなたの料理名は...'
       re_generate: 'もう一度名前をつける'

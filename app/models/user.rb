@@ -23,4 +23,10 @@ class User < ApplicationRecord
       password_confirmation: 'password'
     ) : current_user
   end
+
+  def own?(object)
+    id == object.user_id
+  end
+
+
 end
