@@ -287,7 +287,7 @@
 
   &-dish-content {
     background-color: #eee;
-    border-radius: 5px;
+    border-radius: 10px;
   }
 
   &-dish-image {
@@ -334,4 +334,12 @@
 .card-time {
   color: #aca6a6;
   font-size: 0.84em;
+}
+
+.highlight {
+  text-decoration: underline; /* 下線 */
+  text-decoration-thickness: 0.5em; /* 線の太さ */
+  text-decoration-color: rgba(255, 231, 16, 0.4); /* 線の色 */
+  text-underline-offset: -0.2em; /* 線の位置。テキストに重なるようにやや上部にする */
+  text-decoration-skip-ink: none; /* 下線と文字列が重なる部分でも下線が省略されない（線が途切れない） */
 }

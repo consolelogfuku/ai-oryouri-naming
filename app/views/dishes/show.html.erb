@@ -1,9 +1,9 @@
-<h3 class="fw-bold text-center mt-5"><%= @dish.dish_name %></h3>
-<div class="card-form-bg-white">
-  <div class="text-center my-4 result-dish-image"><%= image_tag 'dish-1.jpg', size: '280x210' %></div>
+<div class="card-form-bg-white px-3">
+  <h3 class="fw-bold text-center mt-5"><%= @dish.dish_name %></h3>
+  <div class="text-center mt-5 my-4 result-dish-image"><%= image_tag 'dish-1.jpg', size: '280x210' %></div>
   <div class="container">
     <div class="row">
-      <div class="col-md-10 mx-auto card-form-content py-4 px-4 mt-4 mb-5 border">
+      <div class="col-md-6 mx-auto card-form-content py-4 px-4 mt-4 mb-5 border">
         <%# 食材 %>
         <%= Ingredient.model_name.human %>
         <div class="row mb-4">
