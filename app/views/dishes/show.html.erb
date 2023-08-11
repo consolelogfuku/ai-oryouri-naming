@@ -1,2 +1,79 @@
-<h1>Dishes#show</h1>
-<p>Find me in app/views/dishes/show.html.erb</p>
+<h3 class="fw-bold text-center mt-5"><%= @dish.dish_name %></h3>
+<div class="card-form-bg-white">
+  <div class="text-center my-4 result-dish-image"><%= image_tag 'dish-1.jpg', size: '280x210' %></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 mx-auto card-form-content py-4 px-4 mt-4 mb-5 border">
+        <%# 食材 %>
+        <%= Ingredient.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-2">
+            <%# 要素がない場合、cssのborderを表示させたくないため、条件分岐させる%>
+            <% if @dish.ingredient.name_1.present? %>
+              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_1 %></div>
+            <% end %>
+          </div>
+          <div class="col-md-4 mt-2">
+            <% if @dish.ingredient.name_2.present? %>
+              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_2 %></div>
+            <% end %>
+          </div>
+          <div class="col-md-4 mt-2">
+            <% if @dish.ingredient.name_3.present? %>
+              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_3 %></div>
+            <% end %>
+          </div>
+        </div>
+        <%# 調理法 %>
+        <%= CookingMethod.model_name.human %>
+        <div class="row mb-4">
+            <% @dish.cooking_methods.each do |cooking_method| %>
+              <div class="col-md-4 mt-2">
+                <div class="result-dish-content  py-1 ps-2">
+                  <%= cooking_method.name %>
+                </div>
+              </div>
+            <% end %>
+        </div>
+        <%# 味付け %>
+        <%= Seasoning.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-2">
+            <div class="result-dish-content py-1 ps-2">
+              <%= @dish.seasoning.name %>
+            </div>
+          </div>
+        </div>
+        <%# 食感 %>
+        <%= Texture.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-2">
+            <div class="result-dish-content  py-1 ps-2">
+              <%= @dish.texture.name %>
+            </div>
+          </div>
+        </div>
+        <%# カテゴリ %>
+        <%= Category.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-2">
+            <div class="result-dish-content  py-1 ps-2">
+              <%= @dish.category.name %>
+            </div>
+          </div>
+        </div>
+        <%# ポイント(要素がない場合、表示させない) %>
+        <% if @dish.point.present? %>
+          <%= Dish.human_attribute_name(:point) %>
+          <div class="row mb-4">
+            <div class="col-md-6 mt-2">
+              <div class="result-dish-content  py-1 ps-2">
+                <%= @dish.point %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
