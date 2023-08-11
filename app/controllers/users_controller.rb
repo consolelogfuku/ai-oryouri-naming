@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @dishes = current_user.dishes.order(created_at: :DESC).page(params[:page])
+  end
+
+
   private
 
   def user_params

@@ -3,12 +3,18 @@
     <div class="card-img-block">
       <%= image_tag 'dish-1.jpg', class:'card-img-top' %>
     </div>
-      <div class="card-body pt-0">
-        <h5 class="card-title fw-bold"><%= dish.dish_name %></h5>
-        <p class="card-text"><%= dish.user.name %></p>
-        <p class="card-time "><%= l dish.created_at, format: :long %></p>
-        <%= link_to dish_path(dish.uuid), class:'stretched-link' do %>
-        <% end %>
-      </div>
+    <div class="card-body pt-0">
+      <%# 自分の料理一覧でのみ「公開中」マークをつける %>
+      <% if current_page?(user_path(dish.user.uuid)) && dish.published? %>
+        <span class="publish-mark text-white px-2 py-2 rounded-pill bg-success">
+          <%= t('defaults.published') %>
+        </span>
+      <% end %>
+      <h5 class="card-title fw-bold"><%= dish.dish_name %></h5>
+      <p class="card-text"><%= dish.user.name %></p>
+      <p class="card-time "><%= l dish.created_at, format: :long %></p>
+      <%= link_to dish_path(dish.uuid), class:'stretched-link' do %>
+      <% end %>
     </div>
+  </div>
 </div>
