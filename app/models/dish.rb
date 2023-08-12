@@ -6,6 +6,8 @@ class Dish < ApplicationRecord
   # レコード新規作成時のみ、generateメソッドを実行する
   after_commit :generate_dish_name, on: :create
   
+  mount_uploader :dish_image, DishImageUploader
+  
   belongs_to :user
   belongs_to :ingredient
   belongs_to :seasoning
@@ -13,11 +15,12 @@ class Dish < ApplicationRecord
   belongs_to :category
   has_many :dishes_cooking_methods, dependent: :destroy
   has_many :cooking_methods, through: :dishes_cooking_methods
+  enum state: { draft: 0, published: 1 }
   
   before_create -> { self.uuid = SecureRandom.uuid }
   validates :point, length: { maximum: 20 } # 20文字以内
   validates :state, presence: true
-  enum state: { draft: 0, published: 1 }
+
 
   # urlにuuidを使用
   def to_param

@@ -17,12 +17,12 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <h3 class="text-center my-4 result-dish-name py-5 px-3 fw-bold highlight"><%= @dish.dish_name %></h3>
-        <div class="text-center my-5 result-dish-image"><%= image_tag 'dish-1.jpg', size: '360x270' %></div>
+        <div class="text-center my-5 result-dish-image"><%= image_tag @dish.dish_image_url, size: '360x270' %></div>
       </div>
     </div>
   </div>
 </div>
-<h5 class="text-center py-4 bg-primary shadow-sm text-white mb-0">▼ あなたの料理情報 ▼</h5>
+<h5 class="text-center py-4 bg-primary shadow-sm text-white mb-0 fw-bold">▼ あなたの料理情報 ▼</h5>
 <div class="card-form-bg-light-yellow px-3">
   <div class="container">
     <div class="row">
