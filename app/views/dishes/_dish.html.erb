@@ -13,8 +13,11 @@
         <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
       <% end %>
       <h5 class="card-title fw-bold"><%= dish.dish_name %></h5>
-      <p class="card-text"><%= dish.user.name %></p>
-      <p class="card-time "><%= l dish.created_at, format: :long %></p>
+      <div class="d-flex align-items-center mt-3">
+        <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3', size:'70x70' %>
+        <p class="card-text ms-2"><%= dish.user.name %></p>
+      </div>
+      <p class="card-time text-end mb-0"><%= l dish.created_at, format: :long, class:'text-right' %></p>
       <%= link_to dish_path(dish.uuid), class:'stretched-link' do %>
       <% end %>
     </div>

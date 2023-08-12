@@ -16,7 +16,7 @@
         </li>
         <li><hr class="dropdown-divider"></li>
         <li class='text-center pb-2'>
-          <%= image_tag '100x100.png', class: 'rounded-circle', size:'60x60' %>
+          <%= image_tag current_user.avatar.url , class: 'rounded-circle border border-3', size:'60x60' %>
         </li>
         <li>
           <%= link_to user_path(current_user.uuid), class:'header-dropdown-item dropdown-item' do %>
