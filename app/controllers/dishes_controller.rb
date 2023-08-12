@@ -59,7 +59,7 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image)
+    params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache)
   end
 
   def setup_dish # 選択肢を生成するのに必要
