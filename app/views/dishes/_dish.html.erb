@@ -9,7 +9,7 @@
         <%= render partial: 'dishes/published' %>
       <% end %>
       <%# 自分の料理には編集/削除ボタンをつける %>
-      <% if current_user.own?(dish) %>
+      <% if current_user&.own?(dish) %>
         <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
       <% end %>
       <h5 class="card-title fw-bold"><%= dish.dish_name %></h5>
