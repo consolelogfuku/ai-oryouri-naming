@@ -111,9 +111,7 @@
             <%= f.label :dish_image, class: 'form-label' %>
             <%= f.file_field :dish_image, class: 'form-control mt-2', accept: 'image/*' %>
             <%= f.hidden_field :dish_image_cache %>
-            <% if @dish.dish_image? %>
-              <div class="result-dish-image my-4"><%= image_tag @dish.dish_image_url, size: '360x270' %></div>
-            <% end %>
+            <div class="result-dish-image my-4"><%= image_tag @dish.dish_image_url, id: 'preview', size: '360x270' %></div>
             <div class="form-text">写真をアップロードして、自慢の一品を広めましょう！</div>
             <div class="form-text">名前をつけた後にシェアできます！</div>
           </div>
