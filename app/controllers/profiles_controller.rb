@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def edit
-    @user = current_user
+    @user = User.find(current_user.id)
   end
 
   def update
@@ -16,6 +16,6 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :avatar, :avatar_cache)
   end
 end
