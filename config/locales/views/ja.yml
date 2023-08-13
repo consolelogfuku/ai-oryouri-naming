@@ -10,6 +10,7 @@ ja:
     see_cooking_board: 'みんなの料理をみる'
     message:
       require_login: 'ログインしてください'
+
   users:
     new:
       title: 'ユーザー登録'
@@ -41,6 +42,9 @@ ja:
     create:
       fail: '名前をつけられませんでした'
     show:
+    update:
+      success: '更新しました'
+      fail: '更新できませんでした'
     destroy:
       success: '削除しました'
     result:

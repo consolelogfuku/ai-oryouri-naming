@@ -1,0 +1,6 @@
+ja:
+  enums:
+    dish:
+      state:
+        draft: '非公開'
+        published: '公開中'

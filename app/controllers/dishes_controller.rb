@@ -29,6 +29,7 @@ class DishesController < ApplicationController
   end
 
   def edit
+    @dish = current_user.dishes.find_by(uuid: params[:uuid])
   end
 
   def show
@@ -36,6 +37,13 @@ class DishesController < ApplicationController
   end
 
   def update
+    @dish = current_user.dishes.find_by(uuid: params[:uuid])
+    if @dish.update(dish_image: params[:dish][:dish_image], state: params[:dish][:state])
+      redirect_to edit_dish_path, success: t('.success')
+    else
+      flash.now[:warning] = t('.fail')
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -59,7 +67,7 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache)
+    params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache, :state)
   end
 
   def setup_dish # 選択肢を生成するのに必要
