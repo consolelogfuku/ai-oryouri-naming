@@ -92,6 +92,14 @@
   text-align: center;
   position: relative;
 
+  // イメージ
+  &-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   // アニメーションの設定
   &-foods-1 {
   width: 100%;
