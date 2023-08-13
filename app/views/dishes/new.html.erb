@@ -27,7 +27,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <%= image_tag 'hero_image.svg', size: '360x200', class:'hero-image' %>
+        <%= image_tag 'hero_image.svg', size: '400x220', class:'hero-image' %>
       </div>
     </div>
   </div>
@@ -109,7 +109,7 @@
             <%= f.label :dish_image, class: 'form-label' %>
             <%= f.file_field :dish_image, class: 'form-control mt-2', accept: 'image/*' %>
             <%= f.hidden_field :dish_image_cache %>
-            <div class="result-dish-image my-4"><%= image_tag @dish.dish_image.url, id: 'preview', size: '360x270' %></div>
+            <div class="result-dish-image my-4"><%= image_tag @dish.dish_image.url, id: 'preview', size: '320x240' %></div>
             <div class="form-text">写真をアップロードして、自慢の一品を広めましょう！</div>
             <div class="form-text">名前をつけた後にシェアできます！</div>
           </div>

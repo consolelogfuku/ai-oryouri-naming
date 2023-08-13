@@ -9,7 +9,7 @@ class DishImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    'utensils_with_circles.png'
+    'utensils.svg'
   end
 
   def extension_allowlist

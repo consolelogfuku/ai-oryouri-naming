@@ -14,7 +14,7 @@
         <%= f.label :dish_image, class: 'form-label' %>
         <%= f.file_field :dish_image, class: 'form-control', accept: 'image/*' %>
         <%= f.hidden_field :dish_image_cache %>
-        <div class="result-dish-image my-4"><%= image_tag @dish.dish_image.url, id: 'preview', size: '360x270' %></div>
+        <div class="result-dish-image my-4"><%= image_tag @dish.dish_image.url, id: 'preview', size: '320x240' %></div>
       </div>
     </div>
     <div class="text-center mx-auto"">
