@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDishes < ActiveRecord::Migration[7.0]
   def change
     create_table :dishes do |t|
@@ -11,7 +13,6 @@ class CreateDishes < ActiveRecord::Migration[7.0]
       t.string :point
       t.string :dish_image
       t.integer :state, default: 0, null: false
-
 
       t.timestamps
     end

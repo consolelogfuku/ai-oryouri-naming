@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DishImageUploader < CarrierWave::Uploader::Base
   # storage :file
   storage :fog
@@ -10,9 +12,7 @@ class DishImageUploader < CarrierWave::Uploader::Base
     'utensils_with_circles.png'
   end
 
-
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
-
 end

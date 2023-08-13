@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DishesController < ApplicationController
   skip_before_action :require_login, only: %i[index new show create result]
   before_action :setup_dish, only: %i[new create] # createメソッドでは、else句が走った場合に必要
@@ -67,15 +69,15 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache, :state)
+    params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache,
+                                 :state)
   end
 
-  def setup_dish # 選択肢を生成するのに必要
+  # 選択肢を生成するのに必要
+  def setup_dish
     @cooking_methods = CookingMethod.all
     @seasonings = Seasoning.all
     @textures = Texture.all
     @categories = Category.all
   end
-
-
 end
