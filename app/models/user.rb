@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :dishes, dependent: :destroy
@@ -16,19 +18,21 @@ class User < ApplicationRecord
   def to_param
     uuid
   end
-  
+
   def self.set_guest_if_not_logedin(current_user)
-    current_user.nil? ? User.new(
-      name: 'ゲスト',
-      email: SecureRandom.alphanumeric(10) + "@email.com",
-      password: 'password',
-      password_confirmation: 'password'
-    ) : current_user
+    if current_user.nil?
+      User.new(
+        name: 'ゲスト',
+        email: "#{SecureRandom.alphanumeric(10)}@email.com",
+        password: 'password',
+        password_confirmation: 'password'
+      )
+    else
+      current_user
+    end
   end
 
   def own?(object)
     id == object.user_id
   end
-
-
 end
