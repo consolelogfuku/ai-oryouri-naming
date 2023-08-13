@@ -21,6 +21,7 @@ ja:
         dish_name: '料理名'
         point: 'こだわりポイント'
         dish_image: '料理写真'
+        state: 'ステータス'
       ingredient:
         id: 'ID'
         name_1: '食材1'

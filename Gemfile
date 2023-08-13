@@ -53,6 +53,7 @@ gem "sassc-rails"
 
 # UI/UX
 gem 'rails-i18n'
+gem 'enum_help'
 
 # 環境変数管理
 gem 'dotenv-rails'
