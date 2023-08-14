@@ -339,16 +339,10 @@
 }
   // 編集/削除マーク
 .crud-menus {
-  z-index: 3;
-  position: absolute;
-  top: -10px;
-  right: 30px;
+  position: relative;
+  right: -160px;
   width: 80px;
   height: 20px;
-  backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(20px);
-  border-radius: 10px;
 
   &:hover {
     opacity: 0.7;
@@ -357,7 +351,6 @@
 
   &-1 {
     position: absolute;
-    top: 5px;
     right: 15px;
     width: 80px;
     height: 20px;
@@ -365,7 +358,6 @@
 
   &-2 {
     position: absolute;
-    top: 5px;
     right: -15px;
     width: 80px;
     height: 20px;
@@ -373,7 +365,7 @@
 
   &-slash {
     position: absolute;
-    top: 3px;
+    top: -2px;
     right: -38px;
     width: 80px;
     height: 20px;
@@ -383,4 +375,18 @@
 // プロフィール
 .profile-icon {
   background-color: $light-gray;
+}
+
+// いいねマーク
+.like {
+  position: absolute;
+  top: 344px;
+  right: 30px;
+  width: 25px;
+  height: 25px;
+  color: #f52121c8;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }

@@ -10,6 +10,7 @@ ja:
     see_cooking_board: 'みんなの料理をみる'
     message:
       require_login: 'ログインしてください'
+      delete_confirm: '削除してよいですか？'
 
   users:
     new:

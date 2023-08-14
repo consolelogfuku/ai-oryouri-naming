@@ -1,6 +1,6 @@
-<div class="crud-menus py-3 px-3" data-bs-toggle="dropdown">
+<div class="crud-menus" data-bs-toggle="dropdown">
   <i class="fa-solid fa-pen-to-square crud-menus-1"></i>
-  <p class='crud-menus-slash fw-bold'>/</p>
+  <p class='crud-menus-slash fw-bold mb-0'>/</p>
   <i class="fa-solid fa-trash crud-menus-2"></i>
 </div>
 <ul class="header-dropdown-menu dropdown-menu dropdown-menu-end shadow">
@@ -11,7 +11,7 @@
     <% end %>
   </li>
   <li>
-    <%= link_to dish_path(dish.uuid, redirect_path: request.url), data: { turbo_method: :delete }, class: 'header-dropdown-item dropdown-item' do %>
+    <%= link_to dish_path(dish.uuid, redirect_path: request.url), data: { turbo_method: :delete, turbo_confirm: t('defaults.message.delete_confirm') }, class: 'header-dropdown-item dropdown-item' do %>
       <i class="fa-solid fa-trash me-3 header-fontawesome"></i>
       <%= t('defaults.delete') %>
     <% end %>
