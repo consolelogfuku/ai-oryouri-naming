@@ -12,14 +12,14 @@
       <% if current_user&.own?(dish) %>
         <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
       <% end %>
-      <h5 class="card-title fw-bold"><%= dish.dish_name %></h5>
+      <%# 料理名 %>
+      <h5 class="fw-bold"><%= link_to dish.dish_name, dish_path(dish.uuid), class:'card-title'  %></h5>
+      <%# ユーザーアバターとニックネーム %>
       <div class="d-flex align-items-center mt-3">
         <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3', size:'70x70' %>
         <p class="card-text ms-2"><%= dish.user.name %></p>
       </div>
       <p class="card-time text-end mb-0"><%= l dish.created_at, format: :long, class:'text-right' %></p>
-      <%= link_to dish_path(dish.uuid), class:'stretched-link' do %>
-      <% end %>
     </div>
   </div>
 </div>
