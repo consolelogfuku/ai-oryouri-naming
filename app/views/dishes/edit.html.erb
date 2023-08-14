@@ -1,15 +1,15 @@
 <%= form_with model: @dish do |f| %>
   <%= render partial: 'shared/error_messages', locals: {object: f.object} %>
-  <div class="contaier my-5">
+  <div class="container my-5">
     <div class="row">
-      <div class="col-3 mx-auto">
+      <div class="col-md-4 mx-auto">
         <%# ステータス %>
         <%= f.label :state, class: 'form-label', include_blank: false %>
         <%= f.select :state, Dish.states_i18n.invert, {}, class: 'form-select' %>
       </div>
     </div>
     <div class="row">
-      <div class="col-3 mx-auto mt-4">
+      <div class="col-md-4 mx-auto mt-4">
         <%# 料理写真 %>
         <%= f.label :dish_image, class: 'form-label' %>
         <%= f.file_field :dish_image, class: 'form-control', accept: 'image/*' %>
