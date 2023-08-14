@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :dishes, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_dishes, through: :likes, source: :dish
 
   before_create -> { self.uuid = SecureRandom.uuid }
   validates :name, presence: true, length: { maximum: 15 } # 20文字以内
@@ -34,5 +36,17 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+  def like(dish)
+    like_dishes << dish
+  end
+
+  def unlike(dish)
+    like_dishes.destroy(dish)
+  end
+
+  def like?(dish)
+    like_dishes.include?(dish)
   end
 end

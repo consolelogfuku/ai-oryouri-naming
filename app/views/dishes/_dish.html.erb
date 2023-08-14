@@ -8,9 +8,11 @@
       <% if current_page?(user_path(dish.user.uuid)) && dish.published? %>
         <%= render partial: 'dishes/published' %>
       <% end %>
-      <%# 自分の料理には編集/削除ボタンをつける %>
+      <%# 自分の料理にはcrudボタン、そうでなければいいねボタン %>
       <% if current_user&.own?(dish) %>
         <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
+      <% else %>
+        <%= render partial: 'dishes/likes_button', locals: { dish: dish } %>
       <% end %>
       <%# 料理名 %>
       <h5 class="fw-bold"><%= link_to dish.dish_name, dish_path(dish.uuid), class:'card-title'  %></h5>

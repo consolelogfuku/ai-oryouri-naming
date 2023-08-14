@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
   resource :profile, only: %i[edit update]
   resources :password_resets, only: %i[new create edit update]
+  resources :likes, param: :uuid, only: %i[create destroy]
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development? # letter_opener_web用
 end
