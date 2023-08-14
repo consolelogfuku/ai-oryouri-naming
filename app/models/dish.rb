@@ -17,6 +17,7 @@ class Dish < ApplicationRecord
   belongs_to :category
   has_many :dishes_cooking_methods, dependent: :destroy
   has_many :cooking_methods, through: :dishes_cooking_methods
+  has_many :likes, dependent: :destroy
   enum state: { draft: 0, published: 1 }
 
   before_create -> { self.uuid = SecureRandom.uuid }

@@ -66,11 +66,16 @@ class DishesController < ApplicationController
     render :result, status: :unprocessable_entity
   end
 
+  # いいね一覧を取得
+  def likes
+    @likes = current_user.like_dishes.includes(:user).order(created_at: :DESC)
+  end
+
   private
 
   def dish_params
     params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache,
-                                 :state)
+                                :state)
   end
 
   # 選択肢を生成するのに必要

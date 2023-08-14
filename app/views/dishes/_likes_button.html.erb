@@ -1,0 +1,7 @@
+<% if current_user&.like?(dish) %>
+  <%# いいねしている場合 %>
+  <%= render 'unlike', dish: dish %>
+<% else %>
+  <%# いいねしていない場合 %>
+  <%= render 'like', dish: dish %>
+<% end %>

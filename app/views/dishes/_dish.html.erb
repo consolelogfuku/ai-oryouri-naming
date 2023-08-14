@@ -8,17 +8,20 @@
       <% if current_page?(user_path(dish.user.uuid)) && dish.published? %>
         <%= render partial: 'dishes/published' %>
       <% end %>
-      <%# 自分の料理には編集/削除ボタンをつける %>
-      <% if current_user&.own?(dish) %>
-        <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
-      <% end %>
       <%# 料理名 %>
       <h5 class="fw-bold"><%= link_to dish.dish_name, dish_path(dish.uuid), class:'card-title'  %></h5>
-      <%# ユーザーアバターとニックネーム %>
+      <%# アバター、ニックネーム、crud/いいね %>
       <div class="d-flex align-items-center mt-3">
         <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3', size:'70x70' %>
-        <p class="card-text ms-2"><%= dish.user.name %></p>
+        <p class="card-text ms-2 mb-0"><%= dish.user.name %></p>
+        <%# 自分の料理にはcrudボタン、そうでなければいいねボタン %>
+        <% if current_user&.own?(dish) %>
+          <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
+        <% else %>
+          <%= render partial: 'dishes/likes_button', locals: { dish: dish } %>
+        <% end %>
       </div>
+      <%# 日付 %>
       <p class="card-time text-end mb-0"><%= l dish.created_at, format: :long, class:'text-right' %></p>
     </div>
   </div>
