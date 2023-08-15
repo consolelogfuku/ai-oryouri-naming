@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CookingMethod < ApplicationRecord
   has_many :dishes_cooking_methods, dependent: :destroy
   has_many :dishes, through: :dishes_cookind_methods

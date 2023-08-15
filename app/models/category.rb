@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Category < DishAttribute
-  has_many :dishes
+  has_many :dishes, dependent: :destroy
 end

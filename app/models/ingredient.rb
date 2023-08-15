@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 class Ingredient < ApplicationRecord
-  has_one :dish
+  has_one :dish, dependent: :destroy
 
   # 食材は15文字以内
   validates :name_1, length: { maximum: 15 }
