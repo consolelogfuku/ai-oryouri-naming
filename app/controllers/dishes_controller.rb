@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class DishesController < ApplicationController
   skip_before_action :require_login, only: %i[index new show create result]
   before_action :setup_dish, only: %i[new create] # createメソッドでは、else句が走った場合に必要
@@ -9,8 +7,16 @@ class DishesController < ApplicationController
     @dishes = Dish.includes(:user).where(state: 'published').order(created_at: :DESC).page(params[:page])
   end
 
+  def show
+    @dish = Dish.find_by(uuid: params[:uuid])
+  end
+
   def new
     @dish = Dish.new
+  end
+
+  def edit
+    @dish = current_user.dishes.find_by(uuid: params[:uuid])
   end
 
   def create
@@ -28,14 +34,6 @@ class DishesController < ApplicationController
       flash.now[:warning] = t('.fail')
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @dish = current_user.dishes.find_by(uuid: params[:uuid])
-  end
-
-  def show
-    @dish = Dish.find_by(uuid: params[:uuid])
   end
 
   def update
@@ -75,7 +73,7 @@ class DishesController < ApplicationController
 
   def dish_params
     params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache,
-                                :state)
+                                 :state)
   end
 
   # 選択肢を生成するのに必要

@@ -1,7 +1,9 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+
+  def show
+    @dishes = current_user.dishes.order(created_at: :DESC).page(params[:page])
+  end
 
   def new
     @user = User.new
@@ -16,10 +18,6 @@ class UsersController < ApplicationController
       flash.now[:warning] = t('.fail')
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
-    @dishes = current_user.dishes.order(created_at: :DESC).page(params[:page])
   end
 
   private

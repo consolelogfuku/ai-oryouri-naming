@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
   root to: 'dishes#new'
   get 'sign_up', to: 'users#new'

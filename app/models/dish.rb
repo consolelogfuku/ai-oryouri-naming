@@ -1,10 +1,9 @@
-# frozen_string_literal: true
-
 class Dish < ApplicationRecord
   require 'openai'
   require 'dotenv'
   Dotenv.load
 
+  before_create -> { self.uuid = SecureRandom.uuid }
   # レコード新規作成時のみ、generateメソッドを実行する
   after_commit :generate_dish_name, on: :create
 
@@ -20,7 +19,6 @@ class Dish < ApplicationRecord
   has_many :likes, dependent: :destroy
   enum state: { draft: 0, published: 1 }
 
-  before_create -> { self.uuid = SecureRandom.uuid }
   validates :point, length: { maximum: 20 } # 20文字以内
   validates :state, presence: true
 
@@ -32,15 +30,13 @@ class Dish < ApplicationRecord
   # 食材と調理法も一緒に保存
   def save_with_ingredients_and_cooking_methods(name_1:, name_2:, name_3:, cooking_methods_name:)
     ActiveRecord::Base.transaction do
-      # 食材(同じ食材の組み合わせがあった場合は、その食材を取得する)
-      self.ingredient = Ingredient.find_or_create_by(name_1:, name_2:, name_3:)
+      # 食材
+      self.ingredient = Ingredient.create(name_1:, name_2:, name_3:)
       # 調理法
       cooking_methods_name&.each do |cooking_method_name|
         cooking_methods << CookingMethod.find_by(name: cooking_method_name)
       end
-      return false unless valid?
-
-      save!
+      save # 保存できなけれは、createメソッドのelse句が走る
     end
   end
 
@@ -64,7 +60,7 @@ class Dish < ApplicationRecord
     ポイント:#{point}"
 
     # OpenAI APIを叩く
-    client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
+    client = OpenAI::Client.new(access_token: ENV.fetch('OPENAI_API_KEY', nil))
     response = client.chat(
       parameters: {
         model: 'gpt-3.5-turbo',

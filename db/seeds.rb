@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 10.times do |n|
   User.create!(
     name: "テストユーザー#{n + 1}",

@@ -330,6 +330,9 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.28.1)
       parser (>= 3.2.1.0)
+    rubocop-performance (1.19.0)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
     rubocop-rails (2.20.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -432,6 +435,7 @@ DEPENDENCIES
   rails-i18n
   redis (~> 4.0)
   rubocop
+  rubocop-performance
   rubocop-rails
   ruby-openai
   sassc-rails
