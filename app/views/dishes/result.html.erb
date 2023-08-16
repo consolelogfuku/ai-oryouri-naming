@@ -108,8 +108,7 @@
         <%# ログイン/未ログインで表示を変化 %>
         <% if logged_in? %>
           <%= link_to t('.publish'), publish_dish_path, class: 'btn btn-primary', data: { turbo_method: :patch } %>
-          <p class='mt-4 fw-bold'>\ みんなの料理掲示板で公開しよう /</p>
-          <p class='mt-2 mb-5'>※あとからマイページの編集画面で非公開にできます。</p>
+          <p class='mt-4 mb-5'>※あとからマイページの編集画面で非公開にできます。</p>
         <% else %>
           <%= link_to t('.login'), login_path, class: 'btn btn-primary' %>
           <p class='mt-4 mb-5 fw-bold'>ログインすると次から結果を保存できるよ</p>

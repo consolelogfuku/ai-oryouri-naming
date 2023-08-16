@@ -7,7 +7,7 @@ ja:
     edit: '編集する'
     delete: '削除する'
     published: '公開中'
-    see_cooking_board: 'みんなの料理をみる'
+    see_cooking_board: 'みんなの料理掲示板'
     message:
       require_login: 'ログインしてください'
       delete_confirm: '削除してよいですか？'
@@ -52,7 +52,7 @@ ja:
       title: 'あなたの料理名は...'
       re_generate: 'もう一度名前をつける'
       login: 'ログインする'
-      publish: '公開する'
+      publish: '料理掲示板で公開する'
     publish:
       success: '公開しました'
 
