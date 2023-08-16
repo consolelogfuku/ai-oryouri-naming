@@ -21,14 +21,10 @@ class DishesController < ApplicationController
 
   def create
     # 料理名生成時に、ログインしていなければ、自動的にゲストユーザー設定をする
-    user = User.set_guest_if_not_logedin(current_user) # user.rb内でcurrent_userを使用できるようにするため、引数を渡す
+    user = User.set_guest_if_not_logedin(current_user) # user.rb内でcurrent_userを使用できるように、引数を渡す
     @dish = user.dishes.build(dish_params)
-    if @dish.save_with_ingredients_and_cooking_methods(
-      name_1: params[:dish][:name_1],
-      name_2: params[:dish][:name_2],
-      name_3: params[:dish][:name_3],
-      cooking_methods_name: params[:dish][:cooking_methods_name]
-    )
+
+    if @dish.save_with_ingredients_and_cooking_methods(ingredients_and_cooking_methods_params)
       redirect_to result_dish_path(@dish.uuid)
     else
       flash.now[:warning] = t('.fail')
@@ -38,7 +34,7 @@ class DishesController < ApplicationController
 
   def update
     @dish = current_user.dishes.find_by(uuid: params[:uuid])
-    if @dish.update(dish_image: params[:dish][:dish_image], state: params[:dish][:state])
+    if @dish.update(update_params)
       redirect_to edit_dish_path, success: t('.success')
     else
       flash.now[:warning] = t('.fail')
@@ -74,6 +70,14 @@ class DishesController < ApplicationController
   def dish_params
     params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache,
                                  :state)
+  end
+
+  def ingredients_and_cooking_methods_params
+    params.require(:dish).permit(:name_1, :name_2, :name_3, cooking_methods_name: [])
+  end
+
+  def update_params
+    params.require(:dish).permit(:dish_image, :status)
   end
 
   # 選択肢を生成するのに必要

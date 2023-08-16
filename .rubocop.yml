@@ -43,3 +43,7 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   CountComments: false
   Max: 30
+
+# 数字を使ったカラム(name_1)があるため、警告が出ないようにする
+Naming/VariableNumber:
+  Enabled: false
