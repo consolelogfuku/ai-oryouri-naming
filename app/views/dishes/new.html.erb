@@ -33,7 +33,7 @@
   </div>
 </div>
 <%# main-contetntセクション %>
-<div class="main-content pb-5">
+<div class="main-content">
   <h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
     <%= form_with model: @dish do |f| %>
       <%# 食材 %>
@@ -117,7 +117,11 @@
       </div>
       <div class="text-center">
         <%= f.submit t('.generate'), class: 'btn btn-secondary mt-3 py-3 fs-6' %>
+        <p class="mt-3">※1日3回まで、名前をつけられます</p>
       </div>
     <% end %>
+      <div class="text-center pb-4">
+        <%= image_tag 'robot_good_comment.svg', size: '200x150' %>
+      </div>
   </div>
 </div>
