@@ -33,7 +33,7 @@
   </div>
 </div>
 <%# main-contetntセクション %>
-<div class="main-content pb-5">
+<div class="main-content">
   <h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
     <%= form_with model: @dish do |f| %>
       <%# 食材 %>
@@ -109,15 +109,19 @@
             <%= f.label :dish_image, class: 'form-label' %>
             <%= f.file_field :dish_image, class: 'form-control mt-2', accept: 'image/*' %>
             <%= f.hidden_field :dish_image_cache %>
-            <div class="result-dish-image my-4"><%= image_tag @dish.dish_image.url, id: 'preview', size: '320x240' %></div>
             <div class="form-text">写真をアップロードして、自慢の一品を広めましょう！</div>
             <div class="form-text">名前をつけた後にシェアできます！</div>
+            <div class="result-dish-image my-4"><%= image_tag @dish.dish_image.url, id: 'preview' %></div>
           </div>
         </div>
       </div>
       <div class="text-center">
         <%= f.submit t('.generate'), class: 'btn btn-secondary mt-3 py-3 fs-6' %>
+        <p class="mt-3">※1日3回まで、名前をつけられます</p>
       </div>
     <% end %>
+      <div class="text-center pb-4">
+        <%= image_tag 'robot_good_comment.svg', size: '200x150' %>
+      </div>
   </div>
 </div>

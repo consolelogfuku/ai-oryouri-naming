@@ -12,8 +12,10 @@
       <h5 class="fw-bold"><%= link_to dish.dish_name, dish_path(dish.uuid), class:'card-title'  %></h5>
       <%# アバター、ニックネーム、crud/いいね %>
       <div class="d-flex align-items-center mt-3">
-        <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3', size:'70x70' %>
-        <p class="card-text ms-2 mb-0"><%= dish.user.name %></p>
+        <div class="d-flex align-items-center flex-grow-1">
+          <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3', size:'70x70' %>
+          <p class="card-text ms-2 mb-0"><%= dish.user.name %></p>
+        </div>
         <%# 自分の料理にはcrudボタン、そうでなければいいねボタン %>
         <% if current_user&.own?(dish) %>
           <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
