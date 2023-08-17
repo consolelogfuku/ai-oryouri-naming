@@ -35,7 +35,7 @@
 <%# main-contetntセクション %>
 <div class="main-content">
   <h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
-    <%= form_with model: @dish do |f| %>
+    <%= form_with model: @generate_form, url: dishes_path do |f| %>
       <%# 食材 %>
       <div class="ingredient">
         <div class="container">
@@ -48,7 +48,7 @@
               <%= f.text_field :name_2, class:'form-control', placeholder: '玉ねぎ'%>
             </div>
             <div class="col-md-4 mt-3">
-              <%= f.text_field :name_3, class:'form-control', placeholder: 'トマト' %>
+              <%= f.text_field :name_3, class:'form-control', placeholder: 'たまご' %>
             </div>
             <div class="form-text">※食材は1つ以上、各15文字以内で入力してください</div>
           </div>
@@ -121,7 +121,7 @@
       </div>
     <% end %>
       <div class="text-center pb-4">
-        <%= image_tag 'robot_good_comment.svg', size: '200x150' %>
+        <%= image_tag 'robot_goodsign.svg', size: '200x150' %>
       </div>
   </div>
 </div>

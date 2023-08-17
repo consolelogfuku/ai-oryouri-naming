@@ -12,6 +12,7 @@ class DishesController < ApplicationController
   end
 
   def new
+    @generate_form = GenerateForm.new
     @dish = Dish.new
   end
 
@@ -20,11 +21,9 @@ class DishesController < ApplicationController
   end
 
   def create
-    # 料理名生成時に、ログインしていなければ、自動的にゲストユーザー設定をする
-    user = User.set_guest_if_not_logedin(current_user) # user.rb内でcurrent_userを使用できるように、引数を渡す
-    @dish = user.dishes.build(dish_params)
-
-    if @dish.save_with_ingredients_and_cooking_methods(ingredients_and_cooking_methods_params)
+    @generate_form = GenerateForm.new(generate_params)
+    @dish = @generate_form.setup_dish(current_user)
+    if @dish.save
       redirect_to result_dish_path(@dish.uuid)
     else
       flash.now[:warning] = t('.fail')
@@ -67,13 +66,9 @@ class DishesController < ApplicationController
 
   private
 
-  def dish_params
-    params.require(:dish).permit(:seasoning_id, :texture_id, :category_id, :point, :dish_image, :dish_image_cache,
-                                 :state)
-  end
-
-  def ingredients_and_cooking_methods_params
-    params.require(:dish).permit(:name_1, :name_2, :name_3, cooking_methods_name: [])
+  def generate_params
+    params.require(:generate_form).permit(:name_1, :name_2, :name_3, { cooking_methods: [] }, :seasoning_id,
+                                          :texture_id, :category_id, :point, :dish_image, :dish_image_cache)
   end
 
   def update_params
