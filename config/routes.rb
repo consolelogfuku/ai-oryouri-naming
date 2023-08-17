@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :dishes, param: :uuid do
     get 'result', on: :member
     patch 'publish', on: :member
+    get 'likes', on: :collection
   end
   resource :profile, only: %i[edit update]
   resources :password_resets, only: %i[new create edit update]

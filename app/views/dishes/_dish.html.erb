@@ -4,17 +4,19 @@
       <%= image_tag dish.dish_image_url, class:'card-img-top' %>
     </div>
     <div class="card-body pt-0">
-      <%# 自分の料理一覧ページでのみ「公開中」マークをつける %>
+      <%# 今、自分の料理一覧ページにいる且つ「公開中」 =>trueで 「公開中」マークつける %>
       <% if current_page?(user_path(dish.user.uuid)) && dish.published? %>
         <%= render partial: 'dishes/published' %>
       <% end %>
       <%# 料理名 %>
       <h5 class="fw-bold"><%= link_to dish.dish_name, dish_path(dish.uuid), class:'card-title'  %></h5>
-      <%# アバター、ニックネーム、crud/いいね %>
+      <%# アバター、ニックネーム %>
       <div class="d-flex align-items-center mt-3">
-        <div class="d-flex align-items-center flex-grow-1">
-          <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3', size:'70x70' %>
-          <p class="card-text ms-2 mb-0"><%= dish.user.name %></p>
+        <div class="flex-grow-1 d-flex align-items-center">
+          <%= link_to user_path(dish.user.uuid), class:'d-flex align-items-center card-link ' do %>
+            <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3 card-avatar', size:'70x70' %>
+            <p class="card-text ms-3 mb-0"><%= dish.user.name %></p>
+          <% end %>
         </div>
         <%# 自分の料理にはcrudボタン、そうでなければいいねボタン %>
         <% if current_user&.own?(dish) %>

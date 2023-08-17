@@ -108,7 +108,8 @@
         <%# ログイン/未ログインで表示を変化 %>
         <% if logged_in? %>
           <%= link_to t('.publish'), publish_dish_path, class: 'btn btn-primary', data: { turbo_method: :patch } %>
-          <p class='mt-4 mb-5'>※あとからマイページの編集画面で非公開にできます。</p>
+          <p class='mt-4'>掲示板に投稿して、みんなに見てもらおう！！</p>
+          <p class='mb-5 form-text'>※あとからマイページの編集画面で非公開にできます。</p>
         <% else %>
           <%= link_to t('.login'), login_path, class: 'btn btn-primary' %>
           <p class='mt-4 mb-5 fw-bold'>ログインすると次から結果を保存できるよ</p>
@@ -117,3 +118,14 @@
     </div>
   </div>
 </div>
+<a
+  tabindex="0"
+  class="btn btn-lg btn-danger"
+  role="button"
+  data-mdb-toggle="popover"
+  data-mdb-trigger="focus"
+  title="Dismissible popover"
+  data-mdb-content="And here's some amazing content. It's very engaging. Right?"
+>
+  Dismissible popover
+</a>

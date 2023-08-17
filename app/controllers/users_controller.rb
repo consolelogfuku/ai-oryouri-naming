@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
 
   def show
-    @dishes = current_user.dishes.order(created_at: :DESC).page(params[:page])
+    @user = User.find_by(uuid: params[:uuid])
+    @dishes = @user.dishes.order(created_at: :DESC).page(params[:page])
   end
 
   def new
