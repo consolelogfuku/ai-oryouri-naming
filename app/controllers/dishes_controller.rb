@@ -61,7 +61,7 @@ class DishesController < ApplicationController
 
   # いいね一覧を取得
   def likes
-    @likes = current_user.like_dishes.includes(:user).order(created_at: :DESC)
+    @likes = current_user.like_dishes.includes(:user).order(created_at: :DESC).page(params[:page])
   end
 
   private

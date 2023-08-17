@@ -1,0 +1,8 @@
+ja: 
+  activemodel:
+    models:
+      generate_form:
+    attributes:
+      generate_form:
+        point: 'ポイント'
+        dish_image: '料理写真'

@@ -19,14 +19,27 @@
     border-radius:3px;
     box-shadow:0 0 10px rgba(0,0,0,0.4);
   }
-}
 
-.card-title {
-  color: #424242 !important;
-  text-decoration: none;
-  border-bottom: 1px solid;
-}
+  .card-title {
+    color: #424242 !important;
+    text-decoration: none;
+    border-bottom: 1px solid;
+  }
+  
+  .card-title:hover {
+    opacity: 0.7;
+  }
 
-.card-title:hover {
-  opacity: 0.7;
+  .card-link {
+    text-decoration: none;
+  }
+  
+  .card-link:hover {
+    opacity: 0.7;
+  }
+
+  .card-text {
+    color: #424242 !important;
+  }
+
 }

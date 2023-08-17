@@ -8,6 +8,7 @@ ja:
     delete: '削除する'
     published: '公開中'
     see_cooking_board: 'みんなの料理掲示板'
+    likes_dishes: 'いいねした料理'
     message:
       require_login: 'ログインしてください'
       delete_confirm: '削除してよいですか？'
@@ -19,7 +20,8 @@ ja:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
     show:
-      title: '自分の料理一覧'
+      my_dishes: '自分の料理一覧'
+      someone_dishes: '%{item}の料理一覧'
       no_data: '料理がありません'
 
   user_sessions:
@@ -52,9 +54,11 @@ ja:
       title: 'あなたの料理名は...'
       re_generate: 'もう一度名前をつける'
       login: 'ログインする'
-      publish: '料理掲示板で公開する'
+      publish: '料理掲示板に投稿する'
     publish:
-      success: '公開しました'
+      success: '投稿しました'
+    likes:
+      title: 'いいねした料理'
 
   profiles:
     edit:
@@ -73,3 +77,4 @@ ja:
     update:
       success: 'パスワードを変更しました'
       fail: 'パスワードの変更に失敗しました'
+  
