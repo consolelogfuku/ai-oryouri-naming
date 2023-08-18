@@ -31,7 +31,7 @@ gem 'cssbundling-rails'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+# gem 'redis', '~> 4.0'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -57,6 +57,7 @@ gem 'rails-i18n'
 
 # 環境変数管理
 gem 'dotenv-rails'
+
 # 定数管理
 gem 'config'
 
@@ -74,6 +75,10 @@ gem 'carrierwave', '~> 3.0'
 
 # AWS接続用
 gem 'fog-aws'
+
+# Redis
+gem "redis", "~> 4.8.1", "< 5" # redis4系でないとactionpackが動かない
+gem 'redis-actionpack'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
