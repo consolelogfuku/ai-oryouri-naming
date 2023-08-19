@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   skip_before_action :require_login, only: %i[index new show create result]
   before_action :setup_dish, only: %i[new create] # createメソッドでは、else句が走った場合に必要
+  before_action :check_usage_count, only: %i[create] # まず使用回数チェックをする
 
   def index
     # 公開中のみ表示させる
@@ -73,6 +74,15 @@ class DishesController < ApplicationController
 
   def update_params
     params.require(:dish).permit(:dish_image, :status)
+  end
+
+  # 生成機能の回数を確認
+  def check_usage_count
+    ip = "ip:#{request.remote_ip}" # ipアドレスと分かるように接頭辞「ip:」をつける(rakeタスクで削除しやすいように)
+    REDIS.incr ip # key=ipのvalueをインクリメントさせる(ipがない場合は、key=ip・value=1として新規作成される)
+    if (REDIS.get ip).to_i > 4 # getで取り出したvalueは文字列になっているため、to_sで数値に変換
+      redirect_to root_path, warning: t('.limit')
+    end
   end
 
   # 選択肢を生成するのに必要

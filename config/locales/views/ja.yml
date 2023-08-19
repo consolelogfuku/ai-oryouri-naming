@@ -44,6 +44,7 @@ ja:
       generate: 'AIに名前をつけてもらう'
     create:
       fail: '名前をつけられませんでした'
+      limit: 'AIくんが疲れちゃって、1日3回までしか使えません...ごめんね'
     show:
     update:
       success: '更新しました'
