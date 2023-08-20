@@ -14,7 +14,7 @@
       <div class="d-flex align-items-center mt-3">
         <div class="flex-grow-1 d-flex align-items-center">
           <%= link_to user_path(dish.user.uuid), class:'d-flex align-items-center card-link ' do %>
-            <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3 card-avatar', size:'70x70' %>
+            <%= image_tag dish.user.avatar.url , class: 'rounded-circle border border-3 card-avatar' %>
             <p class="card-text ms-3 mb-0"><%= dish.user.name %></p>
           <% end %>
         </div>
