@@ -280,6 +280,9 @@
   &-dish-image img {
     border-radius:5px;
     box-shadow:0 0 10px rgba(0,0,0,0.63);
+    width: 320px;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -360,7 +363,9 @@
 
 // プロフィール
 .profile-icon {
-  background-color: $light-gray;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
 // いいねマーク

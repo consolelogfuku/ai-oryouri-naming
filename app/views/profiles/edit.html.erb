@@ -1,6 +1,6 @@
 <div class="container text-center">
     <%= form_with model: @user, url: profile_path do |f| %>
-    <div class="my-5"><%= image_tag @user.avatar.url, id: 'preview', class: 'border border-3 rounded-circle profile-icon' ,size: '300x300' %></div>
+    <div class="my-5"><%= image_tag @user.avatar.url, id: 'preview', class: 'border border-3 rounded-circle profile-icon shadow' %></div>
     <div class="row">
         <div class="col-md-4 mx-auto">
           <%= f.label :avatar, class: 'form-label mb-2'%>
@@ -20,7 +20,7 @@
           <%= f.email_field :email, class:'form-control'%>
         </div>
       </div>
-      <%= f.submit t('defaults.update') ,class:'btn btn-primary mt-4 mb-5' %>
+      <%= f.submit t('defaults.update') ,class:'btn btn-primary mt-5 mb-5' %>
     <% end %>
   </div>
 </div>
