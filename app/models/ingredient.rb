@@ -8,8 +8,6 @@ class Ingredient < ApplicationRecord
 
   # validate :at_least_one_ingredient
 
-  private
-
   # def at_least_one_ingredient
   #   return unless name_1.blank? && name_2.blank? && name_3.blank?
   #   errors.add(:base, '食材は1つ以上入力してください')

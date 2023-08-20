@@ -28,7 +28,7 @@ class GenerateForm
     # 料理名生成時にログインしていなければ、ゲストユーザー設定をする
     # user.rbでcurrent_userを使用できるよう、引数を渡す
     user = User.setup_guest_if_not_logedin(current_user)
-    
+
     begin
       # 一つでも失敗したら保存しない
       ActiveRecord::Base.transaction do
