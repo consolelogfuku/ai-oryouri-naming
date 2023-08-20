@@ -9,6 +9,7 @@ ja:
     published: '公開中'
     see_cooking_board: 'みんなの料理掲示板'
     likes_dishes: 'いいねした料理'
+    password_reset: 'パスワードの再設定について'
     message:
       require_login: 'ログインしてください'
       delete_confirm: '削除してよいですか？'

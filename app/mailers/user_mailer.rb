@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
     @user = User.find(user.id)
     @url = edit_password_reset_url(@user.reset_password_token)
     mail(
-      subject: 'パスワードの再設定について',
+      subject: t('defaults.password_reset'),
       to: @user.email
     )
   end
