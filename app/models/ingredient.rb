@@ -6,14 +6,12 @@ class Ingredient < ApplicationRecord
   validates :name_2, length: { maximum: 15 }
   validates :name_3, length: { maximum: 15 }
 
-  # カスタムメソッド
-  validate :at_least_one_ingredient
+  # validate :at_least_one_ingredient
 
   private
 
-  def at_least_one_ingredient
-    return unless name_1.blank? && name_2.blank? && name_3.blank?
-
-    errors.add(:base, '食材は1つ以上入力してください')
-  end
+  # def at_least_one_ingredient
+  #   return unless name_1.blank? && name_2.blank? && name_3.blank?
+  #   errors.add(:base, '食材は1つ以上入力してください')
+  # end
 end

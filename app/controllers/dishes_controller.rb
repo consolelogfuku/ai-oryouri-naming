@@ -23,8 +23,8 @@ class DishesController < ApplicationController
 
   def create
     @generate_form = GenerateForm.new(generate_params)
-    @dish = @generate_form.setup_dish(current_user)
-    if @dish.save
+    @dish = @generate_form.save_dish(current_user)
+    if @dish.persisted? # DBに保存できているかで分岐させる
       redirect_to result_dish_path(@dish.uuid)
     else
       flash.now[:warning] = t('.fail')

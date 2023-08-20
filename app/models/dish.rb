@@ -27,23 +27,6 @@ class Dish < ApplicationRecord
     uuid
   end
 
-  # 食材と調理法も一緒に保存
-  def save_with_ingredients_and_cooking_methods(ingredients_and_cooking_methods_params)
-    ActiveRecord::Base.transaction do
-      # 食材
-      self.ingredient = Ingredient.create(
-        name_1: ingredients_and_cooking_methods_params[:name_1],
-        name_2: ingredients_and_cooking_methods_params[:name_2],
-        name_3: ingredients_and_cooking_methods_params[:name_3]
-      )
-      # 調理法
-      ingredients_and_cooking_methods_params[:cooking_methods_name]&.each do |cooking_method_name|
-        cooking_methods << CookingMethod.find_by(name: cooking_method_name)
-      end
-      save # 保存できなけれは、dishes_controllerのcreateメソッドのelse句が走る
-    end
-  end
-
   private
 
   # 料理名を生成
