@@ -18,30 +18,34 @@ class GenerateForm
   validates :name_1, length: { maximum: 15 }
   validates :name_2, length: { maximum: 15 }
   validates :name_3, length: { maximum: 15 }
-  validates :cooking_method, presence: true
+  validates :cooking_methods, presence: true
   validates :seasoning_id, presence: true
   validates :texture_id, presence: true
   validates :category_id, presence: true
   validates :point, length: { maximum: 20 }
 
-  def setup_dish(current_user)
-    # 料理名生成時に、ログインしていなければ、自動的にゲストユーザー設定をする(user.rb内でcurrent_userを使用できるよう、引数を渡す)
+  def save_dish(current_user)
+    # 料理名生成時にログインしていなければ、ゲストユーザー設定をする
+    # user.rbでcurrent_userを使用できるよう、引数を渡す
     user = User.setup_guest_if_not_logedin(current_user)
-
-    # 一つでも失敗したら保存しない
-    ActiveRecord::Base.transaction do
-      @dish = user.dishes.new(dish_params)
-
-      # 食材
-      @dish.ingredient = Ingredient.create(ingredient_params)
-
-      # 調理法
-      cooking_methods.each do |cooking_method|
-        @dish.cooking_methods << CookingMethod.find_by(name: cooking_method)
+    
+    begin
+      # 一つでも失敗したら保存しない
+      ActiveRecord::Base.transaction do
+        @dish = user.dishes.new(dish_params)
+        # 食材
+        @dish.ingredient = Ingredient.create(ingredient_params)
+        # 調理法
+        cooking_methods.each do |cooking_method|
+          @dish.cooking_methods << CookingMethod.find_by(name: cooking_method)
+        end
+        @dish.save! # 保存できない場合は、例外を発生させて全ての処理をロールバックさせる(例外を発生させないと、処理がロールバックされず、DBに保存されてしまう)
       end
-
-      @dish
+    # 例外が発生しても、createメソッドに戻れるようrescueする
+    rescue ActiveRecord::RecordInvalid, ActiveRecord::NotNullViolation # NotNull~は食材が全部空のとき出るエラー
+      return @dish # 例外が発生した場合、@dishは不完全なものであるため、createメソッドのelse句が走る(例外が発生しなかった場合は、trueが返る)
     end
+    @dish # 例外が発生しなかった場合、rescue節内の@dishにはtrueが代入されてしまうため、返り値を設定
   end
 
   private

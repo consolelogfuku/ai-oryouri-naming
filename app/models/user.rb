@@ -22,7 +22,7 @@ class User < ApplicationRecord
   def self.setup_guest_if_not_logedin(current_user)
     if current_user.nil?
       User.new(
-        name: 'guest_user',
+        name: ENV['USER_NAME'],
         email: "#{SecureRandom.alphanumeric(10)}@email.com",
         password: 'password',
         password_confirmation: 'password'
@@ -47,4 +47,5 @@ class User < ApplicationRecord
   def like?(dish)
     like_dishes.include?(dish)
   end
+
 end
