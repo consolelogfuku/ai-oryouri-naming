@@ -80,9 +80,9 @@ class DishesController < ApplicationController
   def check_usage_count
     ip = "ip:#{request.remote_ip}" # ipアドレスと分かるように接頭辞「ip:」をつける(rakeタスクで削除しやすいように)
     REDIS.incr ip # key=ipのvalueをインクリメントさせる(ipがない場合は、key=ip・value=1として新規作成される)
-    if (REDIS.get ip).to_i > 4 # getで取り出したvalueは文字列になっているため、to_sで数値に変換
-      redirect_to root_path, warning: t('.limit')
-    end
+    return unless (REDIS.get ip).to_i > 999 # getで取り出したvalueは文字列になっているため、to_sで数値に変換
+
+    redirect_to root_path, warning: t('.limit')
   end
 
   # 選択肢を生成するのに必要

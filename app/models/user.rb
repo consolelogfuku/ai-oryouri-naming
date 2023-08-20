@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  scope :set_guest, -> { where('name = ? AND created_at <= ?', ENV.fetch('USER_NAME', nil), 1.day.ago) }
+
   # urlにuuidを使用
   def to_param
     uuid
@@ -22,7 +24,7 @@ class User < ApplicationRecord
   def self.setup_guest_if_not_logedin(current_user)
     if current_user.nil?
       User.new(
-        name: ENV['USER_NAME'],
+        name: ENV.fetch('USER_NAME', nil),
         email: "#{SecureRandom.alphanumeric(10)}@email.com",
         password: 'password',
         password_confirmation: 'password'
@@ -47,5 +49,4 @@ class User < ApplicationRecord
   def like?(dish)
     like_dishes.include?(dish)
   end
-
 end
