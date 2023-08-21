@@ -24,6 +24,8 @@ ja:
       my_dishes: '自分の料理一覧'
       someone_dishes: '%{item}の料理一覧'
       no_data: '料理がありません'
+    my_dishes:
+      title: '自分の料理一覧'
 
   user_sessions:
     new:
@@ -61,6 +63,7 @@ ja:
       success: '投稿しました'
     likes:
       title: 'いいねした料理'
+      no_data: 'いいねした料理はありません'
 
   profiles:
     edit:
