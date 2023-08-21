@@ -5,7 +5,7 @@
     </div>
     <div class="card-body pt-0">
       <%# 今、自分の料理一覧ページにいる且つ「公開中」 =>trueで 「公開中」マークつける %>
-      <% if current_page?(user_path(dish.user.uuid)) && dish.published? %>
+      <% if current_page?(user_path(current_user.uuid)) && dish.published? %>
         <%= render partial: 'dishes/published' %>
       <% end %>
       <%# 料理名 %>
