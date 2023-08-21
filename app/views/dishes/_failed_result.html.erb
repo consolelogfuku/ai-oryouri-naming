@@ -18,8 +18,13 @@
       <div class="col-md-6 mx-auto">
         <h3 class="text-center my-4 pb-5 px-3 fw-bold text-white"><%= dish.dish_name %></h3>
         <%= image_tag 'failed_result.svg', size: '300x300'%>
-        <div class="col text-center my-5">
-          <%= link_to t('defaults.re_generate'), root_path,class:'btn btn-secondary' %>
+        <div class="col text-center mt-5 mb-2">
+          <%= link_to t('defaults.re_generate'), root_path,class:'btn btn-outline-secondary' %>
+        </div>
+        <div class="col text-center mt-4 mb-5">
+          <% unless logged_in? %>
+            <%= link_to t('dishes.result.login'), login_path, class: 'btn btn-primary' %>
+          <% end %>
         </div>
       </div>
     </div>
