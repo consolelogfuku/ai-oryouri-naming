@@ -1,0 +1,27 @@
+<div class="failed-result">
+  <%# アニメーション %>
+  <ul class="white-circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <div class="container text-center">
+    <div class="row">
+      <div class="py-4 mt-4 fs-5 fw-bold text-dark"><%= t('.title') %></div>
+      <div class="col-md-6 mx-auto">
+        <h3 class="text-center my-4 pb-5 px-3 fw-bold text-white"><%= dish.dish_name %></h3>
+        <%= image_tag 'failed_result.svg', size: '300x300'%>
+        <div class="col text-center my-5">
+          <%= link_to t('defaults.re_generate'), root_path,class:'btn btn-secondary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

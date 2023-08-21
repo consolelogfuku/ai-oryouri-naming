@@ -63,7 +63,6 @@
   object-fit: cover;
 }
 
-
 // フッター
 .footer {
   
@@ -291,6 +290,13 @@
     height: 100%;
     object-fit: cover;
   }
+}
+
+// 生成失敗ページ
+.failed-result {
+  position: relative;
+  background-color: #000;
+
 }
 
 // リボンのデザイン
