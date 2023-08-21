@@ -73,7 +73,7 @@ class DishesController < ApplicationController
   end
 
   def update_params
-    params.require(:dish).permit(:dish_image, :status)
+    params.require(:dish).permit(:state, :dish_image, :dish_image_cache)
   end
 
   # 生成機能の回数を確認
