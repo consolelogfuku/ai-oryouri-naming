@@ -57,7 +57,6 @@ ja:
       success: '削除しました'
     result:
       title: 'あなたの料理名は...'
-      login: 'ログインする'
       publish: '料理掲示板に投稿する'
     failed_result:
       title: '料理名の生成に失敗しました'

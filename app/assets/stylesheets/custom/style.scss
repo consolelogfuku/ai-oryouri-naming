@@ -290,13 +290,24 @@
     height: 100%;
     object-fit: cover;
   }
+
+  &-login {
+    border-radius: 20px;
+  }
+
+  &-login a {
+    font-size: 20px;
+    text-decoration:underline dotted $primary;
+  }
+
 }
+
+
 
 // 生成失敗ページ
 .failed-result {
   position: relative;
   background-color: #000;
-
 }
 
 // リボンのデザイン
@@ -390,4 +401,34 @@
   &:hover {
     opacity: 0.7;
   }
+}
+
+// SNSシェア
+.share-result {
+  &-x {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #1e3050;
+    border-radius: 5px;
+  }
+
+  &-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #3cc755;
+    border-radius: 5px;
+  }
+}
+
+// Xシェアボタン
+.x_share_button {
+  text-decoration: none;
+  font-size: 30px;
+  color: #fff;
 }
