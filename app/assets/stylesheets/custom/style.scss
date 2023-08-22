@@ -293,16 +293,15 @@
 
   &-login {
     border-radius: 20px;
+    z-index: 2;
   }
 
   &-login a {
     font-size: 20px;
     text-decoration:underline dotted $primary;
+    z-index: 2;
   }
-
 }
-
-
 
 // 生成失敗ページ
 .failed-result {
