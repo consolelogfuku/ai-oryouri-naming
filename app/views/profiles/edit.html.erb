@@ -1,26 +1,33 @@
-<div class="container text-center">
-    <%= form_with model: @user, url: profile_path do |f| %>
-    <div class="my-5"><%= image_tag @user.avatar.url, id: 'preview', class: 'border border-3 rounded-circle profile-icon shadow' %></div>
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-          <%= f.label :avatar, class: 'form-label mb-2'%>
-          <%= f.file_field :avatar, class: 'form-control', accept: 'image/*'  %>
-          <%= f.hidden_field :avatar_cache %>
-        </div>
-    </div>
+<div class="card-form px-3">
+  <div class="container">
       <div class="row">
-        <div class="col-md-4 mx-auto">
-          <%= f.label :name, class:'mt-4 mb-2' %>
-          <%= f.text_field :name, class:'form-control'%>
+        <div class="col-md-4 mx-auto card-form-content py-5 px-4 my-5 shadow">
+        <h3 class="fw-bold text-center mb-5"><%= t('.title') %></h3>
+        <div class=" text-center"><%= image_tag @user.avatar.url, id: 'preview', class: 'border border-3 rounded-circle profile-icon shadow' %></div>
+        <%= form_with model: @user, url: profile_path do |f| %>
+          <%# アバター %>
+          <div class="d-flex align-items-center mt-5">
+            <i class="fa-solid fa-image-portrait fa-lg me-3 fa-fw"></i>
+            <%= f.file_field :avatar, class: 'form-control', accept: 'image/*'  %>
+            <%= f.hidden_field :avatar_cache %>
+          </div>
+          <div class="form-text">※アップロードされた画像の中心が、あなたのアイコンになります</div>
+          <%# ニックネーム %>
+          <div class="d-flex align-items-center mt-3">
+            <i class="fa-solid fa-user fa-lg me-3 fa-fw"></i>
+            <%= f.text_field :name, class:'form-control', placeholder: User.human_attribute_name(:name) %>
+          </div>
+          <div class="form-text">※ニックネームは15文字以内です</div>
+          <%# メールアドレス %>
+          <div class="d-flex align-items-center mt-3">
+            <i class="fa-solid fa-envelope fa-lg me-3 fa-fw"></i>
+            <%= f.email_field :email, class: 'form-control flex-fill', placeholder: User.human_attribute_name(:email) %>
+          </div>
+          <div class="text-center">
+            <%= f.submit t('defaults.update') ,class:'btn btn-primary mt-5'%>
+          </div>
+        <% end %>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4 mx-auto">
-          <%= f.label :email, class:'mt-4 mb-2' %>
-          <%= f.email_field :email, class:'form-control'%>
-        </div>
-      </div>
-      <%= f.submit t('defaults.update') ,class:'btn btn-primary mt-5 mb-5' %>
-    <% end %>
   </div>
 </div>
