@@ -1,10 +1,10 @@
 <h6 class='fw-bold text-center mb-3'>▼ 結果をみんなにシェアしよう ▼</h6>
 <div class="share-result d-flex justify-content-center">
   <div class="share-result-x me-3">
-      <%= link_to "https://twitter.com/share?url=#{ request.url }
-          &text=あなたが作った料理の名前は...%0a【#{ dish.dish_name }】%0a%23AIお料理ネーミング%0a",target: '_blank', class: 'share-result-x-link' do %>
-      <i class="fa-brands fa-x-twitter x-share-button"></i>
-      <% end %>
+    <%= link_to "https://twitter.com/share?url=#{ request.url }
+        &text=🍳あなたが作った料理の名前は...%0a【#{ dish.dish_name }】%0a%23AIお料理ネーミング%0a",target: '_blank', class: 'share-result-x-link' do %>
+    <i class="fa-brands fa-x-twitter x-share-button"></i>
+    <% end %>
   </div>
   <div class="share-result-line ms-3">
     <div class="line-it-button" data-lang="ja" data-type="share-b" data-env="REAL" data-url=<%= request.url %> data-color="default" data-size="large" data-count="false" data-ver="3" style="display: none;"></div>
