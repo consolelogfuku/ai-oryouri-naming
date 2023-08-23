@@ -117,7 +117,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: -1;
+  
 }
 
 .white-circles li{
@@ -130,15 +130,15 @@
   opacity: 0.2;
   animation: animate 10s linear infinite;
   bottom: -150px;
-  z-index: -1;
+  
 }
 
-.white-circles li:nth-child(1){
+.white-circles li:nth-child{
   left: 25%;
   width: 80px;
   height: 80px;
   animation-delay: 0s;
-  z-index: -1;
+  
 }
 
 
@@ -148,7 +148,7 @@
   height: 20px;
   animation-delay: 2s;
   animation-duration: 12s;
-  z-index: -1;
+  
 }
 
 .white-circles li:nth-child(3){
@@ -156,7 +156,7 @@
   width: 20px;
   height: 20px;
   animation-delay: 4s;
-  z-index: -1;
+  
 }
 
 .white-circles li:nth-child(4){
@@ -165,7 +165,7 @@
   height: 60px;
   animation-delay: 0s;
   animation-duration: 18s;
-  z-index: -1;
+  
 }
 
 .white-circles li:nth-child(5){
@@ -173,7 +173,7 @@
   width: 20px;
   height: 20px;
   animation-delay: 0s;
-  z-index: -1;
+  
 }
 
 .white-circles li:nth-child(6){
@@ -181,7 +181,7 @@
   width: 110px;
   height: 110px;
   animation-delay: 3s;
-  z-index: -1;
+  
 }
 
 .white-circles li:nth-child(7){
@@ -189,7 +189,7 @@
   width: 150px;
   height: 150px;
   animation-delay: 7s;
-  z-index: -1;
+  
 }
 
 .white-circles li:nth-child(8){
@@ -198,7 +198,7 @@
   height: 25px;
   animation-delay: 15s;
   animation-duration: 45s;
-  z-index: -1;
+  
 }
 
 .white-circles li:nth-child(9){
@@ -207,7 +207,7 @@
   height: 15px;
   animation-delay: 2s;
   animation-duration: 35s;
-  z-index: -1;
+  
 }
 
 .white-circles li:nth-child(10){
@@ -216,7 +216,7 @@
   height: 150px;
   animation-delay: 0s;
   animation-duration: 11s;
-  z-index: -1;
+  
 }
 
 @keyframes animate {

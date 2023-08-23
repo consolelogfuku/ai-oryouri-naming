@@ -293,13 +293,13 @@
 
   &-login {
     border-radius: 20px;
-    z-index: 2;
+    z-index: 3;
   }
 
   &-login a {
     font-size: 20px;
     text-decoration:underline dotted $primary;
-    z-index: 2;
+    z-index: 3;
   }
 }
 
@@ -307,6 +307,15 @@
 .failed-result {
   position: relative;
   background-color: #000;
+  
+  &-login {
+    z-index: 3;
+  }
+
+  &-regenerate {
+    position: relative;
+    z-index: 3;
+  }
 }
 
 // リボンのデザイン
@@ -412,6 +421,7 @@
     height: 50px;
     background-color: #1e3050;
     border-radius: 5px;
+    z-index: 3;
   }
 
   &-line {
@@ -426,8 +436,13 @@
 }
 
 // Xシェアボタン
-.x_share_button {
+.x-share-button {
   text-decoration: none;
   font-size: 30px;
   color: #fff;
+  z-index: 4;
+}
+
+.line-it-button {
+  z-index: 4;
 }

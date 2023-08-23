@@ -21,13 +21,13 @@
         <div class="text-white mt-5">
           <%= render partial: 'dishes/share_result', locals: { dish: dish } %>
         </div>
-        <div class="col text-center mt-5 mb-4">
+        <div class="col text-center mt-5 mb-4 failed-result-regenerate">
           <%= link_to t('defaults.re_generate'), root_path,class:'btn btn-outline-secondary' %>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-3 text-center mx-auto">
+      <div class="col-md-3 text-center mx-auto failed-result-login">
         <% unless logged_in? %>
           <p class='mb-5 mt-2 py-3 bg-white result-login fw-bold'><i class="fa-solid fa-lightbulb fs-4 text-primary me-2"></i><%= link_to t('defaults.login'), login_path, class: 'fw-bold' %>すると<br>次回から結果を保存できるよ</p>
         <% end %>
