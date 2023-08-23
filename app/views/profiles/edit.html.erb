@@ -1,3 +1,4 @@
+<% content_for :title, t('.title')%>
 <div class="card-form px-3">
   <div class="container">
       <div class="row">
@@ -11,13 +12,13 @@
             <%= f.file_field :avatar, class: 'form-control', accept: 'image/*'  %>
             <%= f.hidden_field :avatar_cache %>
           </div>
-          <div class="form-text">※アップロードされた画像の中心が、あなたのアイコンになります</div>
+          <div class="form-text">※アップロードされた画像の中心が、アイコンになります。</div>
           <%# ニックネーム %>
           <div class="d-flex align-items-center mt-3">
             <i class="fa-solid fa-user fa-lg me-3 fa-fw"></i>
             <%= f.text_field :name, class:'form-control', placeholder: User.human_attribute_name(:name) %>
           </div>
-          <div class="form-text">※ニックネームは15文字以内です</div>
+          <div class="form-text">※ニックネームは15文字以内です。</div>
           <%# メールアドレス %>
           <div class="d-flex align-items-center mt-3">
             <i class="fa-solid fa-envelope fa-lg me-3 fa-fw"></i>
