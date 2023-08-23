@@ -1,3 +1,4 @@
+<% content_for :title, t('.title')%>
 <%= form_with model: @dish do |f| %>
   <%= render partial: 'shared/error_messages', locals: {object: f.object} %>
   <div class="container my-5">
