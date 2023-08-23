@@ -110,8 +110,8 @@
         <%# ログイン/未ログインで表示を変化 %>
         <% if logged_in? %>
           <%= link_to t('.publish'), publish_dish_path, class: 'btn btn-primary', data: { turbo_method: :patch } %>
-          <p class='mt-4'>掲示板に投稿して、みんなに見てもらおう！！</p>
-          <p class='mb-5 form-text'>※あとからマイページの編集画面で非公開にできます。</p>
+          <p class='mt-3 fw-bold'>公開してみんなに見てもらおう〜！</p>
+          <p class='mt-0 mb-5 form-text'>※あとでマイページの編集画面から<br>非公開にできます。</p>
         <% else %>
           <p class='mt-2 mb-5 py-3 bg-white result-login fw-bold'><i class="fa-solid fa-lightbulb fs-4 text-primary me-2"></i><%= link_to t('defaults.login'), login_path, class: 'fw-bold' %>すると<br>次回から結果を保存できるよ</p>
         <% end %>
