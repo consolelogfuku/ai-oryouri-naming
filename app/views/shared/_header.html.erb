@@ -19,7 +19,7 @@
           <%= image_tag current_user.avatar.url , class: 'rounded-circle border border-3 avatar_img' %>
         </li>
         <li>
-          <%= link_to my_dishes_users_path, class:'header-dropdown-item dropdown-item' do %>
+          <%= link_to user_path(current_user.uuid), class:'header-dropdown-item dropdown-item' do %>
             <i class="fa-solid fa-utensils me-3 header-fontawesome"></i>
             <%= t('users.show.my_dishes') %>
           <% end%>
