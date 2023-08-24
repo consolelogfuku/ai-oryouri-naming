@@ -3,7 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(uuid: params[:uuid])
-    @dishes = @user.dishes.published.order(created_at: :DESC).page(params[:page])
+    if @user == current_user
+      @dishes = @user.dishes.order(created_at: :DESC).page(params[:page])
+    else
+      @dishes = @user.dishes.published.order(created_at: :DESC).page(params[:page]) # 公開中のもののみ取得
+    end
   end
 
   def new
@@ -19,10 +23,6 @@ class UsersController < ApplicationController
       flash.now[:warning] = t('.fail')
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def my_dishes
-    @dishes = current_user.dishes.order(created_at: :DESC).page(params[:page])
   end
 
   private
