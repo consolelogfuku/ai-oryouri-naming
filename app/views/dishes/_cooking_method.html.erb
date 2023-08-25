@@ -1,5 +1,5 @@
 <div class="col-md-4 col-6 mb-3 text-center">
-  <%# チェックがついていたらcooking_methodを送信、ついていなければ何も送信しない%>
-  <%= f.check_box :cooking_methods, {multiple: true, class: "d-none form-check-input", id: "cooking_method_#{cooking_method.name}"}, cooking_method.name, nil %>
+  <%# チェックがついていたらcooking_method.nameを送信、ついていなければ何も送信しない%>
+  <%= f.check_box :cooking_methods, {multiple: true, class: "d-none form-check-input checkbox", id: "cooking_method_#{cooking_method.name}"}, cooking_method.name, nil %>
   <%= f.label :cooking_methods, cooking_method.name, class: "form-check-label fs-6", for: "cooking_method_#{cooking_method.name}" %>
 </div>

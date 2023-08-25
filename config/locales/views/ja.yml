@@ -65,7 +65,7 @@ ja:
     failed_result:
       title: '料理名の生成に失敗しました'
     publish:
-      success: '投稿しました'
+      success: '公開しました'
     likes:
       title: 'いいねした料理'
       no_data: 'いいねした料理はありません'
