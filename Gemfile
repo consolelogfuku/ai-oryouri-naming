@@ -76,6 +76,9 @@ gem 'carrierwave', '~> 3.0'
 # AWS接続用
 gem 'fog-aws'
 
+# SEO対策
+gem "meta-tags"
+
 # Redis
 gem "redis", "~> 4.8.1", "< 5" # redis4系でないとactionpackが動かない
 gem 'redis-actionpack'
