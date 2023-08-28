@@ -224,6 +224,8 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    meta-tags (2.18.0)
+      actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mime-types (3.5.0)
       mime-types-data (~> 3.2015)
@@ -437,6 +439,7 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   letter_opener_web (~> 2.0)
+  meta-tags
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
