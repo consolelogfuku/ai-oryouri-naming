@@ -10,11 +10,11 @@ class Dish < ApplicationRecord
   mount_uploader :dish_image, DishImageUploader
 
   belongs_to :user
-  belongs_to :ingredient
   belongs_to :seasoning
   belongs_to :texture
   belongs_to :category
   has_many :dishes_cooking_methods, dependent: :destroy
+  has_many :dish_ingredients, dependent: :destroy
   has_many :cooking_methods, through: :dishes_cooking_methods
   has_many :likes, dependent: :destroy
   enum state: { draft: 0, published: 1 }

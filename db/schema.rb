@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_14_011927) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_02_001213) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,9 +28,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_011927) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "dish_ingredients", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id", "ingredient_id"], name: "index_dish_ingredients_on_dish_id_and_ingredient_id", unique: true
+    t.index ["dish_id"], name: "index_dish_ingredients_on_dish_id"
+    t.index ["ingredient_id"], name: "index_dish_ingredients_on_ingredient_id"
+  end
+
   create_table "dishes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "ingredient_id", null: false
     t.bigint "seasoning_id", null: false
     t.bigint "texture_id", null: false
     t.bigint "category_id", null: false
@@ -42,7 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_011927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_dishes_on_category_id"
-    t.index ["ingredient_id"], name: "index_dishes_on_ingredient_id"
     t.index ["seasoning_id"], name: "index_dishes_on_seasoning_id"
     t.index ["texture_id"], name: "index_dishes_on_texture_id"
     t.index ["user_id"], name: "index_dishes_on_user_id"
@@ -60,9 +68,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_011927) do
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.string "name_1"
-    t.string "name_2"
-    t.string "name_3"
+    t.string "name", null: false
+    t.string "morphemes", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,7 +102,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_14_011927) do
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
-  add_foreign_key "dishes", "ingredients"
+  add_foreign_key "dish_ingredients", "dishes"
+  add_foreign_key "dish_ingredients", "ingredients"
   add_foreign_key "dishes", "users"
   add_foreign_key "dishes_cooking_methods", "cooking_methods"
   add_foreign_key "dishes_cooking_methods", "dishes"
