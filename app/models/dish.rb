@@ -14,8 +14,9 @@ class Dish < ApplicationRecord
   belongs_to :texture
   belongs_to :category
   has_many :dishes_cooking_methods, dependent: :destroy
-  has_many :dish_ingredients, dependent: :destroy
   has_many :cooking_methods, through: :dishes_cooking_methods
+  has_many :dishes_ingredients, dependent: :destroy
+  has_many :ingredients, through: :dishes_ingredients
   has_many :likes, dependent: :destroy
   enum state: { draft: 0, published: 1 }
 
@@ -39,7 +40,7 @@ class Dish < ApplicationRecord
     * If any of the main ingredients or points provided by the user are not suitable as food, please respond with '食べられる食材で料理してほしいな...'
 
     ## User input
-    主な食材:#{ingredient.name_1},#{ingredient.name_2},#{ingredient.name_3}
+    主な食材:#{ingredients.pluck(:name).join(',')}
     調理法:#{cooking_methods.pluck(:name).join(',')}
     味付け: #{seasoning.name}
     食感:#{texture.name}

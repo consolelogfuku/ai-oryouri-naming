@@ -1,4 +1,6 @@
 class GenerateForm
+  require 'natto' # 形態素解析
+  require 'nkf' # カタカナをひらがなに変換
   include ActiveModel::Model
   include ActiveModel::Attributes
   extend CarrierWave::Mount
@@ -34,7 +36,15 @@ class GenerateForm
       ActiveRecord::Base.transaction do
         @dish = user.dishes.new(dish_params)
         # 食材
-        @dish.ingredient = Ingredient.create(ingredient_params)
+        names = [name_1, name_2, name_3].select(&:present?) # フォームに入力されていない時、空白が送られるため空白を削除
+        names.each do |name|
+          ingredient = Ingredient.find_by(name: name)
+          unless ingredient # DBに保存されている食材でない場合、形態素解析をし、createする
+            morphemes = morphological_analysis(name)
+            ingredient = Ingredient.create(name: name, morphemes: morphemes) 
+          end
+          @dish.ingredients << ingredient
+        end
         # 調理法
         cooking_methods.each do |cooking_method|
           @dish.cooking_methods << CookingMethod.find_by(name: cooking_method)
@@ -55,7 +65,16 @@ class GenerateForm
       point:, dish_image:, dish_image_cache: }
   end
 
-  def ingredient_params
-    { name_1:, name_2:, name_3: }
+  # 形態素解析(カンマ区切りの文字列にしてmorphemesカラムに格納)
+  def morphological_analysis(name)
+    name = NKF.nkf("--hiragana -w", name) # 前処理(カタカナがあった場合、ひらがなに変更する)
+    natto = Natto::MeCab.new
+    morphemes_ary = []
+    natto.parse(name) do |n|
+      morphemes_ary << n.surface unless n.surface.empty? # 空白が混じるため除外する
+    end
+    morphemes = morphemes_ary.join(",") # カンマ区切りの文字列として処理する
+    return morphemes
   end
+
 end
