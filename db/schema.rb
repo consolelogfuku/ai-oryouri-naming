@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_02_001213) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_02_011834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,16 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_001213) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "dish_ingredients", force: :cascade do |t|
-    t.bigint "dish_id", null: false
-    t.bigint "ingredient_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dish_id", "ingredient_id"], name: "index_dish_ingredients_on_dish_id_and_ingredient_id", unique: true
-    t.index ["dish_id"], name: "index_dish_ingredients_on_dish_id"
-    t.index ["ingredient_id"], name: "index_dish_ingredients_on_ingredient_id"
   end
 
   create_table "dishes", force: :cascade do |t|
@@ -67,11 +57,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_001213) do
     t.index ["dish_id"], name: "index_dishes_cooking_methods_on_dish_id"
   end
 
+  create_table "dishes_ingredients", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id", "ingredient_id"], name: "index_dishes_ingredients_on_dish_id_and_ingredient_id", unique: true
+    t.index ["dish_id"], name: "index_dishes_ingredients_on_dish_id"
+    t.index ["ingredient_id"], name: "index_dishes_ingredients_on_ingredient_id"
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string "name", null: false
     t.string "morphemes", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["morphemes"], name: "index_ingredients_on_morphemes", unique: true
+    t.index ["name"], name: "index_ingredients_on_name", unique: true
   end
 
   create_table "likes", force: :cascade do |t|
@@ -102,11 +104,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_02_001213) do
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
-  add_foreign_key "dish_ingredients", "dishes"
-  add_foreign_key "dish_ingredients", "ingredients"
   add_foreign_key "dishes", "users"
   add_foreign_key "dishes_cooking_methods", "cooking_methods"
   add_foreign_key "dishes_cooking_methods", "dishes"
+  add_foreign_key "dishes_ingredients", "dishes"
+  add_foreign_key "dishes_ingredients", "ingredients"
   add_foreign_key "likes", "dishes"
   add_foreign_key "likes", "users"
 end

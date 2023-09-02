@@ -8,33 +8,24 @@
         <%# 食材 %>
         <%= Ingredient.model_name.human %>
         <div class="row mb-4">
-          <div class="col-md-4 mt-2">
-            <%# 要素がない場合、cssのborderを表示させたくないため、条件分岐させる%>
-            <% if @dish.ingredient.name_1.present? %>
-              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_1 %></div>
-            <% end %>
-          </div>
-          <div class="col-md-4 mt-2">
-            <% if @dish.ingredient.name_2.present? %>
-              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_2 %></div>
-            <% end %>
-          </div>
-          <div class="col-md-4 mt-2">
-            <% if @dish.ingredient.name_3.present? %>
-              <div class="result-dish-content py-1 ps-2"><%= @dish.ingredient.name_3 %></div>
-            <% end %>
-          </div>
+          <% @dish.ingredients.each do |ingredient| %>
+            <div class="col-md-4 mt-2">
+              <div class="result-dish-content  py-1 ps-2">
+                <%= ingredient.name %>
+              </div>
+            </div>
+          <% end %>
         </div>
         <%# 調理法 %>
         <%= CookingMethod.model_name.human %>
         <div class="row mb-4">
-            <% @dish.cooking_methods.each do |cooking_method| %>
-              <div class="col-md-4 mt-2">
-                <div class="result-dish-content  py-1 ps-2">
-                  <%= cooking_method.name %>
-                </div>
+          <% @dish.cooking_methods.each do |cooking_method| %>
+            <div class="col-md-4 mt-2">
+              <div class="result-dish-content  py-1 ps-2">
+                <%= cooking_method.name %>
               </div>
-            <% end %>
+            </div>
+          <% end %>
         </div>
         <%# 味付け %>
         <%= Seasoning.model_name.human %>
