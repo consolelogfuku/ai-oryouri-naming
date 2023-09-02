@@ -1,15 +1,3 @@
 class Ingredient < ApplicationRecord
-  has_one :dish, dependent: :destroy
-
-  # 食材は15文字以内
-  validates :name_1, length: { maximum: 15 }
-  validates :name_2, length: { maximum: 15 }
-  validates :name_3, length: { maximum: 15 }
-
-  # validate :at_least_one_ingredient
-
-  # def at_least_one_ingredient
-  #   return unless name_1.blank? && name_2.blank? && name_3.blank?
-  #   errors.add(:base, '食材は1つ以上入力してください')
-  # end
+  has_many :dish_ingredients, dependent: :destroy
 end
