@@ -84,6 +84,7 @@ gem "redis", "~> 4.8.1", "< 5" # redis4系でないとactionpackが動かない
 gem 'redis-actionpack'
 
 # MeCab(形態素解析)
+gem 'mecab', '0.996'
 gem  'natto'
 
 group :development, :test do
