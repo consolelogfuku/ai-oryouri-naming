@@ -224,7 +224,6 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
-    mecab (0.996)
     meta-tags (2.18.0)
       actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
@@ -238,8 +237,6 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.3.0)
-    natto (1.2.0)
-      ffi (>= 1.9.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -402,6 +399,7 @@ GEM
     thor (1.2.2)
     tilt (2.1.0)
     timeout (0.3.2)
+    tiny_segmenter (0.0.6)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -442,9 +440,7 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   letter_opener_web (~> 2.0)
-  mecab (= 0.996)
   meta-tags
-  natto
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
@@ -461,6 +457,7 @@ DEPENDENCIES
   sorcery
   sprockets-rails
   stimulus-rails
+  tiny_segmenter
   turbo-rails
   tzinfo-data
   web-console
