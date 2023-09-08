@@ -84,8 +84,7 @@ gem "redis", "~> 4.8.1", "< 5" # redis4系でないとactionpackが動かない
 gem 'redis-actionpack'
 
 # MeCab(形態素解析)
-gem 'mecab', '0.996'
-gem  'natto'
+gem 'tiny_segmenter'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
