@@ -1,3 +1,5 @@
-<%= link_to like_path(uuid: dish.uuid, redirect_path: request.url ), data: { turbo_method: :delete } do %>
-  <i class="fa-solid fa-heart like"></i>
+<%= turbo_frame_tag dish do%>
+  <%= link_to like_path(uuid: dish.uuid, redirect_path: request.url ), data: { turbo_method: :delete } do %>
+    <i class="fa-solid fa-heart like"></i>
+  <% end %>
 <% end %>

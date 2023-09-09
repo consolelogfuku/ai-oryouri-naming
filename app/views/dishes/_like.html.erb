@@ -1,3 +1,5 @@
-<%= link_to likes_path(uuid: dish.uuid, redirect_path: request.url), data: { turbo_method: :post } do %>
-  <i class="fa-regular fa-heart like"></i>
+<%= turbo_frame_tag dish do%>
+  <%= link_to likes_path(uuid: dish.uuid, redirect_path: request.url), data: { turbo_method: :post } do %>
+    <i class="fa-regular fa-heart like"></i>
+  <% end %>
 <% end %>
