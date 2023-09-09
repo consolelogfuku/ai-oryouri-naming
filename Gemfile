@@ -83,7 +83,7 @@ gem "meta-tags"
 gem "redis", "~> 4.8.1", "< 5" # redis4系でないとactionpackが動かない
 gem 'redis-actionpack'
 
-# MeCab(形態素解析)
+# 形態素解析
 gem 'tiny_segmenter'
 
 group :development, :test do
