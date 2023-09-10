@@ -1,3 +1,23 @@
 <% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>" role="alert"><%= message %></div>
+<%# 成功時のToast %>
+  <% if message_type.to_s == "success" %>
+    <div class="mb-2 toast hide border-success" data-controller="toast" id="flashes">
+      <div class="toast-header text-success">
+        <strong class="me-auto"><%= icon_with_text("check-circle", "成功") %></strong>
+        <button class="btn-close" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body"><%= message %></div>
+    </div>
+  <% end %>
+
+  <%# エラー時のToast %>
+  <% if message_type.to_s == "warning" %>
+    <div class="mb-2 toast hide border-danger position-sticky" data-controller="toast" id="flashes">
+      <div class="toast-header text-danger">
+        <strong class="me-auto"><%= icon_with_text("exclamation-circle", "エラー") %></strong>
+        <button class="btn-close" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body"><%= message %></div>
+    </div>
+  <% end %>
 <% end %>

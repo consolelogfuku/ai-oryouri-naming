@@ -57,7 +57,7 @@ class DishesController < ApplicationController
     @dish = Dish.find_by(uuid: params[:uuid])
     @dish.update!(state: 'published')
     flash.now[:success] = t('.success')
-    render :result, status: :unprocessable_entity
+    # render :result, status: :unprocessable_entity
   end
 
   # いいね一覧を取得

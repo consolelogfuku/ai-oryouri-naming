@@ -31,24 +31,29 @@ class GenerateForm
     # user.rbでcurrent_userを使用できるよう、引数を渡す
     user = User.setup_guest_if_not_logedin(current_user)
 
-    # 一つでも失敗したら保存しない
-    ActiveRecord::Base.transaction do
-      @dish = user.dishes.new(dish_params)
-      # 食材
-      names = [name_1, name_2, name_3].select(&:present?) # フォームに入力されていない時、空白が送られるため空白を削除
-      names.each do |name|
-        ingredient = Ingredient.find_by(name:)
-        unless ingredient # DBに保存されている食材でない場合、形態素解析をし、createする
-          morphemes = morphological_analysis(name)
-          ingredient = Ingredient.create(name:, morphemes:)
+    begin
+      # 一つでも失敗したら保存しない
+      ActiveRecord::Base.transaction do
+        @dish = user.dishes.new(dish_params)
+        # 食材
+        names = [name_1, name_2, name_3].select(&:present?) # フォームに入力されていない時、空白が送られるため空白を削除
+        names.each do |name|
+          ingredient = Ingredient.find_by(name:)
+          unless ingredient # DBに保存されている食材でない場合、形態素解析をし、createする
+            morphemes = morphological_analysis(name)
+            ingredient = Ingredient.create(name:, morphemes:)
+          end
+          @dish.ingredients << ingredient
         end
-        @dish.ingredients << ingredient
+        # 調理法
+        cooking_methods.each do |cooking_method|
+          @dish.cooking_methods << CookingMethod.find_by(name: cooking_method)
+        end
+        @dish.save! # 保存できない場合は、例外を発生させて全ての処理をロールバックさせる(例外を発生させないと、処理がロールバックされず、DBに保存されてしまう)
       end
-      # 調理法
-      cooking_methods.each do |cooking_method|
-        @dish.cooking_methods << CookingMethod.find_by(name: cooking_method)
-      end
-      @dish.save! # 保存できない場合は、例外を発生させて全ての処理をロールバックさせる(例外を発生させないと、処理がロールバックされず、DBに保存されてしまう)
+    # 例外が発生しても、createメソッドに戻れるようrescueする
+    rescue ActiveRecord::RecordInvalid, ActiveRecord::NotNullViolation # NotNull~は食材が全部空のとき出るエラー
+      return @dish # 例外が発生した場合、@dishは不完全なものであるため、createメソッドのelse句が走る(例外が発生しなかった場合は、trueが返る)
     end
 
     @dish # 例外が発生しなかった場合、rescue節内の@dishにはtrueが代入されてしまうため、返り値を設定
