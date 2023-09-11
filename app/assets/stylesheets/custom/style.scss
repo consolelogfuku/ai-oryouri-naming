@@ -454,9 +454,9 @@
 }
 
 // トースト
-#flashes {
-  position: sticky;
-  top: 87px;
-  left: 5px;
+#flash {
+  position: fixed;
+  top: 90px;
+  margin-left: 10px;
   z-index: 10;
 }
