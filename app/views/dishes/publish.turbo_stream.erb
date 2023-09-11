@@ -1,4 +1,1 @@
-<%= turbo_stream.replace @dish do %>
-  <%= render partial: 'result', locals: { dish: @dish } %>
-<% end %>
-<%= turbo_stream.append 'flashes', partial: 'shared/flash_message' %>
+<%= turbo_stream.update 'flash', partial: 'shared/flash_message' %>
