@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import PreviewController from "./preview_controller"
+application.register("preview", PreviewController)
+
 import ToastController from "./toast_controller"
 application.register("toast", ToastController)
