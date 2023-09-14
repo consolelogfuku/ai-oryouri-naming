@@ -35,92 +35,93 @@
 </div>
 <%# main-contetntセクション %>
 <div class="main-content">
-  <h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
-    <%= form_with model: @generate_form, url: dishes_path do |f| %>
-      <%# 食材 %>
-      <div class="ingredient">
-        <div class="container">
-          <%= Ingredient.model_name.human %>
-          <div class="row mb-4">
-            <div class="col-md-4 mt-3">
-              <%= f.text_field :name_1, class:'form-control', placeholder: '焼き鳥の残り' %>
-            </div>
-            <div class="col-md-4 mt-3">
-              <%= f.text_field :name_2, class:'form-control', placeholder: 'なす'%>
-            </div>
-            <div class="col-md-4 mt-3">
-              <%= f.text_field :name_3, class:'form-control', placeholder: 'しょうが' %>
-            </div>
-            <div class="form-text">※1つ以上入力必須、各15文字以内で入力してください。</div>
+<h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
+  <%= form_with model: @generate_form, url: dishes_path do |f| %>
+    <%# 食材 %>
+    <div class="ingredient">
+      <div class="container">
+        <%= Ingredient.model_name.human %>
+        <div class="row mb-4">
+          <div class="col-md-4 mt-3">
+            <%= f.text_field :name_1, class:'form-control', placeholder: '焼き鳥の残り' %>
           </div>
+          <div class="col-md-4 mt-3">
+            <%= f.text_field :name_2, class:'form-control', placeholder: 'なす'%>
+          </div>
+          <div class="col-md-4 mt-3">
+            <%= f.text_field :name_3, class:'form-control', placeholder: 'しょうが' %>
+          </div>
+          <div class="form-text">※1つ以上入力必須、各15文字以内で入力してください。</div>
         </div>
       </div>
-      <%# 調理法 %>
-      <div class="cooking_method">
-        <div class="container">
-          <h6 class='d-flex f'><%=  CookingMethod.model_name.human %><div class="ms-1 text-dark fs-6">(1つ以上選択必須、最大3つまで)</div></h6>
-          <div class="row mt-3 mb-4">
-            <%= render partial: 'cooking_method', collection: @cooking_methods ,locals: { f: f} %>
-          </div>
-        </div>
-      </div>
-      <%# 味付け %>
-      <div class="seasoning">
-        <div class="container">
-        <h6 class='d-flex f'><%=  Seasoning.model_name.human %><div class="ms-1 text-dark fs-6">(1つだけ選択必須)</div></h6>
-          <div class="row mt-3 mb-4">
-            <%= render partial: 'seasoning', collection: @seasonings, locals: {f: f} %>
-          </div>
-        </div>
-      </div>
-      <%# 食感 %>
-      <div class="texture">
-        <div class="container">
-          <h6 class='d-flex f'><%=  Texture.model_name.human %><div class="ms-1 text-dark fs-6">(1つだけ選択必須)</div></h6>
-          <div class="row mt-3 mb-4">
-            <%= render partial: 'texture', collection: @textures, locals: {f: f} %>
-          </div>
-        </div>
-      </div>
-      <%# カテゴリー %>
-      <div class="category">
-        <div class="container">
-          <h6 class='d-flex f'><%=  Category.model_name.human %><div class="ms-1 text-dark fs-6">(1つだけ選択必須)</div></h6>
-          <div class="row mt-3 mb-4">
-            <%= render partial: 'category', collection: @categories, locals: {f: f} %>
-          </div>
-        </div>
-      </div>
-      <%# こだわりポイント %>
-      <div class="point">
-        <div class="container">
-          <div class="row mt-3 mb-5">
-            <div class="col-lg-6">
-            <h6 class='d-flex f'><%= f.label :point, class: 'form-label' %><div class="ms-1 text-dark fs-6">(任意)</div></h6>
-              <%= f.text_field :point, class: 'form-control mt-2', placeholder: '赤ワインを入れて煮込む'%>
-              <div class="form-text">※20文字以内で入力してください。</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <%# 料理写真 %>
-      <div class="container" data-controller='preview'>
+    </div>
+    <%# 調理法 %>
+    <div class="cooking_method">
+      <div class="container">
+        <h6 class='d-flex f'><%=  CookingMethod.model_name.human %><div class="ms-1 text-dark fs-6">(1つ以上選択必須、最大3つまで)</div></h6>
         <div class="row mt-3 mb-4">
+          <%= render partial: 'cooking_method', collection: @cooking_methods ,locals: { f: f} %>
+        </div>
+      </div>
+    </div>
+    <%# 味付け %>
+    <div class="seasoning">
+      <div class="container">
+      <h6 class='d-flex f'><%=  Seasoning.model_name.human %><div class="ms-1 text-dark fs-6">(1つだけ選択必須)</div></h6>
+        <div class="row mt-3 mb-4">
+          <%= render partial: 'seasoning', collection: @seasonings, locals: {f: f} %>
+        </div>
+      </div>
+    </div>
+    <%# 食感 %>
+    <div class="texture">
+      <div class="container">
+        <h6 class='d-flex f'><%=  Texture.model_name.human %><div class="ms-1 text-dark fs-6">(1つだけ選択必須)</div></h6>
+        <div class="row mt-3 mb-4">
+          <%= render partial: 'texture', collection: @textures, locals: {f: f} %>
+        </div>
+      </div>
+    </div>
+    <%# カテゴリー %>
+    <div class="category">
+      <div class="container">
+        <h6 class='d-flex f'><%=  Category.model_name.human %><div class="ms-1 text-dark fs-6">(1つだけ選択必須)</div></h6>
+        <div class="row mt-3 mb-4">
+          <%= render partial: 'category', collection: @categories, locals: {f: f} %>
+        </div>
+      </div>
+    </div>
+    <%# こだわりポイント %>
+    <div class="point">
+      <div class="container">
+        <div class="row mt-3 mb-5">
           <div class="col-lg-6">
-          <h6 class='d-flex f'><%= f.label :dish_image, class: 'form-label' %><div class="ms-1 text-dark fs-6">(任意)</div></h6>
-            <%= f.file_field :dish_image, class: 'form-control mt-2', accept: 'image/*', data: { action: 'change->preview#previewImage'} %> <%# previewコントローラーのpreviewImageメソッドを呼び出し%>
-            <%= f.hidden_field :dish_image_cache %>
-            <div class="form-text">写真をアップロードして、自慢の一品を広めましょう！</div>
-            <div class="form-text">名前をつけた後にシェアできます！</div>
-            <div class="result-dish-image mt-4 mb-2" ><%= image_tag @dish.dish_image.url, data: { target: 'preview.image' } %></div> <%# previewコントローラーでimageをtargetとして設定%>
-            <div class="form-text mb-4">※アップロードしなかった場合、↑上記画像が料理写真に設定されます。</div>
+          <h6 class='d-flex f'><%= f.label :point, class: 'form-label' %><div class="ms-1 text-dark fs-6">(任意)</div></h6>
+            <%= f.text_field :point, class: 'form-control mt-2', placeholder: '赤ワインを入れて煮込む'%>
+            <div class="form-text">※20文字以内で入力してください。</div>
           </div>
         </div>
       </div>
-      <div class="text-center mt-3 pb-4">
-        <%= f.submit t('.generate'), class: 'btn btn-secondary mt-3 py-3 fs-6' %>
-        <p class="mt-3 form-text">※1日5回まで、名前をつけられます。</p>
+    </div>
+    <%# 料理写真 %>
+    <div class="container" data-controller='preview'>
+      <div class="row mt-3 mb-4">
+        <div class="col-lg-6">
+        <h6 class='d-flex f'><%= f.label :dish_image, class: 'form-label' %><div class="ms-1 text-dark fs-6">(任意)</div></h6>
+          <%= f.file_field :dish_image, class: 'form-control mt-2', accept: 'image/*', data: { action: 'change->preview#previewImage'} %> <%# previewコントローラーのpreviewImageメソッドを呼び出し%>
+          <%= f.hidden_field :dish_image_cache %>
+          <div class="form-text">写真をアップロードして、自慢の一品を広めましょう！</div>
+          <div class="form-text">名前をつけた後にシェアできます！</div>
+          <div class="result-dish-image mt-4 mb-2" ><%= image_tag @dish.dish_image.url, data: { target: 'preview.image' } %></div> <%# previewコントローラーでimageをtargetとして設定%>
+          <div class="form-text mb-4">※アップロードしなかった場合、↑上記画像が料理写真に設定されます。</div>
+        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+    <div class="text-center mt-3 pb-4">
+      <%= f.submit t('.generate'), class: 'btn btn-secondary mt-3 py-3 fs-6' %>
+      <p class="mt-3 form-text">※1日5回まで、名前をつけられます。</p>
+    </div>
+  <% end %>
+  <%# ローディング画面 %>
+  <%= render partial: 'shared/loading' %>
 </div>
