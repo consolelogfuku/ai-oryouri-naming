@@ -483,13 +483,29 @@
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  height: 50%;
+  height: 60%;
   width: 80%;
   max-width: 500px;
   border-radius: 25px;
   z-index: 2;
 }
 
-.hidden {
-  display: none;
+// .hidden {
+//   display: none;
+// }
+
+// ローディング画面で回転するロボくん
+.spin-robot {
+  animation: spin 2s linear infinite;
+  transform-origin: 50% 62%;
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
