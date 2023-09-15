@@ -49,10 +49,12 @@ class GenerateForm
         cooking_methods.each do |cooking_method|
           @dish.cooking_methods << CookingMethod.find_by(name: cooking_method)
         end
+        if @dish.valid?
+          ActionCable.server.broadcast( # modal表示するためのメッセージをコンシューマーに送信
+            "loading_channel", { event: 'showLoadingModal' }
+          )
+        end
         @dish.save! # 保存できない場合は、例外を発生させて全ての処理をロールバックさせる(例外を発生させないと、処理がロールバックされず、DBに保存されてしまう)
-        ActionCable.server.broadcast( # modal表示するためのメッセージをコンシューマーに送信
-          "loading_channel", { event: 'showLoadingModal' }
-        )
       end
     # 例外が発生しても、createメソッドに戻れるようrescueする
     rescue ActiveRecord::RecordInvalid, ActiveRecord::NotNullViolation # NotNull~は食材が全部空のとき出るエラー
