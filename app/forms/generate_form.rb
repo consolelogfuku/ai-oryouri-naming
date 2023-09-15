@@ -51,7 +51,7 @@ class GenerateForm
         end
         if @dish.valid? # バリデーションが通ったらすぐmodalを表示させる
           ActionCable.server.broadcast( # modal表示するためのメッセージをコンシューマーに送信
-            "loading_channel_#{ip_address}", { event: 'showLoadingModal' }
+            "loading_channel", { event: 'showLoadingModal' }
           )
         end
         @dish.save! # 保存できない場合は、例外を発生させて全ての処理をロールバックさせる(例外を発生させないと、処理がロールバックされず、DBに保存されてしまう)
