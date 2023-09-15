@@ -26,7 +26,7 @@ class GenerateForm
   validates :category_id, presence: true
   validates :point, length: { maximum: 20 }
 
-  def save_dish(current_user)
+  def save_dish(current_user, ip_address)
     # 料理名生成時にログインしていなければ、ゲストユーザー設定をする
     # user.rbでcurrent_userを使用できるよう、引数を渡す
     user = User.setup_guest_if_not_logedin(current_user)
@@ -49,9 +49,9 @@ class GenerateForm
         cooking_methods.each do |cooking_method|
           @dish.cooking_methods << CookingMethod.find_by(name: cooking_method)
         end
-        if @dish.valid?
+        if @dish.valid? # バリデーションが通ったらすぐmodalを表示させる
           ActionCable.server.broadcast( # modal表示するためのメッセージをコンシューマーに送信
-            "loading_channel", { event: 'showLoadingModal' }
+            "loading_channel_#{ip_address}", { event: 'showLoadingModal' }
           )
         end
         @dish.save! # 保存できない場合は、例外を発生させて全ての処理をロールバックさせる(例外を発生させないと、処理がロールバックされず、DBに保存されてしまう)
