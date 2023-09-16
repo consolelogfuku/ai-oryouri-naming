@@ -23,10 +23,10 @@ ja:
       fail: 'ユーザー登録に失敗しました'
     show:
       my_dishes: '自分の料理一覧'
-      someone_dishes: '%{item}の料理一覧'
+      someone_dishes: '%{item}の料理'
       no_data: '料理がありません'
     my_dishes:
-      title: '自分の料理一覧'
+      title: '自分の料理'
 
   user_sessions:
     new:

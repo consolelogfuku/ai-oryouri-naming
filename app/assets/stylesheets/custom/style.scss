@@ -241,8 +241,7 @@
     z-index: 1;
   }
 
-  &-bg-white {
-    background-color: #fff;
+  &-bg-none {
   }
 
   &-content {
@@ -514,3 +513,17 @@
   }
 }
 
+// 掲示板の背景
+.board-background {
+  background-color: #fefaf0;
+}
+
+// 掲示板のタイトル
+.board-title {
+  opacity: 0.8;
+}
+
+// 料理詳細のタイトル
+.dish-title {
+  opacity: 0.8;
+}
