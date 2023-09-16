@@ -318,6 +318,11 @@
   }
 }
 
+// 「似た料理表示」のアンダーライン
+.similar-dish {
+  text-decoration: underline $primary;
+}
+
 // リボンのデザイン
 .ribbon {
   display: block;
@@ -417,8 +422,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background-color: #1e3050;
     border-radius: 5px;
     z-index: 3;
@@ -428,8 +433,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     background-color: #fff;
     border-radius: 20px;
     z-index: 3;
