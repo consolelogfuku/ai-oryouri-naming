@@ -23,6 +23,7 @@ class DishesController < ApplicationController
 
   def create
     @generate_form = GenerateForm.new(generate_params)
+    # request.headers["CF-Connecting-IP"]で直接ユーザーの生のipアドレスを取得
     ip_address = request.headers["CF-Connecting-IP"] || request.remote_ip
     @dish = @generate_form.save_dish(current_user, ip_address)
     if @dish.persisted? # DBに保存できているかで分岐させる

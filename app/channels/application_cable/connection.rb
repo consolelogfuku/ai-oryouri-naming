@@ -5,6 +5,7 @@ module ApplicationCable
 
     # connectメソッドはWebSocket接続時に自動的に呼び出される特別なメソッド(初期化)
     def connect
+      # request.headers["CF-Connecting-IP"]で直接ユーザーの生のipアドレスを取得
       self.ip_address = request.headers["CF-Connecting-IP"] || request.remote_ip
     end
   end
