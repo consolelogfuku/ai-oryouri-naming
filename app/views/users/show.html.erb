@@ -1,14 +1,16 @@
 <% content_for :title, t( '.someone_dishes', item: @user.name) %>
-<h3 class='text-center fw-bold mt-5'><%= t('.someone_dishes', item: @user.name) %></h3>
-<div class="container">
-  <div class="row">
-    <% if @dishes.present? %>
-      <%= render @dishes %>
-    <% else %>
-      <p><%= t('.no_data') %></p>
-    <% end %>
-    <div class='mt-4'>
-      <%= paginate @dishes %>
+<div class="board-background">
+  <h3 class='text-center pt-5 board-title mx-auto fw-bold'><%= t('.someone_dishes', item: @user.name) %></h3>
+  <div class="container">
+    <div class="row">
+      <% if @dishes.present? %>
+        <%= render @dishes %>
+      <% else %>
+        <p><%= t('.no_data') %></p>
+      <% end %>
+      <div class='mt-4'>
+        <%= paginate @dishes %>
+      </div>
     </div>
   </div>
 </div>
