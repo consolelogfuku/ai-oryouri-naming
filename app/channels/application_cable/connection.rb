@@ -5,7 +5,7 @@ module ApplicationCable
 
     # connectメソッドはWebSocket接続時に自動的に呼び出される特別なメソッド(初期化)
     def connect
-      self.ip_address = request.remote_ip
+      self.ip_address = request.headers["CF-Connecting-IP"] || request.remote_ip
     end
   end
 end

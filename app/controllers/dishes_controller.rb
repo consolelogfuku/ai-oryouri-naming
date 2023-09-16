@@ -23,7 +23,7 @@ class DishesController < ApplicationController
 
   def create
     @generate_form = GenerateForm.new(generate_params)
-    ip_address = request.remote_ip
+    ip_address = request.headers["CF-Connecting-IP"] || request.remote_ip
     @dish = @generate_form.save_dish(current_user, ip_address)
     if @dish.persisted? # DBに保存できているかで分岐させる
       redirect_to result_dish_path(@dish.uuid)
