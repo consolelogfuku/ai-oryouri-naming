@@ -24,7 +24,7 @@ class DishesController < ApplicationController
   def create
     @generate_form = GenerateForm.new(generate_params)
     # request.headers["CF-Connecting-IP"]で直接ユーザーの生のipアドレスを取得
-    ip_address = request.headers["CF-Connecting-IP"] || request.remote_ip
+    ip_address = request.headers['CF-Connecting-IP'] || request.remote_ip
     @dish = @generate_form.save_dish(current_user, ip_address)
     if @dish.persisted? # DBに保存できているかで分岐させる
       redirect_to result_dish_path(@dish.uuid)
@@ -66,6 +66,13 @@ class DishesController < ApplicationController
   def likes
     @likes = current_user.like_dishes.includes(:user).order(created_at: :DESC).page(params[:page])
   end
+
+  # 似た料理表示
+  # def similar
+  #   @dish = Dish.find_by(uuid: params[:uuid])
+  #   # 一番ジャッカード係数の高い料理を取得
+  #   @similar_dish = @dish.similar_dish
+  # end
 
   private
 

@@ -23,7 +23,7 @@
   </div>
 </div>
 <h5 class="text-center py-4 bg-primary shadow-sm text-white mb-0 fw-bold">▼ あなたの料理情報 ▼</h5>
-<div class="card-form-bg-light-yellow px-3">
+<div class="card-form-bg-light-yellow px-3 pb-3">
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto card-form-content py-4 px-4 mt-4 mb-5 shadow">
@@ -80,7 +80,7 @@
         <% if dish.point.present? %>
           <%= Dish.human_attribute_name(:point) %>
           <div class="row mb-4">
-            <div class="col-md-7 mt-2">
+            <div class="col-md-8 mt-2">
               <div class="result-dish-content py-1 ps-2">
                 <%= dish.point %>
               </div>
@@ -101,14 +101,16 @@
         <%# ログイン/未ログインで表示を変化 %>
         <% if logged_in? %>
           <%= link_to t('.publish'), publish_dish_path, class: 'btn btn-primary', data: { turbo_method: :patch } %>
-          <p class='mt-4 mb-5'>※公開すると掲示板から、<br>「<b class='highlight'>似た料理表示</b>」機能が使えるよ</p>
+          <p class='mt-2 mb-0 fw-bold form-text'>↑ 公開して ↑<br>みんなに自慢しよう</p>
         <% else %>
-          <div class='mt-2 mb-5 py-3 bg-white result-login '>
-            <p class='fw-bold'><i class="fa-solid fa-lightbulb fs-4 text-primary me-2"></i><%= link_to t('defaults.login'), login_path, class: 'fw-bold' %>すると<br>結果を掲示板に公開できるよ</p>
-            <p>※公開すると掲示板から、<br>「<b class='highlight'>似た料理表示</b>」機能が使えます</p>
+          <div class='mt-2 mb-0 py-4 bg-white result-login '>
+            <p class='fw-bold mb-0'><i class="fa-solid fa-lightbulb fs-4 text-primary me-2"></i><%= link_to t('defaults.login'), login_path, class: 'fw-bold' %>すると<br>結果を掲示板に公開できるよ</p>
           </div>
         <% end %>
       </div>
     </div>
   </div>
+  <%# 似ている料理ボタン %>
+  <%= render partial: 'dishes/similar_dish_button', locals: { dish: dish } %>
 </div>
+

@@ -8,8 +8,6 @@
       <% if current_user && current_page?(user_path(current_user.uuid)) && dish.published? %>
         <%= render partial: 'dishes/published' %>
       <% end %>
-      <%# 似ている料理ボタン %>
-      <%= render partial: 'dishes/similar_dish' %>
       <%# 料理名 %>
       <h5 class="fw-bold"><%= link_to dish.dish_name, dish_path(dish.uuid), class:'card-title'  %></h5>
       <%# アバター、ニックネーム %>

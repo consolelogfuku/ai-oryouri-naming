@@ -29,10 +29,7 @@
     <div class="row">
       <div class="col-md-3 text-center mx-auto failed-result-login">
         <% unless logged_in? %>
-          <div class='mt-2 mb-5 py-3 bg-white result-login '>
-            <p class='fw-bold'><i class="fa-solid fa-lightbulb fs-4 text-primary me-2"></i><%= link_to t('defaults.login'), login_path, class: 'fw-bold' %>すると<br>結果を掲示板に公開できるよ</p>
-            <p>※公開すると、<br>「<b class='highlight'>似た料理表示</b>」機能が使えます</p>
-          </div>
+          <p class='mb-5 mt-2 py-3 bg-white result-login fw-bold'><i class="fa-solid fa-lightbulb fs-4 text-primary me-2"></i><%= link_to t('defaults.login'), login_path, class: 'fw-bold' %>すると<br>次回から結果を保存できるよ</p>
         <% end %>
       </div>
     </div>

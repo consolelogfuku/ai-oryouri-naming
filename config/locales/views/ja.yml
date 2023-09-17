@@ -10,7 +10,6 @@ ja:
     re_generate: 'もう一度名前をつける'
     see_cooking_board: 'みんなの料理掲示板'
     likes_dishes: 'いいねした料理'
-    similar_dish: '似た料理'
     password_reset: 'パスワードの再設定について'
     message:
       require_login: 'ログインしてください'
