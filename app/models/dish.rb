@@ -28,6 +28,42 @@ class Dish < ApplicationRecord
     uuid
   end
 
+  # 似た料理を計算(形態素解析結果をもとに、ジャッカード係数を算出)
+  def similar_dish
+    # 最も大きいジャッカード係数を格納
+    highest = 0
+    # 最も大きいジャッカード係数をもつdishを格納
+    highest_dish = nil
+
+    # 比較元の料理の食材の形態素解析結果を配列に格納する(source)
+    source = ingredients.map(&:morphemes)
+
+    # DBに保存してある料理(公開済みのもののみ)の食材の形態素解析結果を配列に格納(target)し、比較元(source)とのジャッカード係数を求める
+    dishes = Dish.where(state: 'publish')
+    dishes.each do |dish|
+      # 自分自身(source)とは比較しない
+      next if dish == self
+
+      # DBに保存してある料理(公開済みのもののみ)の食材の形態素解析結果を配列に格納
+      target = dish.ingredients.map(&:morphemes)
+      # 積集合
+      intersection = source & target
+      # 和集合
+      union = source | target
+      # ジャッカード係数を求める(少数第5位まで)
+      jaccard_index = (intersection.length.to_f / union.length).round(5)
+
+      next unless jaccard_index > highest
+
+      # 一番大きいジャッカード係数をhighestに格納
+      highest = jaccard_index
+      # 一番大きいジャッカード係数をもつdishを設定
+      highest_dish = dish
+    end
+
+    highest_dish
+  end
+
   private
 
   # 料理名を生成

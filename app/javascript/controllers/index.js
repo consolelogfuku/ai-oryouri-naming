@@ -7,5 +7,8 @@ import { application } from "./application"
 import PreviewController from "./preview_controller"
 application.register("preview", PreviewController)
 
+import SimilarDishController from "./similar_dish_controller"
+application.register("similar-dish", SimilarDishController)
+
 import ToastController from "./toast_controller"
 application.register("toast", ToastController)
