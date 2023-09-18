@@ -23,7 +23,7 @@
   </div>
 </div>
 <h5 class="text-center py-4 bg-primary shadow-sm text-white mb-0 fw-bold">▼ あなたの料理情報 ▼</h5>
-<div class="card-form-bg-light-yellow px-3 pb-3">
+<div class="card-form-bg-light-yellow px-3 pb-3" data-controller='similar-dish'>
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto card-form-content py-4 px-4 mt-4 mb-5 shadow">
@@ -112,5 +112,7 @@
   </div>
   <%# 似ている料理ボタン %>
   <%= render partial: 'dishes/similar_dish_button', locals: { dish: dish } %>
+  <%# 似ている料理modal %>
+  <%= render partial: 'dishes/similar_dish_modal', locals: { similar_dish: similar_dish } %>
 </div>
 

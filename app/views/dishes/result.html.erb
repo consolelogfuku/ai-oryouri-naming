@@ -2,5 +2,5 @@
 <% if ['いたずらはやめて〜','食べられる食材で料理してほしいな...'].include?(@dish.dish_name) %>
   <%= render partial: 'failed_result', locals: { dish: @dish } %>
 <% else %>
-  <%= render partial: 'result', locals: { dish: @dish } %>
+  <%= render partial: 'result', locals: { dish: @dish, similar_dish: @similar_dish } %>
 <% end %>
