@@ -39,7 +39,7 @@ class Dish < ApplicationRecord
     source = ingredients.map(&:morphemes)
 
     # DBに保存してある料理(公開済みのもののみ)の食材の形態素解析結果を配列に格納(target)し、比較元(source)とのジャッカード係数を求める
-    dishes = Dish.where(state: 'publish')
+    dishes = Dish.includes(:user, :ingredients).where(state: 'published')
     dishes.each do |dish|
       # 自分自身(source)とは比較しない
       next if dish == self
@@ -52,7 +52,6 @@ class Dish < ApplicationRecord
       union = source | target
       # ジャッカード係数を求める(少数第5位まで)
       jaccard_index = (intersection.length.to_f / union.length).round(5)
-
       next unless jaccard_index > highest
 
       # 一番大きいジャッカード係数をhighestに格納
@@ -60,7 +59,6 @@ class Dish < ApplicationRecord
       # 一番大きいジャッカード係数をもつdishを設定
       highest_dish = dish
     end
-
     highest_dish
   end
 

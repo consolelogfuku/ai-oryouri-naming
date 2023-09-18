@@ -52,6 +52,8 @@ class DishesController < ApplicationController
 
   def result
     @dish = Dish.find_by(uuid: params[:uuid])
+    # 作成した料理と似た料理を合わせて取得
+    @similar_dish = @dish.similar_dish
   end
 
   # ステータスを公開に変更
@@ -66,13 +68,6 @@ class DishesController < ApplicationController
   def likes
     @likes = current_user.like_dishes.includes(:user).order(created_at: :DESC).page(params[:page])
   end
-
-  # 似た料理表示
-  # def similar
-  #   @dish = Dish.find_by(uuid: params[:uuid])
-  #   # 一番ジャッカード係数の高い料理を取得
-  #   @similar_dish = @dish.similar_dish
-  # end
 
   private
 
