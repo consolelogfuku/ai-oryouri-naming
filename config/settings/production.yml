@@ -1,1 +1,4 @@
 host: 'ai-oryouri-naming.herokuapp.com'
+
+sorcery:
+  line_callback_url: 'https://www.ai-oryouri-naming.com/oauth/callback?provider=line'

@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
+  # sorceryを使った外部認証
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+
+
   resources :users, param: :uuid, only: %i[create show] do
     get 'my_dishes', on: :collection
   end
@@ -19,4 +25,5 @@ Rails.application.routes.draw do
   resources :likes, param: :uuid, only: %i[create destroy]
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development? # ローカルはletter_openerを使う
+
 end

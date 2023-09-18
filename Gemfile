@@ -67,6 +67,10 @@ gem 'ruby-openai'
 # ログイン
 gem 'sorcery'
 
+# LINEログイン
+gem 'omniauth-line'
+gem 'omniauth-rails_csrf_protection'
+
 # ページネーション
 gem 'kaminari'
 

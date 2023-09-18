@@ -22,6 +22,12 @@
             <%= f.submit t('defaults.login'),class: 'btn btn-primary mt-4'%>
           </div>
         <% end %>
+        <div class='border-bottom mt-4'></div>
+        <div class="text-center mt-4">
+          <%= link_to auth_at_provider_path(provider: :line) do %> 
+            <%= image_tag 'btn_login_base', size: '154x45', class: 'line-login-button' %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="row">
