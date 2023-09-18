@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     get 'result', on: :member
     patch 'publish', on: :member
     get 'likes', on: :collection
-    get 'similar', on: :member
   end
   resource :profile, only: %i[edit update]
   resources :password_resets, only: %i[new create edit update]
