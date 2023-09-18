@@ -3,13 +3,13 @@ class OauthsController < ApplicationController
 
   # ユーザーをプロバイダに送る
   def oauth
-    session[:oauth_provider] = auth_params[:provider]
     login_at(auth_params[:provider])
   end
 
+  # ログイン認証時に呼ばれる
   def callback
     provider = auth_params[:provider]
-    if (@user = login_from(provider))
+    if (@user = login_from(provider)) # 既に一度ログインしたとこがある場合
       redirect_to root_path, success: t('.success')
     else
       @user = create_from(provider)
