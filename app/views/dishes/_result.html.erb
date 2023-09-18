@@ -113,6 +113,10 @@
   <%# 似ている料理ボタン %>
   <%= render partial: 'dishes/similar_dish_button', locals: { dish: dish } %>
   <%# 似ている料理modal %>
-  <%= render partial: 'dishes/similar_dish_modal', locals: { similar_dish: similar_dish } %>
+  <% unless similar_dish == nil %>
+    <%= render partial: 'dishes/similar_dish_modal', locals: { similar_dish: similar_dish } %>
+  <% else %>
+    <%= render partial: 'dishes/no_similar_dish_modal' %>
+  <% end %>
 </div>
 

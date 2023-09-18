@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ 'mask', 'modal', 'button', 'buttonText' ]
 
-  showModal(e) {
+  showModal() {
     this.buttonTarget.setAttribute('data-action', 'click->similar-dish#closeModal');  // data-actionを変更
     this.buttonTextTarget.textContent = '閉じる';
     this.maskTarget.classList.remove('hidden');
