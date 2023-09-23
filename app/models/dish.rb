@@ -30,13 +30,20 @@ class Dish < ApplicationRecord
 
   # 似た料理を計算(形態素解析結果をもとに、ジャッカード係数を算出)
   def similar_dish
+    # 比較元の形態素解析結果を格納
+    source = []
+    # 比較先の形態素解析結果を格納
+    target = []
     # 最も大きいジャッカード係数を格納
     highest = 0
     # 最も大きいジャッカード係数をもつdishを格納
     highest_dish = nil
 
     # 比較元の料理の食材の形態素解析結果を配列に格納する(source)
-    source = ingredients.map(&:morphemes)
+    ingredients.each do |ingredient|
+      source << ingredient.morphemes.split(',') # sourceには、[["たまご"],["豚","ひき肉"],["なす"]]みたいな感じに格納される
+    end
+    source.flatten!
     # DBに保存してある料理(公開済みのもののみ)の食材の形態素解析結果を配列に格納(target)し、比較元(source)とのジャッカード係数を求める
     dishes = Dish.includes(:ingredients).where(state: 'published')
     dishes.each do |dish|
@@ -44,7 +51,10 @@ class Dish < ApplicationRecord
       next if dish == self
 
       # DBに保存してある料理(公開済みのもののみ)の食材の形態素解析結果を配列に格納
-      target = dish.ingredients.map(&:morphemes)
+      dish.ingredients.each do |ingredient|
+        target << ingredient.morphemes.split(',') # targetには、[["にんじん"],["牛","ひき肉"],["とまと"]]みたいな感じに格納される
+      end
+      target.flatten!
       # 積集合
       intersection = source & target
       # 和集合
