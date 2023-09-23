@@ -18,11 +18,14 @@
             <p class="card-text ms-3 mb-0"><%= dish.user.name %></p>
           <% end %>
         </div>
-        <%# 自分の料理にはcrudボタン、そうでなければいいねボタン %>
+        <%# 自分の料理にはcrudボタン %>
         <% if current_user&.own?(dish) %>
           <%= render partial: 'dishes/crud_menus', locals: { dish: dish } %>
         <% else %>
-          <%= render partial: 'dishes/likes_button', locals: { dish: dish } %>
+          <%# ログインしていればいいねボタンを表示 %>
+          <% if logged_in? %>
+            <%= render partial: 'dishes/likes_button', locals: { dish: dish } %>
+          <% end %>
         <% end %>
       </div>
       <%# 日付 %>
