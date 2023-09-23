@@ -1,0 +1,5 @@
+FactoryBot.define do
+  factory :texture do
+    # あらかじめDBにデータを保存しているためFactoryの生成は不要
+  end
+end
