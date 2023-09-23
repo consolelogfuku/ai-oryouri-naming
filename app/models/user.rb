@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :like_dishes, through: :likes, source: :dish
 
   before_create -> { self.uuid = SecureRandom.uuid }
-  validates :name, presence: true, length: { maximum: 15 } # 20文字以内
+  validates :name, presence: true, length: { maximum: 15 } # 15文字以内
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

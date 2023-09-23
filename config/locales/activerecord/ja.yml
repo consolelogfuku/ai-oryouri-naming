@@ -18,15 +18,17 @@ ja:
         avatar: 'プロフィール画像'
       dish:
         id: 'ID'
+        seasoning: '味付け'
+        texture: '食感'
+        category: 'カテゴリー'
         dish_name: '料理名'
         point: 'こだわりポイント'
         dish_image: '料理写真'
         state: 'ステータス'
       ingredient:
         id: 'ID'
-        name_1: '食材1'
-        name_2: '食材2'
-        name_3: '食材3'
+        name: '食材'
+        morphemes: 形態素
       cooking_method:
         id: 'ID'
         name: '調理法'

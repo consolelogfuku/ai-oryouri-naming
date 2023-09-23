@@ -37,7 +37,6 @@ class Dish < ApplicationRecord
 
     # 比較元の料理の食材の形態素解析結果を配列に格納する(source)
     source = ingredients.map(&:morphemes)
-
     # DBに保存してある料理(公開済みのもののみ)の食材の形態素解析結果を配列に格納(target)し、比較元(source)とのジャッカード係数を求める
     dishes = Dish.includes(:ingredients).where(state: 'published')
     dishes.each do |dish|
@@ -95,8 +94,8 @@ class Dish < ApplicationRecord
         temperature: 1.0
       }
     )
-    # レスポンスから料理名を取得(ダブルクオーテーションが含まれることがあるため、あらかじめ削除しておく)
-    self.dish_name = response.dig('choices', 0, 'message', 'content').gsub(/["「」]/, '')
+    # レスポンスから料理名を取得(シングル・ダブルクオーテーション、鉤括弧が含まれることがあるため、あらかじめ削除しておく)
+    self.dish_name = response.dig('choices', 0, 'message', 'content').gsub(/['"「」]/, '')
     save!
   end
 end
