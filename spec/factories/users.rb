@@ -5,6 +5,6 @@ FactoryBot.define do
     sequence(:email) {|n| "user_#{n}@gmail"}
     password {"password1234"}
     password_confirmation {"password1234"}
-    avatar {Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/factories/test.png'))} # テスト環境でファイルのアップロードをシミュレートする
+    avatar {nil} # テスト環境でファイルのアップロードをシミュレートする
   end
 end
