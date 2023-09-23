@@ -1,9 +1,9 @@
-10.times do |n|
-  User.create!(
-    name: "テストユーザー#{n + 1}",
-    email: "test#{n + 1}@test"
-  )
-end
+# 10.times do |n|
+#   User.create!(
+#     name: "テストユーザー#{n + 1}",
+#     email: "test#{n + 1}@test"
+#   )
+# end
 
 # 調理法
 cooking_methods = %w[炒める 煮る 煮込む 炒め煮 揚げる 蒸す 蒸し焼き 焼く 和える グリル ロースト マリネ]

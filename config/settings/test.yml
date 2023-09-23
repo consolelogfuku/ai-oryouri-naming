@@ -1,1 +1,4 @@
 host: 'localhost:3000'
+
+sorcery:
+  line_callback_url: 'https://localhost:3000/oauth/callback?provider=line'
