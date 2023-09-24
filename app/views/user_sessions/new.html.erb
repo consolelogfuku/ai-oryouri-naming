@@ -25,27 +25,16 @@
         <div class='border-bottom mt-4'></div>
         <%# googleログイン %>
         <div class="text-center mt-4">
-          <script src="https://accounts.google.com/gsi/client" async></script>
-          <div id="g_id_onload"
-              data-client_id="YOUR_GOOGLE_CLIENT_ID"
-              data-login_uri="https://your.domain/your_login_endpoint"
-              data-auto_prompt="false">
-          </div>
-          <div class="g_id_signin"
-              data-type="standard"
-              data-size="large"
-              data-theme="outline"
-              data-text="sign_in_with"
-              data-logo_alignment="left">
-          </div>
-          <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
+          <%= link_to auth_at_provider_path(provider: :google) do %>
+            <%= image_tag 'btn_google_signin.png', size: '210x50' %>
+          <% end %>
         </div>
         <%# LINEログイン %>
         <div class="text-center mt-4">
           <%= link_to auth_at_provider_path(provider: :line) do %> 
             <%= image_tag 'btn_login_base.png', size: '154x45', class: 'line-login-button' %>
           <% end %>
-          <p class='form-text'>※Googleログイン・LINEログインは実装中です</p>
+          <p class='form-text mt-4'>※Google・LINEログインは実装中です。<br>ご迷惑おかけしております。</p>
         </div>
       </div>
     </div>
