@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+  get 'pages/terms_of_use', to: 'high_voltage/pages#show', id: 'terms_of_use'
+  get 'pages/privacy', to: 'high_voltage/pages#show', id: 'privacy'
 
   # sorceryを使った外部認証
   post "oauth/callback", to: "oauths#callback"
   get "oauth/callback", to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
-
 
   resources :users, param: :uuid, only: %i[create show] do
     get 'my_dishes', on: :collection
