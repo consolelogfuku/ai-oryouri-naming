@@ -511,7 +511,7 @@
 
 // 掲示板の背景
 .board-background {
-  background-color: #fefaf0;
+  background-color: $very-light-yellow;
 }
 
 // 掲示板のタイトル
@@ -570,4 +570,9 @@
 // LINEログインボタン
 .line-login-button:hover {
   opacity: 0.8;
+}
+
+// 利用規約・プライバシーポリシー
+.privacy-and-terms-of-use {
+  background-color: $very-light-yellow;
 }
