@@ -572,7 +572,12 @@
   opacity: 0.8;
 }
 
-// 利用規約・プライバシーポリシー
+// Googleログインボタン
+.google-login-button:hover {
+  opacity: 0.5;
+}
+
+// 利用規約・プライバシーポリシーの背景
 .privacy-and-terms-of-use {
   background-color: $very-light-yellow;
 }
