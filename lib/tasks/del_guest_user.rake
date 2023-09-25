@@ -1,5 +1,5 @@
 namespace :del_guest_user do
-  desc 'ゲストを削除する'
+  desc '作成から2週間たったゲストを削除する'
   task del_guest_user: :environment do
     User.set_guest.find_each{ |user| user.destroy }
   end
