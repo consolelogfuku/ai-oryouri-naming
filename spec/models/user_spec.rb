@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
 
     # 名前が15文字より多い
     it 'is invalid name longer than 15 characters' do
-      user_with_longer_name = build(:user, name:'あいうえおかきくけこさしすせそたちつてと')
+      user_with_longer_name = build(:user, name: 'あいうえおかきくけこさしすせそたちつてと')
       expect(user_with_longer_name).to be_invalid
       expect(user_with_longer_name.errors.full_messages).to eq ['ニックネームは15文字以内で入力してください']
     end
@@ -38,20 +38,20 @@ RSpec.describe User, type: :model do
       expect(user_with_same_email).to be_invalid
       expect(user_with_same_email.errors.full_messages).to eq ['メールアドレスはすでに存在します']
     end
-    
+
     # パスワードなし
     it 'is invalid without password' do
       user_without_password = build(:user, password: '')
       expect(user_without_password).to be_invalid
-      expect(user_without_password.errors.full_messages).to eq ['パスワードは8文字以上で入力してください', 'パスワード確認とパスワードの入力が一致しません']
+      expect(user_without_password.errors.full_messages).to eq %w[パスワードは8文字以上で入力してください パスワード確認とパスワードの入力が一致しません]
     end
 
     # パスワード確認なし
     it 'is invalid without password_confirmation' do
       user_without_password_confirmation = build(:user, password_confirmation: '')
       expect(user_without_password_confirmation).to be_invalid
-      expect(user_without_password_confirmation.errors.full_messages).to eq ['パスワード確認とパスワードの入力が一致しません', 'パスワード確認を入力してください']
+      expect(user_without_password_confirmation.errors.full_messages).to eq %w[パスワード確認とパスワードの入力が一致しません
+                                                                               パスワード確認を入力してください]
     end
-
   end
 end

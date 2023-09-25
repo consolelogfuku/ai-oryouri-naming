@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:reset_password, :external]
+Rails.application.config.sorcery.submodules = %i[reset_password external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -80,7 +80,7 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  config.external_providers = [:line, :google]
+  config.external_providers = %i[line google]
 
   # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
   # Path to ca_file. By default use a internal ca-bundle.crt.
@@ -157,13 +157,13 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.secret = ""
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
-  
+
   # googleログインの設定
-  config.google.key = ENV['GOOGLE_CLIENT_ID']
-  config.google.secret = ENV['GOOGLE_CLIENT_SECRET']
+  config.google.key = ENV.fetch('GOOGLE_CLIENT_ID', nil)
+  config.google.secret = ENV.fetch('GOOGLE_CLIENT_SECRET', nil)
   config.google.callback_url = Settings.sorcery[:google_callback_url]
-  config.google.user_info_mapping = {:email => "email", :username => "name"}
-  config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+  config.google.user_info_mapping = { email: 'email', username: 'name' }
+  config.google.scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile OpenID'
   #
   # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
   # The callback URL "can't contain a query string or invalid special characters"
@@ -221,12 +221,12 @@ Rails.application.config.sorcery.configure do |config|
   # config.salesforce.user_info_mapping = {:email => "email"}
 
   # LINEの設定
-  config.line.key = ENV['LINE_KEY']
-  config.line.secret = ENV['LINE_SECRET']
+  config.line.key = ENV.fetch('LINE_KEY', nil)
+  config.line.secret = ENV.fetch('LINE_SECRET', nil)
   config.line.callback_url = Settings.sorcery[:line_callback_url]
-  config.line.scope = "profile" # メールアドレスも取得
+  config.line.scope = 'profile%20openid%20email' # メールアドレスも取得
   # config.line.bot_prompt = "normal"
-  config.line.user_info_mapping = {name: 'displayName'}
+  config.line.user_info_mapping = { name: 'displayName', email: 'email' }
 
   # For information about Discord API
   # https://discordapp.com/developers/docs/topics/oauth2

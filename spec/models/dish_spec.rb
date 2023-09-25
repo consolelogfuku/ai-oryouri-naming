@@ -33,9 +33,8 @@ RSpec.describe Dish, type: :model do
 
   # こだわりポイントが20文字より多い
   it 'is invalid with point longer than 20 characters' do
-    dish_with_longer_point = build(:dish, point:'ポイントポイントポイントポイントポイントポイント')
+    dish_with_longer_point = build(:dish, point: 'ポイントポイントポイントポイントポイントポイント')
     expect(dish_with_longer_point).to be_invalid
     expect(dish_with_longer_point.errors.full_messages).to eq ['こだわりポイントは20文字以内で入力してください']
   end
-
 end
