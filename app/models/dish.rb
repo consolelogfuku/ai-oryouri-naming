@@ -69,9 +69,7 @@ class Dish < ApplicationRecord
       highest_dish = dish
     end
     # highest_dishが見つかった場合のみ、関連情報も読み込む(見つからなかった場合、関連情報を使用しないので無駄になる)
-    if highest_dish
-      highest_dish = Dish.includes(:user).find(highest_dish.id)
-    end
+    highest_dish = Dish.includes(:user).find(highest_dish.id) if highest_dish
 
     highest_dish
   end

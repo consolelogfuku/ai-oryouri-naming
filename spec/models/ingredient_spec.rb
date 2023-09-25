@@ -13,7 +13,7 @@ RSpec.describe Ingredient, type: :model do
     it 'is invalid without name' do
       ingredient_without_name = build(:ingredient, name: '')
       expect(ingredient_without_name).to be_invalid
-      expect(ingredient_without_name.errors.full_messages).to eq ['食材を入力してください','形態素を入力してください']
+      expect(ingredient_without_name.errors.full_messages).to eq %w[食材を入力してください 形態素を入力してください]
     end
 
     # 食材が15文字以上の場合

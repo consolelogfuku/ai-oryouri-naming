@@ -10,13 +10,12 @@ class OauthsController < ApplicationController
   def callback
     provider = auth_params[:provider]
     if (@user = login_from(provider)) # 既に一度ログインしたとこがある場合
-      redirect_to root_path, success: t('.success')
     else
       @user = create_from(provider)
       reset_session
       auto_login(@user)
-      redirect_to root_path, success: t('.success')
     end
+    redirect_to root_path, success: t('.success')
   end
 
   private
