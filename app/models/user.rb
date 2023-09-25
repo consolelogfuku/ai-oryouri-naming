@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  scope :set_guest, -> { where('name = ? AND created_at <= ?', ENV.fetch('USER_NAME', nil), 1.day.ago) }
+  scope :set_guest, -> { where('name = ? AND created_at <= ?', ENV.fetch('USER_NAME', nil), 2.weeks.ago) }
 
   # urlにuuidを使用
   def to_param
