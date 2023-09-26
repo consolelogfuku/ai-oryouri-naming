@@ -22,6 +22,7 @@ AllCops:
     - "config/puma.rb"
     - "node_modules/**/*"
     - "vendor/**/*"
+    - "spec/**/*"
 
 Rails:
   Enabled: true
