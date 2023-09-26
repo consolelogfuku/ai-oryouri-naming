@@ -104,6 +104,8 @@ group :development, :test do
   # テスト
   gem 'rspec-rails', '~> 6.0.0'
   gem 'factory_bot_rails'
+  gem 'webdrivers'
+  gem 'capybara'
 end
 
 group :development do
