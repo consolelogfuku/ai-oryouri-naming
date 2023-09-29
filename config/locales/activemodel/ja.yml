@@ -4,5 +4,8 @@ ja:
       generate_form:
     attributes:
       generate_form:
+        name_1: '食材'
+        name_2: '食材'
+        name_3: '食材'
         point: 'こだわりポイント'
         dish_image: '料理写真'

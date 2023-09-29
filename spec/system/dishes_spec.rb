@@ -135,7 +135,7 @@ RSpec.describe "Dishes", type: :system do
       end
 
       context 'こだわりポイントが20文字より多い' do
-        fit '料理名の生成が失敗する' do
+        it '料理名の生成が失敗する' do
           fill_in 'generate_form[name_1]', with: 'にんじん'
           fill_in 'generate_form[name_2]', with: 'だいこん'
           fill_in 'generate_form[name_3]', with: '豚肉'

@@ -37,6 +37,7 @@
 <div class="main-content">
 <h5 class="main-content-title fw-bold text-center pt-5 pb-4">▼ 料理情報を入力しよう ▼</h5>
   <%= form_with model: @generate_form, url: dishes_path do |f| %>
+    <%= render partial: 'shared/error_messages', locals: { object: f.object } %>
     <%# 食材 %>
     <div class="ingredient">
       <div class="container">

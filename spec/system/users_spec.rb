@@ -82,7 +82,7 @@ RSpec.describe 'Users', type: :system do
     describe 'プロフィール編集' do
       context 'フォームの入力が正常' do
         it 'プロフィールの編集が成功する' do
-          attach_file('user[avatar]', Rails.root.join('spec/factories/test.png').to_s)
+          attach_file('user[avatar]', "#{Rails.root}/spec/factories/test.png")
           fill_in 'user[name]', with: 'updateロボくん'
           fill_in 'user[email]', with: 'update@example.com'
           click_on '更新'
@@ -94,7 +94,7 @@ RSpec.describe 'Users', type: :system do
 
       context 'ニックネームが未入力' do
         it 'プロフィールの編集が成功する' do
-          attach_file('user[avatar]', Rails.root.join('spec/factories/test.png').to_s)
+          attach_file('user[avatar]', "#{Rails.root}/spec/factories/test.png")
           fill_in 'user[name]', with: ''
           fill_in 'user[email]', with: 'update@example.com'
           click_on '更新'
@@ -104,7 +104,7 @@ RSpec.describe 'Users', type: :system do
 
       context 'ニックネームが15文字より多い' do
         it 'プロフィールの編集が失敗する' do
-          attach_file('user[avatar]', Rails.root.join('spec/factories/test.png').to_s)
+          attach_file('user[avatar]', "#{Rails.root}/spec/factories/test.png")
           fill_in 'user[name]', with: 'AIロボくんAIロボくんAIロボくんAIロボくんAIロボくん'
           fill_in 'user[email]', with: 'update@example.com'
           click_button '更新'
@@ -114,7 +114,7 @@ RSpec.describe 'Users', type: :system do
 
       context 'メールアドレスが未入力' do
         it 'プロフィールの編集が失敗する' do
-          attach_file('user[avatar]', Rails.root.join('spec/factories/test.png').to_s)
+          attach_file('user[avatar]', "#{Rails.root}/spec/factories/test.png")
           fill_in 'user[name]', with: 'updateロボくん'
           fill_in 'user[email]', with: ''
           click_on '更新'
