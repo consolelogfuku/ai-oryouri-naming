@@ -161,4 +161,4 @@ SNSでは、綺麗に盛り付けられた「**名前のある料理**」たち�
 - Figmaのリンクは[**こちら**](https://www.figma.com/file/6Q1llX9yabbue2uU0OWOzq/Untitled?type=design&node-id=0-1&t=QuYtjEzxCkf1r6s7-0)をご覧ください。
 
 ## 📒ER図
-![ER図](https://github.com/consolelogfuku/ai-oryouri-naming/assets/108031744/0667d1af-05cf-421f-b5bc-b5880a894aaa)
+![ER図](https://github.com/consolelogfuku/ai-oryouri-naming/assets/108031744/78be8ad8-91e2-410f-b4ce-f65dc1f9cca8)
