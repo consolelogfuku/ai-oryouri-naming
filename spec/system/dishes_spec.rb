@@ -20,7 +20,7 @@ RSpec.describe "Dishes", type: :system do
           fill_in 'generate_form[point]', with: 'ゆっくり煮込む'
           attach_file('generate_form[dish_image]', "#{Rails.root}/spec/factories/test.png")
           click_on 'AIに名前をつけてもらう'
-          sleep(15) # 料理名が生成されるまで待機
+          sleep(10) # 料理名が生成されるまで待機
           expect(page).to have_content('あなたの料理名は') # 料理名生成結果画面に遷移
           find_link('ログイン') # ログイン前のみ、ログインリンクを表示
         end
@@ -172,7 +172,7 @@ RSpec.describe "Dishes", type: :system do
           fill_in 'generate_form[point]', with: 'ゆっくり煮込む'
           attach_file('generate_form[dish_image]', "#{Rails.root}/spec/factories/test.png")
           click_on 'AIに名前をつけてもらう'
-          sleep(15) # 料理名が生成されるまで待機
+          sleep(10) # 料理名が生成されるまで待機
           expect(page).to have_content('あなたの料理名は') # 料理名生成結果画面に遷移
           find_link('料理掲示板で公開する') # ログイン後のみ、掲示板公開リンクを表示
         end
