@@ -73,6 +73,9 @@ gem 'kaminari'
 # 画像アップロード
 gem 'carrierwave', '~> 3.0'
 
+# 画像編集
+gem "mini_magick"
+
 # AWS接続用
 gem 'fog-aws'
 
