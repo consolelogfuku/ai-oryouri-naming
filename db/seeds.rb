@@ -33,7 +33,7 @@ textures.each do |texture|
 end
 
 # 食感(英訳)
-textures_en = %w[juicy substantial crumbly soft chewy plump smooth sticky crispy crisp creamy]
+textures_en = %w[juicy substantial crumbly soft thick&smooth chewy plump smooth sticky crispy crisp creamy]
 textures_en.each_with_index do |textures_en, i|
   texture_first_id = Texture.first.id
   texture = Texture.find(texture_first_id + i)
