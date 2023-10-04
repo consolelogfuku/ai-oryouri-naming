@@ -89,6 +89,9 @@ gem 'redis-actionpack'
 # 形態素解析
 gem 'tiny_segmenter'
 
+# 翻訳
+gem 'deepl-rb', require: 'deepl'
+
 # 利用規約・プライバシーポリシーに使用
 gem 'high_voltage', '~> 3.1'
 
