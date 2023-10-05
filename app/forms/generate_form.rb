@@ -64,6 +64,8 @@ class GenerateForm
       end
       # バリデーションが全て通ったら、保存処理をする
       @dish.save
+      # 画像がアップロードされなかった場合、料理写真を生成
+      @dish.generate_dish_image if @dish.dish_image.blank?
     end
     # @dishを返す
     @dish

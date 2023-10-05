@@ -2,6 +2,9 @@ class Dish < ApplicationRecord
   require 'openai'
   require 'dotenv'
   Dotenv.load
+  require 'Faraday'
+  require 'json'
+  require 'base64'
 
   before_create -> { self.uuid = SecureRandom.uuid }
   # レコード新規作成時のみ、generateメソッドを実行する
@@ -61,6 +64,38 @@ class Dish < ApplicationRecord
     @highest_dish = Dish.includes(:user).find(@highest_dish.id) if @highest_dish
 
     @highest_dish
+  end
+
+  def generate_dish_image
+    conn = Faraday.new(
+      url: ENV['STABILITY_URL'],
+      headers: {'Authorization' => ENV['STABILITY_API_KEY'],
+                'Content-Type' => 'application/json'}
+    )
+    
+    body = {
+      cfg_scale: 7,
+      height: 512,
+      width: 512,
+      samples: 1,
+      steps: 30,
+      text_prompts: [
+      {
+      text: "Stir-fried poke and eggplant, sweet&spicy, greasy, high detail, food photography , Bokeh effect, on a plate",
+      weight: 1
+      }
+      ]
+    }
+    
+    response = conn.post('', body.to_json)
+    hash = JSON.parse(response.body)
+    bin = Base64.decode64(hash["artifacts"][0]["base64"]) # base64の値のみを取り出し
+    file = Tempfile.new(['img', '.png'])
+    file.binmode
+    file << bin
+    file.rewind
+    
+    self.dish_image = file
   end
 
   private
