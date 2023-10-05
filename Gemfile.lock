@@ -484,6 +484,7 @@ DEPENDENCIES
   dotenv-rails
   enum_help
   factory_bot_rails
+  faraday
   fog-aws
   high_voltage (~> 3.1)
   jbuilder
