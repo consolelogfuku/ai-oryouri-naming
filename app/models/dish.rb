@@ -2,7 +2,7 @@ class Dish < ApplicationRecord
   require 'openai'
   require 'dotenv'
   Dotenv.load
-  require 'Faraday'
+  require 'faraday'
   require 'json'
   require 'base64'
 
