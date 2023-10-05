@@ -1,11 +1,5 @@
 class Dish < ApplicationRecord
-  require 'openai'
-  require 'dotenv'
-  Dotenv.load
-  require 'faraday'
-  require 'json'
-  require 'base64'
-
+  
   before_create -> { self.uuid = SecureRandom.uuid }
   # レコード新規作成時のみ、generateメソッドを実行する
   after_commit :generate_dish_name, on: :create
@@ -72,6 +66,9 @@ class Dish < ApplicationRecord
       headers: {'Authorization' => ENV['STABILITY_API_KEY'],
                 'Content-Type' => 'application/json'}
     )
+
+    ingredients_en = DeepL.translate "#{ingredients.pluck(:name).join(',')}", 'JA', 'EN'
+    point_en = DeepL.translate "#{point}", 'JA', 'EN'
     
     body = {
       cfg_scale: 7,
@@ -81,7 +78,7 @@ class Dish < ApplicationRecord
       steps: 30,
       text_prompts: [
       {
-      text: "Stir-fried poke and eggplant, sweet&spicy, greasy, high detail, food photography , Bokeh effect, on a plate",
+      text: "#{ingredients_en}, #{cooking_methods.pluck(:name_en).join(',')}, #{seasoning.name_en}, #{texture.name_en}, #{category.name_en}, #{point_en}, high detail, food photography , Bokeh effect, on a plate",
       weight: 1
       }
       ]
