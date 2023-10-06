@@ -194,9 +194,23 @@
   }
 }
 
+// 新着の設定
+.new-arrival {
+  background-image: linear-gradient(180deg, rgba(255, 211, 47, 1), rgba(255, 245, 224, 1));
+
+  // NEWマーク
+  &-mark {
+    position: absolute;
+    top: -20px;
+    left: -8px;
+    opacity: 0.85;
+    background-color: #3fd7eb;
+  }
+}
+
+
 // メインコンテンツの設定
 .main-content {
-  border-top: 2px solid #fff;
   background-color: $light-yellow;
 }
 
