@@ -6,6 +6,7 @@ ja:
     update: '更新'
     edit: '編集する'
     delete: '削除する'
+    new_arrival: 'NEW'
     published: '公開中'
     re_generate: 'もう一度名前をつける'
     see_cooking_board: 'みんなの料理掲示板'

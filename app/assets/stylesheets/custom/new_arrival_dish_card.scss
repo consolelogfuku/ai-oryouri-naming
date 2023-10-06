@@ -1,0 +1,45 @@
+// 「似た料理」用の料理カード
+.new-arrival-dish-card{
+  max-width: 100%;
+  
+  &-img-block {
+    width: 91%;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+  }
+
+  &-img-block img{
+    border-radius:3px;
+    box-shadow:0 0 10px rgba(0,0,0,0.4);
+  }
+
+  &-title {
+    color: #424242 !important;
+    text-decoration: none;
+    border-bottom: 1px solid;
+  }
+  
+  &-title:hover {
+    opacity: 0.7;
+  }
+
+  &-link {
+    text-decoration: none;
+  }
+  
+  &-link:hover {
+    opacity: 0.7;
+  }
+
+  &-text {
+    color: #424242 !important;
+  }
+
+  &-avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+
+}

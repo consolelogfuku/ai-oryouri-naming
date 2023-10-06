@@ -15,6 +15,7 @@ class DishesController < ApplicationController
   def new
     @generate_form = GenerateForm.new
     @dish = Dish.new
+    @new_arrival = Dish.where(state: 'published').last
   end
 
   def edit
