@@ -90,9 +90,6 @@ ja:
       success: 'パスワードを変更しました'
       fail: 'パスワードの変更に失敗しました'
   
-  oauth:
+  oauths:
     callback:
       success: 'ログインしました'
-      fail: 'ログインに失敗しました'
-
-  
