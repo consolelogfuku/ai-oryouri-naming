@@ -33,10 +33,8 @@ class GenerateForm
   # validates :point, length: { maximum: 20 }
 
   def save_dish(current_user, ip_address)
-
     # 一つでも失敗したら保存しない
     ActiveRecord::Base.transaction do
-      
       # 料理名生成時にログインしていなければ、ゲストユーザー設定をする
       # user.rbでcurrent_userを使用できるよう、引数を渡す
       user = User.setup_guest_if_not_logedin(current_user)
@@ -74,32 +72,32 @@ class GenerateForm
   private
 
   def dish_params
-    { seasoning_id: seasoning_id, texture_id: texture_id, category_id: category_id,
-      point: point, dish_image: dish_image, dish_image_cache: dish_image_cache}
+    { seasoning_id:, texture_id:, category_id:,
+      point:, dish_image:, dish_image_cache: }
   end
 
   # 食材が最低一つは入力されているか確認
   def check_ingredient_presence
-    unless [name_1, name_2, name_3].any?(&:present?)
-      errors.add(:base, '食材は一つ以上入力してください')
-    end
+    return if [name_1, name_2, name_3].any?(&:present?)
+
+    errors.add(:base, '食材は一つ以上入力してください')
   end
 
   # 調理法が最低一つは入力されているか確認
   def check_cooking_method_presence
-    unless cooking_methods.any?(&:present?)
-      errors.add(:base, '調理法は一つ以上選択してください')
-    end
+    return if cooking_methods.any?(&:present?)
+
+    errors.add(:base, '調理法は一つ以上選択してください')
   end
 
   # 食材を@dishに関連づける
   def associate_ingredients_to_dish
     names = [name_1, name_2, name_3].select(&:present?) # フォームに入力されていない時、空白が送られるため空白を削除
     names.each do |name|
-      ingredient = Ingredient.find_by(name: name)
+      ingredient = Ingredient.find_by(name:)
       unless ingredient # DBに保存されていない食材のみ形態素解析をし、createする
         morphemes = morphological_analysis(name)
-        ingredient = Ingredient.create(name: name, morphemes: morphemes)
+        ingredient = Ingredient.create(name:, morphemes:)
       end
       @dish.ingredients << ingredient
     end
