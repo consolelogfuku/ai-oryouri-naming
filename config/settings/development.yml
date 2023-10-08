@@ -2,4 +2,4 @@ host: 'localhost:3000'
 
 sorcery:
   line_callback_url: 'https://localhost:3000/oauth/callback?provider=line'
-  google_callback_url: 'http://localhost:3000/oauth/callback?provider=google'
+  google_callback_url: 'https://localhost:3000/oauth/callback?provider=google'

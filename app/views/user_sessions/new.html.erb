@@ -29,13 +29,12 @@
             <%= image_tag 'btn_google_signin.png', size: '210x50', class: 'google-login-button' %>
           <% end %>
         </div>
-        <%# LINEログイン %>
-        <div class="text-center mt-4">
-          <%= link_to auth_at_provider_path(provider: :line) do %> 
-            <%= image_tag 'btn_login_base.png', size: '154x45', class: 'line-login-button' %>
-          <% end %>
-          <p class='form-text mt-4'>※Google・LINEログインは実装中です。<br>ご迷惑おかけしております。</p>
-        </div>
+        <%# LINEログイン(アドレス取得権限もらえたら実装) %>
+        <%# <div class="text-center mt-4"> %>
+          <%# link_to auth_at_provider_path(provider: :line) do %> 
+            <%# image_tag 'btn_login_base.png', size: '154x45', class: 'line-login-button' %>
+          <%# end %>
+        <%# </div> %>
       </div>
     </div>
     <div class="row">
