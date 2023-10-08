@@ -1,14 +1,13 @@
 class OpenaiClient
-
   def generate_dish_name(ingredients, cooking_methods, seasoning, texture, category, point)
     # プロンプトを呼び出し
     prompt(ingredients, cooking_methods, seasoning, texture, category, point)
     # OpenAI APIを叩く
     client = OpenAI::Client.new(access_token: ENV.fetch('OPENAI_API_KEY', nil))
-    response = client.chat(
+    client.chat(
       parameters: {
         model: 'gpt-4',
-        messages: [{ role: 'user', content: @content}],
+        messages: [{ role: 'user', content: @content }],
         temperature: 1.0
       }
     )

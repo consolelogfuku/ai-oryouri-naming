@@ -1,5 +1,4 @@
 class Dish < ApplicationRecord
-  
   before_create -> { self.uuid = SecureRandom.uuid }
   # レコード新規作成時のみ、generateメソッドを実行する
   after_commit :generate_dish_name, on: :create
@@ -69,15 +68,16 @@ class Dish < ApplicationRecord
 
     # 料理情報をリクエストボディに含めて、StabilityAI APIに問い合わせる
     stability_client = StabilityClient.new
-    response_body = stability_client.post_to_stability_api(ingredients_en, cooking_methods, seasoning, texture, category, point_en)
+    response_body = stability_client.post_to_stability_api(ingredients_en, cooking_methods, seasoning, texture,
+                                                           category, point_en)
 
     # base64形式の画像データをデコードし、pngで保存する
-    image = Base64.decode64(response_body["artifacts"][0]["base64"]) # base64の値のみを取り出し
+    image = Base64.decode64(response_body['artifacts'][0]['base64']) # base64の値のみを取り出し
     file = Tempfile.new(['', '.png'])
     file.binmode
     file << image
     file.rewind
-    
+
     self.dish_image = file
   end
 
@@ -124,6 +124,7 @@ class Dish < ApplicationRecord
   def find_dish_with_highest_jaccard(dish)
     # jaccard_index > highestでない限り、以降の処理を飛ばす
     return unless @jaccard_index > @highest
+
     # 一番大きいジャッカード係数をhighestに格納
     @highest = @jaccard_index
     # 一番大きいジャッカード係数をもつdishを設定

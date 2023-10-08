@@ -1,8 +1,8 @@
 class DishImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  
+
   version :dish_card do
-    process resize_to_fill: [320, 240, gravity='Center']
+    process resize_to_fill: [320, 240, 'Center']
   end
 
   # storage :file
