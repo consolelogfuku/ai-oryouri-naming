@@ -11,8 +11,8 @@ class StabilityClient
   def post_to_stability_api(ingredients_en, cooking_methods, seasoning, texture, category, point_en)
     body = {
       cfg_scale: 7,
-      height: 1024,
-      width: 1024,
+      height: 512,
+      width: 512,
       samples: 1,
       steps: 30,
       text_prompts: [
