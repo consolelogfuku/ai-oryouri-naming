@@ -2,7 +2,7 @@
 <div class="similar-dish-modal hidden" data-similar-dish-target='modal'>
   <div class="card similar-dish-card">
     <div class="similar-dish-card-img-block">
-      <%= image_tag similar_dish.dish_image_url, class:'card-img-top' %>
+      <%= image_tag similar_dish.dish_image.url(:dish_card), class:'card-img-top' %>
     </div>
     <div class="card-body pt-0">
       <%# 料理名 %>

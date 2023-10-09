@@ -296,8 +296,8 @@
   &-dish-image img {
     border-radius:5px;
     box-shadow:0 0 10px rgba(0,0,0,0.63);
-    width: 320px;
-    height: 100%;
+    // width: 320px;
+    // height: 100%;
     object-fit: cover;
   }
 
@@ -591,4 +591,13 @@
 // 利用規約・プライバシーポリシーの背景
 .privacy-and-terms-of-use {
   background-color: $very-light-yellow;
+}
+
+// プレビュー
+.preview-dish-image img {
+  border-radius:5px;
+  box-shadow:0 0 10px rgba(0,0,0,0.63);
+  width: 320px;
+  height: 100%;
+  object-fit: cover;
 }
