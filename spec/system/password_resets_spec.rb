@@ -9,7 +9,7 @@ RSpec.describe "PasswordResets", type: :system do
       click_on 'パスワードをお忘れの方はこちら'
     end
 
-    fit 'メールアドレスを入力' do
+    it 'メールアドレスを入力' do
       fill_in 'email', with: user.email
       click_on '再設定メールを送信'
       expect(page).to have_content('再設定メールを送信しました')
