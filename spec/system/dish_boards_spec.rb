@@ -25,7 +25,7 @@ RSpec.describe "DishBoards", type: :system do
         expect(current_path).to eq dish_path(dish.uuid)
       end
 
-      it '公開されているの料理を作成したユーザーの、料理一覧ページに遷移できる' do
+      it '公開されている料理を作成したユーザーの料理一覧ページに遷移できる' do
         find('.card-link').click
         expect(page).to have_content("#{dish.user.name}の料理")
         expect(current_path).to eq user_path(dish.user.uuid)
@@ -48,6 +48,7 @@ RSpec.describe "DishBoards", type: :system do
         select('非公開', from: 'dish[state]') # ステータスを非公開にする
         attach_file('dish[dish_image]', "#{Rails.root}/spec/factories/test.png")
         click_on '更新'
+        sleep 5
         expect(page).to have_content('更新しました')
         expect(current_path).to eq edit_dish_path(user_dish.uuid)
         expect(page).to have_select('ステータス', selected: '非公開') # セレクトボックスで「非公開」が選択されていることを確認
@@ -76,6 +77,7 @@ RSpec.describe "DishBoards", type: :system do
       it 'いいねした料理一覧で、いいねした料理が表示される' do
         visit dishes_path
         find('a[data-turbo-method="post"]').click # いいねボタンをクリック
+        expect(page).to have_selector('a[data-turbo-method="delete"]') # 色のついたボタンに変化する
         visit likes_dishes_path
         expect(page).to have_content(dish.dish_name)
         expect(page).to have_selector('a[data-turbo-method="delete"]') # いいねボタンが押されている
