@@ -4,6 +4,6 @@ RSpec.configure do |config|
     # driven_by(:selenium_chrome)
 
     # Spec実行時、ブラウザOFF
-    # driven_by(:selenium_chrome_headless)
+    driven_by(:selenium_chrome_headless)
   end
 end
