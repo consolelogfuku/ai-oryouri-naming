@@ -159,7 +159,7 @@ SNSでは、綺麗に盛り付けられた「**名前のある料理**」たち�
 - DeepL API...Stability AI APIに送るプロンプトの英訳に使用
 
 ### インフラ
-- postgreSQL
+- PostgreSQL
 - Upstash(Redis)...セッション情報及び、IPアドレスと料理名生成機能の使用回数を格納
 - Heroku
 - AWS(S3)
