@@ -55,7 +55,7 @@ class Dish < ApplicationRecord
     end
     # highest_dishが見つかった場合のみ、関連情報も読み込む(見つからなかった場合、関連情報を使用しないので無駄になる)
     @highest_dish = Dish.includes(:user).find(@highest_dish.id) if @highest_dish
-    
+
     @highest_dish
   end
 
@@ -69,7 +69,7 @@ class Dish < ApplicationRecord
     # 料理情報をリクエストボディに含めて、StabilityAI APIに問い合わせる
     stability_client = StabilityClient.new
     response_body = stability_client.post_to_stability_api(ingredients_en, cooking_methods, seasoning, texture,
-                                                          category, point_en)
+                                                           category, point_en)
 
     # base64形式の画像データをデコードし、pngで保存する
     image = Base64.decode64(response_body['artifacts'][0]['base64']) # base64の値のみを取り出し

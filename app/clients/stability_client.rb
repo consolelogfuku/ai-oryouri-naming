@@ -3,8 +3,8 @@ class StabilityClient
     @conn = Faraday.new(
       url: ENV.fetch('STABILITY_URL', nil),
       headers: { 'Authorization' => ENV.fetch('STABILITY_API_KEY', nil),
-                'Content-Type' => 'application/json',
-                'Accept' => 'application/json' }
+                 'Content-Type' => 'application/json',
+                 'Accept' => 'application/json' }
     )
   end
 

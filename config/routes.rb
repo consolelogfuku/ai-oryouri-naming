@@ -25,5 +25,12 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   resources :likes, param: :uuid, only: %i[create destroy]
 
+  namespace :admin do
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+    root to: 'dashboards#index'
+  end
+
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development? # ローカルはletter_openerを使う
 end
