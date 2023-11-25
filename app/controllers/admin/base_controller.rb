@@ -3,6 +3,8 @@ module Admin
     # 管理者用controllerの共通の処理はここに書く
     before_action :check_admin
 
+    private
+
     # ログインしていなければ、ログイン画面に飛ばす
     def not_authenticated
       redirect_to admin_login_path, warning: t('defaults.message.require_login')
