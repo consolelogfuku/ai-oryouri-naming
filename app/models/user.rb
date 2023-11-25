@@ -16,6 +16,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
+  validates :role, presence: true
+  enum role: { general: 0, admin: 1 }
+
   mount_uploader :avatar, AvatarUploader
 
   scope :set_guest, -> { where('name = ? AND created_at <= ?', ENV.fetch('USER_NAME', nil), 2.weeks.ago) }

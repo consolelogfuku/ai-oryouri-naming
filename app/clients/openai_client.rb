@@ -6,7 +6,7 @@ class OpenaiClient
     client = OpenAI::Client.new(access_token: ENV.fetch('OPENAI_API_KEY', nil))
     client.chat(
       parameters: {
-        model: ENV['OPENAI_API_MODEL'],
+        model: ENV.fetch('OPENAI_API_MODEL', nil),
         messages: [{ role: 'user', content: @content }],
         temperature: 1.0
       }

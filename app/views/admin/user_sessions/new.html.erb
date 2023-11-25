@@ -1,0 +1,25 @@
+<% content_for :title, t('.title')%>
+<div class="admin-card-form pb-4 px-3">
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-md-4 mx-auto admin-card-form-content py-5 px-4 my-5 shadow">
+        <h3 class="fw-bold text-center mb-5"><%= t('.title') %></h3>
+        <%= form_with url: admin_login_path do |f| %>
+          <%# メールアドレス%>
+          <div class="d-flex align-items-center mt-2">
+            <i class="fa-solid fa-envelope fa-lg me-3 fa-fw"></i>
+            <%= f.email_field :email, class: 'form-control flex-fill', placeholder: User.human_attribute_name(:email) %>
+          </div>
+          <%# パスワード%>
+          <div class="d-flex align-items-center mt-4 mb-2">
+            <i class="fa-solid fa-lock fa-lg me-3 fa-fw"></i>
+            <%= f.password_field :password, class: 'form-control flex-fill', placeholder: User.human_attribute_name(:password) %>
+          </div>
+          <div class="text-center">
+            <%= f.submit t('defaults.login'),class: 'btn btn-primary mt-4'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

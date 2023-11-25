@@ -46,3 +46,12 @@ end
 #   category = Category.find(category_first_id + i)
 #   category.update(name_en: categories_en)
 # end
+
+# 管理者用データーの作成
+User.create(
+  name: ENV['ADMIN_NAME'],
+  email: ENV['ADMIN_EMAIL'],
+  password: ENV['ADMIN_PASSWORD'],
+  password_confirmation: ENV['ADMIN_PASSWORD_CONFIRMATION'],
+  role: 1
+)
