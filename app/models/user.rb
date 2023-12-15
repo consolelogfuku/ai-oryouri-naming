@@ -30,7 +30,7 @@ class User < ApplicationRecord
 
   def self.setup_guest_if_not_logedin(current_user)
     if current_user.nil?
-      User.new(
+      User.create(
         name: ENV.fetch('USER_NAME', nil),
         email: "#{SecureRandom.alphanumeric(10)}@email.com",
         password: 'password',
