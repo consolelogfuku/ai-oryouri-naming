@@ -1,0 +1,9 @@
+<tr>
+  <th scope="row"><%= dish.id %></th>
+  <td><%= dish.dish_name %></td>
+  <td><%= dish.user.name %></td>
+  <td class= 'd-flex'>
+    <%= link_to '詳細', admin_dish_path(dish), class: "btn btn-info"%>
+    <%= link_to '削除', admin_dish_path(dish), data: { turbo_method: :delete, turbo_confirm: '削除していいですか？' }, class: "btn btn-danger ms-2"%>
+  </td>
+</tr>
