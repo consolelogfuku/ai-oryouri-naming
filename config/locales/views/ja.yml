@@ -103,3 +103,12 @@ ja:
       create:
         success: 'ログインしました'
         fail: 'ログインに失敗しました'
+    dishes:
+      index:
+        id: 'ID'
+        dish_name: '料理名'
+        user_name: '作者'
+        handle: '処理'
+        detail: '詳細'
+      destroy:
+        success: '削除しました'
