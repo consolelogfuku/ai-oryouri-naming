@@ -1,7 +1,7 @@
 module Admin
   class DishesController < Admin::BaseController
     def index
-      @dishes = Dish.includes(:user)
+      @dishes = Dish.includes(:user).order(created_at: :DESC).page(params[:page])
     end
 
     def show
