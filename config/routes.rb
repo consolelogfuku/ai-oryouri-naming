@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     delete 'logout', to: 'user_sessions#destroy'
     root to: 'dashboards#index'
     resources :dishes, only: %i[index show destroy], param: :uuid
-    resources :users, only: %i[index destroy], param: :uuid
+    resources :users, only: %i[index show destroy], param: :uuid
   end
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development? # ローカルはletter_openerを使う
