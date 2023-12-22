@@ -1,0 +1,8 @@
+<tr>
+  <th scope="row"><%= user.id %></th>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td class= 'd-flex'>
+    <%= link_to '削除', admin_user_path(user), data: { turbo_method: :delete, turbo_confirm: '削除して良いですか？' }, class: 'btn btn-danger ms-2' %>
+  </td>
+</tr>
