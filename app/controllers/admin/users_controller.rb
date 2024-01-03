@@ -9,6 +9,5 @@ module Admin
       @user.destroy!
       redirect_to admin_users_path, success: t('.success'), status: :see_other
     end
-
   end
 end

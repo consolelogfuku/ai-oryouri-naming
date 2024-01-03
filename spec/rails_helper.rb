@@ -64,4 +64,7 @@ RSpec.configure do |config|
 
   # ログインマクロの読み込み
   config.include LoginMacros
+
+  # 管理者ログインマクロの読み込み
+  config.include AdminLoginMacros
 end

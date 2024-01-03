@@ -1,10 +1,15 @@
-<div class="container mt-3">
+<div class="container mt-5">
+  <div class="row">
+    <div class="col text-center fw-bold fs-3">
+      管理画面
+    </div>
+  </div>
   <div class="row">
     <div class="col-6 text-center">
-      <%= link_to 'ユーザー一覧', admin_users_path %>
+      <%= link_to 'ユーザー一覧', admin_users_path, class:'btn btn-primary my-5' %>
     </div>
     <div class="col-6 text-center">
-      <%= link_to '料理一覧', admin_dishes_path %>
+      <%= link_to '料理一覧', admin_dishes_path, class:'btn btn-primary my-5' %>
     </div>
   </div>
 </div>
