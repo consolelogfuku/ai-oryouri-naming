@@ -10,12 +10,12 @@ RSpec.describe 'AdminDishes', type: :system do
     click_on '料理一覧'
   end
   describe '料理一覧での操作' do
-    fit '料理一覧の確認ができる' do
+    it '料理一覧の確認ができる' do
       expect(page).to have_content(dish.dish_name)
       expect(page).to have_content(dish.user.name)
     end
 
-    fit '料理詳細を確認できる' do
+    it '料理詳細を確認できる' do
       click_link '詳細', href: admin_dish_path(dish.uuid)
       expect(page).to have_content(dish.dish_name)
       expect(page).to have_content(dish.ingredients.first.name)
@@ -23,7 +23,7 @@ RSpec.describe 'AdminDishes', type: :system do
       expect(current_path).to eq admin_dish_path(dish.uuid)
     end
 
-    fit '料理を削除できる' do
+    it '料理を削除できる' do
       click_link '削除', href: admin_dish_path(dish.uuid)
       page.accept_alert '削除していいですか？' do
       end
