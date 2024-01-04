@@ -17,7 +17,7 @@ FactoryBot.define do
       number_of_cooking_methods { 1 } # 調理法もデフォルトで1つとしておく
     end
 
-    # dishをcreateした後に、食材と調理法を作成
+    # dishがDBに保存される前に、食材と調理法を作成
     # transientの結果はevaluatorで取得できる
     before(:create) do |dish, evaluator|
       # 食材を作成する(値がnilでないかつDBに存在していない)
@@ -42,7 +42,7 @@ FactoryBot.define do
       # test用のDBのcooking_methodsテーブルから、指定した数だけランダムにデータを引っ張ってきて、dishと関連づける
       cooking_methods = CookingMethod.order('RANDOM()').limit(evaluator.number_of_cooking_methods)
       cooking_methods.each do |cooking_method|
-        create(:dishes_cooking_method, dish: dish, cooking_method:) # 関連も一緒に保存される
+        create(:dishes_cooking_method, dish: dish, cooking_method: cooking_method) # 関連も一緒に保存される
       end
     end
   end
