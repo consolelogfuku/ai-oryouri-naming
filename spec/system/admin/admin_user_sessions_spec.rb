@@ -24,7 +24,7 @@ RSpec.describe 'AdminUserSessions', type: :system do
       end
     end
     context 'パスワードが未入力' do
-      fit 'ログインが失敗する' do
+      it 'ログインが失敗する' do
         fill_in 'email', with: ''
         fill_in 'password', with: ENV['ADMIN_PASSWORD']
         click_on 'ログイン'
